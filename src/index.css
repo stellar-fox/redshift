@@ -1,5 +1,118 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'),
+       url('./fonts/OpenSans-Regular.ttf') format('truetype')
+}
+
+/*@font-face {
+  font-family: 'Open Sans Bold';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Bold'), local('OpenSansBold'),
+       url('./fonts/OpenSans-Bold.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Open Sans Italic';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Italic'), local('OpenSansItalic'),
+       url('./fonts/OpenSans-Italic.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Open Sans Light';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Light'), local('OpenSansLight'),
+       url('./fonts/OpenSans-Light.ttf') format('truetype')
+}
+
+.font-bold {
+    font-family: 'Open Sans Bold';
+}
+
+.font-light {
+    font-family: 'Open Sans Light';
+}
+
+.font-italic {
+    font-family: 'Open Sans Italic'
+}*/
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Open Sans';
+  background-color: rgb(15,46,83);
+}
+
+a {
+ outline: 0;
+ text-decoration: none;
+ color: rgb(244,176,4);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+p.title {
+  color: rgb(244,176,4);
+  font-size: x-large;
+  font-weight: 600;
+}
+
+p.subtitle {
+  margin-top: -27px;
+  font-size: smaller;
+}
+
+p.subtitle-large {
+  margin-top: -15px;
+  font-size: larger;
+}
+
+p.smaller {
+  font-size: smaller;
+}
+
+div.flex-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
+}
+
+div.flex-centered.content {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+div.flex-row-centered {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.p-b {
+  padding-bottom: 1rem;
+}
+
+.p-t {
+  padding-top: 1rem;
+}
+
+div.h-spacer {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+hr {
+  width: 95%;
+  border: 0;
+  border-top: 1px solid rgba(244,176,4,0.7);
+  height: 1px;
 }

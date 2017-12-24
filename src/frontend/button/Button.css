@@ -1,0 +1,26 @@
+button {
+  background-color: rgb(244,176,4);
+  border: 1px solid rgba(244,176,4,0.7);
+  border-radius: 3px;
+  padding-top: 5px;
+  padding-bottom: 4px;
+  font-weight: 400;
+  font-size: larger;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:active {
+  background-color: rgba(244,176,4,0.7);
+  border: 1px solid rgba(244,176,4,0.5);
+}
+
+button:hover {
+  cursor: pointer;
+}

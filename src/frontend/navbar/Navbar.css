@@ -1,0 +1,41 @@
+img.company-logo {
+  width: 150px;
+}
+
+div.navbar {
+  background-color: rgb(244,176,4);
+  border-bottom: 1px solid rgba(15,46,83,0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav.right {
+  justify-content: flex-end;
+}
+
+.navbar a {
+  text-decoration: none;
+  margin-left: 7px;
+  margin-right: 7px;
+  color: rgb(15,46,83);
+  background-color: rgb(244,176,4);
+}
+
+.selected {
+  color: rgba(15,46,83,0.4) !important;
+  cursor: default;
+}
+
+.navbar a:hover {
+  color: #34587a;
+}

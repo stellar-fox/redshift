@@ -1,0 +1,80 @@
+div.columns {
+  display: flex;
+  flex-direction: row;
+}
+
+div.column {
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  white-space: nowrap;
+}
+
+span.number {
+  font-size: smaller;
+  color: rgba(244,176,4,0.4);
+}
+
+div.keys {
+  display: flex;
+  flex-direction: column;
+}
+
+div.info {
+  padding-top: 1rem;
+  font-size: small;
+  color: rgb(244,176,4);
+}
+
+div.tiny {
+  font-size: 12px;
+  color: rgba(244,176,4,0.4);
+}
+
+.public {
+  color: #207017;
+  font-size: smaller;
+  font-weight: 600;
+}
+
+.secret {
+  color: #8e281b;
+  font-size: smaller;
+  font-weight: 600;
+}
+
+div.centered {
+  text-align: center;
+}
+
+div.warning {
+  border: 1px solid rgba(15,46,83,0.5);
+  border-radius: 3px;
+  /*background: rgba(211, 60, 80, 1);*/
+  background: rgba(208, 47, 69, 1);
+  padding: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.5);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+}
+p.warning-title {
+  margin-top: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: 800;
+}
+p.warning-subtitle {
+  font-size: smaller;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.smaller {
+  font-size: smaller;
+}

@@ -1,0 +1,31 @@
+div.radio-tag input[type="radio"] {
+  display: none;
+}
+
+
+div.radio-tag input[type="radio"]:checked+label {
+  background-color: rgba(244,176,4,0.7);
+  color: rgb(15,46,83);
+  border: 1px solid rgba(244,176,4,0.5);
+  border-radius: 3px;
+  cursor: pointer;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 1px;
+}
+
+div.radio-tag label {
+  cursor: pointer;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 1px;
+  border: 1px solid rgba(244,176,4,0.5);
+  border-radius: 3px;
+  color: rgba(244,176,4,0.7);
+  font-size: smaller;
+}
+
+/*a.radio-tag.active {
+  background-color: rgba(244,176,4,0.7);
+  color: rgb(15,46,83);
+}*/

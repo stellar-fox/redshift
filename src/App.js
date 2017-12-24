@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router} from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
+import Content from './frontend/content/Content'
+import Footer from './frontend/footer/Footer'
+import Navbar from './frontend/navbar/Navbar'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Stellar Fox</h1>
-        </header>
-        <p className="title">
-          More to come very very soon.
-        </p>
+        <Router>
+          <div>
+            <Navbar />
+            <Content />
+            <Footer />
+          </div>
+        </Router>
       </div>
     );
   }

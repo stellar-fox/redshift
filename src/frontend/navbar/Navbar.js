@@ -10,9 +10,9 @@ export default class Navbar extends Component {
         <nav>
           <img src={logo} className="company-logo" alt="logo" />
           <div className="right">
-            <NavLink exact activeClassName="selected" to="/">Home</NavLink>❘
-            <NavLink exact activeClassName="selected" to="about">About</NavLink>❘
-            <NavLink exact activeClassName="selected" to="contact">Contact</NavLink>
+            <NavLink exact activeClassName="selected" to="/redshift/">Home</NavLink>❘
+            <NavLink exact activeClassName="selected" to="/redshift/about">About</NavLink>❘
+            <NavLink exact activeClassName="selected" to="/redshift/contact">Contact</NavLink>
           </div>
         </nav>
       </div>

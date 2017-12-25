@@ -9,9 +9,9 @@ export default class Content extends Component {
   render() {
     return (
       <div className="main-content">
-        <Route exact path="/" component={Welcome}></Route>
-        <Route exact path="/about" component={About}></Route>
-        <Route exact path="/contact" component={Contact}></Route>
+        <Route exact path="/redshift/" component={Welcome}></Route>
+        <Route exact path="/redshift/about" component={About}></Route>
+        <Route exact path="/redshift/contact" component={Contact}></Route>
       </div>
     )
   }

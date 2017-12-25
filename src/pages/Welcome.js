@@ -197,11 +197,11 @@ export default class Welcome extends Component {
     let scripts = (
       <div>
         <Script
-          url='/js/sjcl.js'
+          url='js/sjcl.js'
           onLoad={this.handleLoadSjcl.bind(this)}
         />
         <Script
-          url='/js/stellar-base.min.js'
+          url='js/stellar-base.min.js'
           onLoad={this.handleLoadStellar.bind(this)}
         />
       </div>
@@ -264,7 +264,6 @@ export default class Welcome extends Component {
   setLanguage(event) {
     const target = event.target
     target.previousSibling.checked = true
-    window.xxx = target
     this.setState({
       language: target.previousSibling.value,
       languageDescription: target.textContent

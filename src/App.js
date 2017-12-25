@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router} from 'react-router-dom'
-import logo from './logo.svg';
 import './App.css';
 import Content from './frontend/content/Content'
 import Footer from './frontend/footer/Footer'

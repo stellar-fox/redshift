@@ -1,8 +1,9 @@
 {
-  "main.css": "static/css/main.2b06622b.css",
-  "main.css.map": "static/css/main.2b06622b.css.map",
-  "main.js": "static/js/main.6ba943fd.js",
-  "main.js.map": "static/js/main.6ba943fd.js.map",
+  "main.css": "static/css/main.c022eb53.css",
+  "main.css.map": "static/css/main.c022eb53.css.map",
+  "main.js": "static/js/main.1798aac6.js",
+  "main.js.map": "static/js/main.1798aac6.js.map",
   "static/media/OpenSans-Regular.ttf": "static/media/OpenSans-Regular.d7d5d458.ttf",
-  "static/media/logo.svg": "static/media/logo.5d5d9eef.svg"
+  "static/media/logo.svg": "static/media/logo.5d5d9eef.svg",
+  "static/media/sf.svg": "static/media/sf.73fbe8ac.svg"
 }

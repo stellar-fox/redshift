@@ -6,25 +6,74 @@ export default class About extends Component {
       <div className='flex-centered content'>
 
         <p className='title'>
-          About
+          Terms of Service
         </p>
         <p>
-          <strong>Disclaimer:</strong>&nbsp;
+          By using <em>Redshift</em>, you are agreeing to the following terms
+          and conditions. This service is provided on an "as is" basis, without
+          any warranties. We are not responsible for any losses in Stellar native
+          asset (XLM) or any other tokens held in your Stellar account(s) that you may incur
+          for any reason. In no event shall <em>Redshift</em> be held liable for
+          anything arising out of or in any way connected with your use of this
+          Service whether such liability is under contract. <em>Redshift</em> shall
+          not be held liable for any indirect, consequential or special
+          liability arising out of or in any way related to your use of this Service.
+          We reserve the right to modify or terminate the Service for any reason,
+          without notice at any time. We reserve the right to alter these Terms
+          at any time.
+
           Use at your own risk. HD account generators can be dangerous if you
-          don't take proper security precautions. This tool should only serve as
-          an emergency recovery tool in case the following are true:
+          don't take proper security precautions. This tool can be used to restore
+          your Stellar account from previously generated mnemonic. We recommend
+          that this functionality only be used in case the following are true:
         </p>
         <ul>
-          <li>You need immediate <em>spend</em> access you your Stellar account</li>
+          <li>You need immediate "<em>spend access</em>" to your Stellar account</li>
           <li>You are in posession of your 24 word mnemonic</li>
           <li>You don't have or can't use your Ledger device at the moment</li>
         </ul>
         <p>
-          If you're generating a new mnemonic passphrase we recommend that you
+          Once this web application is loaded there is no further network requests
+          being made. All operations are performed in the browser. If you want
+          to add an extra layer of security, while generating a new mnemonic,
+          we recommend that you
           download the copy of the web site and run it on an air gapped computer.
           You can read about air gapped machines (and how to make one) in Bruce
           Schneier's <a href='https://www.schneier.com/blog/archives/2013/10/air_gaps.html'>
           blog article</a>.
+        </p>
+
+        <p className='title'>
+          How does <em>Redshift</em> work?
+        </p>
+        <p>
+          There are two modes of operation:
+        </p>
+        <p>
+          <strong>Generate</strong><br/>
+          24 words mnemonic (256 bits of entropy) is auto generated. The mnemonic
+          is used to derive a seed, which serves as a basis for generating
+          deterministic Stellar accounts. Each mnemonic can be complemented with
+          a passphrase. The passphrase can be any UTF-8 string up to 100 characters
+          and is "something you know" in addition to "something you have"
+          such as your 24 word mnemonic. This prevents the perpetrators from gaining
+          access to your account even when they get a hold of your mnemonic as they
+          would still need your passphrase to restore the account. You can also
+          choose to specify the account hierarchy, expressed as a positive integer
+          index. 0 is used to generate the default account.
+
+        </p>
+        <p>
+          <strong>Restore</strong><br/>
+          If you have already generted your mnemonic phrase in the past by using
+          a hardware wallet or this tool, you can restore your Stellar
+          account keys by entering the 24 words. If you protected your mnemonic
+          with a passphrase you can enter it as well. Restoring the account can
+          really be thought of as creating the mnemonic by hand. Each word of the
+          mnemonic is limited to 100 characters and can be any UTF-8 string. You can
+          come up with your own phrase and it will still generate a valid Stellar
+          account, however, this is <strong>strongly discouraged</strong> as it
+          is not secure due to the low level of randomness.
         </p>
 
         <p className='title'>

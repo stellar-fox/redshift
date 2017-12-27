@@ -315,7 +315,7 @@ export default class Welcome extends Component {
       panel = (
         <div className='p-t'>
           <Panel
-            title={'Mnemonic [256 bit] - ' + this.state.languageDescription}
+            title={'Mnemonic [256 bits] - ' + this.state.languageDescription}
             content={this.renderMnemonic()} />
           <div className='p-b p-t'>
             <Input

@@ -347,18 +347,22 @@ export default class Welcome extends Component {
     }
     if (this.state.pubKey) {
       pubKey = (
-        <Panel
-          title={"Public Key [" + this.state.derivationPrefix +
-          this.state.derivationPath + "']"}
-          content={this.state.pubKey} />
+        <div className='break-string'>
+          <Panel
+            title={"Public Key [" + this.state.derivationPrefix +
+            this.state.derivationPath + "']"}
+            content={this.state.pubKey} />
+        </div>
       )
     }
     if (this.state.secretKey) {
       secretKey = (
-        <Panel
-          title={"Secret Key [" + this.state.derivationPrefix +
-          this.state.derivationPath + "']"}
-          content={this.state.secretKey} />
+        <div className='break-string'>
+          <Panel
+            title={"Secret Key [" + this.state.derivationPrefix +
+            this.state.derivationPath + "']"}
+            content={this.state.secretKey} />
+        </div>
       )
       reset = (
         <div className='p-t'>

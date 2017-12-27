@@ -120,7 +120,7 @@ export default class About extends Component {
           with Ledger devices. Different mnemonic lengths will be implemented in the
           future.
         </p>
-        <p class='title'>Libraries used:</p>
+        <p className='title'>Libraries used:</p>
         <ul>
           <li>
             <a href='https://crypto.stanford.edu/sjcl/'>sjcl

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Script from 'react-load-script'
+// import Script from 'react-load-script'
 import Panel from '../frontend/panel/Panel'
 import Button from '../frontend/button/Button'
 import Checkbox from '../frontend/checkbox/Checkbox'
@@ -16,8 +16,8 @@ export default class Welcome extends Component {
     this.state = {
       mnemonic: undefined,
       bip39Seed: undefined,
-      StellarBase: undefined,
-      sjcl: undefined,
+      StellarBase: true,
+      sjcl: true,
       pubKey: undefined,
       secretKey: undefined,
       useDefaultAccount: true,
@@ -193,22 +193,6 @@ export default class Welcome extends Component {
     })
   }
 
-  loadExternalScripts() {
-    let scripts = (
-      <div>
-        <Script
-          url='js/sjcl.js'
-          onLoad={this.handleLoadSjcl.bind(this)}
-        />
-        <Script
-          url='js/stellar-base.min.js'
-          onLoad={this.handleLoadStellar.bind(this)}
-        />
-      </div>
-    )
-    return scripts
-  }
-
   handleCheckboxClick(event) {
     const target = event.target
     this.setState({
@@ -365,7 +349,7 @@ export default class Welcome extends Component {
         </div>
       )
       reset = (
-        <div className='p-t'>
+        <div className='p-t p-b'>
           <Button
             handleClick={
               this.reset.bind(this)
@@ -479,31 +463,34 @@ export default class Welcome extends Component {
     }
 
     return (
-      <div className='flex-centered'>
-        {this.loadExternalScripts()}
-        <p className='title'>
-          Redshift
-        </p>
-        <p className='subtitle'>
-          Stellar HD Address Generator
-        </p>
-        {language}
-        {button}
-        {warning}
-        {panel}
-        {useDefaultAccount}
-        {derivationPath}
-        {restorePanels}
+      <div>
+        <div className='flex-centered'>
+          <p className='title'>
+            Redshift
+          </p>
+          <p className='subtitle'>
+            Stellar HD Address Generator
+          </p>
+          {language}
+          {button}
+          {warning}
+          {panel}
+          {useDefaultAccount}
+          {derivationPath}
+          {restorePanels}
+        </div>
         <div className='p-t public'>
           {pubKey}
         </div>
         <div className='p-t secret'>
           {secretKey}
         </div>
-        <div>
-          {stellarBase}
+        <div className='flex-centered'>
+          <div>
+            {stellarBase}
+          </div>
+          {reset}
         </div>
-        {reset}
       </div>
     )
   }

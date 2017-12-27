@@ -22,7 +22,7 @@ export default class Contact extends Component {
             support, please donate to:
           </p>
         </div>
-        <div className='break-string'>
+        <div className='break-string smaller'>
           <p>
             <a href='https://stellar.expert/explorer/account/GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR'>
               GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR

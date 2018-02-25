@@ -5,8 +5,11 @@ export default class Contact extends Component {
     return (
       <div>
         <div className='flex-centered'>
-          <p className='title'>syntaxval@gmail.com</p>
+          <p className='title'>Stellar Fox</p>
           <p className='subtitle'>
+            <a href='mailto:syntaxval@gmail.com'>syntaxval@gmail.com</a>
+	  </p>
+	  <p>
             <a href='https://github.com/stellar-fox'>
               https://github.com/stellar-fox
             </a>
@@ -31,8 +34,7 @@ export default class Contact extends Component {
         </div>
         <div className='flex-centered'>
           <p className='smaller'>
-            Even a fraction of XLM would make a difference. ♡
-            We would love to hear your feedback and suggestions.
+            ♡ We would love to hear your feedback and suggestions.
           </p>
         </div>
       </div>

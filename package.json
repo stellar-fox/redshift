@@ -1,26 +1,56 @@
 {
-  "name": "redshift",
-  "homepage": "https://stellar-fox.github.io/redshift",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "bip39": "^2.4.0",
-    "pretty-checkbox": "^3.0.3",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-load-script": "0.0.6",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.17"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build --message 'gh-pages update'"
-  },
-  "devDependencies": {
-    "gh-pages": "^1.1.0"
-  }
+    "name": "redshift",
+    "version": "0.1.1",
+    "description": "Stellar HD Accounts Generator",
+    "keywords": [
+        "stellar",
+        "hd accounts"
+    ],
+    "homepage": "https://stellar-fox.github.io/redshift",
+    "bugs": {
+        "url": "https://github.com/stellar-fox/redshift/issues"
+    },
+    "license": "Apache-2.0",
+    "private": true,
+    "contributors": [
+        {
+            "name": "syntaxval",
+            "email": "syntaxval@protonmail.com",
+            "url": "https://twitter.com/syntaxval/"
+        },
+        {
+            "name": "drmats",
+            "email": "xcmats@protonmail.com",
+            "url": "https://twitter.com/xcmats/"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/stellar-fox/redshift.git"
+    },
+    "main": "src/index.js",
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build --message 'gh-pages update'"
+    },
+    "dependencies": {
+        "bip39": "^2.5.0",
+        "pretty-checkbox": "^3.0.3",
+        "react": "^16.3.2",
+        "react-dom": "^16.3.2",
+        "react-load-script": "0.0.6",
+        "react-router-dom": "^4.3.0-rc.2",
+        "react-scripts": "1.1.4"
+    },
+    "devDependencies": {
+        "babel-eslint": "^8.2.2",
+        "eslint": "^4.19.1",
+        "eslint-config-react-app": "^2.1.0",
+        "eslint-plugin-react": "^7.7.0",
+        "gh-pages": "^1.1.0"
+    }
 }

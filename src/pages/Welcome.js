@@ -6,6 +6,7 @@ import Checkbox from '../frontend/checkbox/Checkbox'
 import Input from '../frontend/input/Input'
 import RadioTag from '../frontend/radiotag/RadioTag'
 import bip39 from 'bip39'
+import { ENTROPY, LANGUAGE, genMnemonic, hexSeed } from "../lib/keygen"
 import {generateKeyPair} from '../lib/sep5'
 import './Welcome.css'
 
@@ -31,7 +32,7 @@ export default class Welcome extends Component {
       restoredPhrase: [],
       wordValue: '',
       passphrase: '',
-      language: 'english',
+      language: "english",
       languageDescription: 'English',
       mnemonicInvalid: false,
     }
@@ -41,16 +42,16 @@ export default class Welcome extends Component {
     this.setState({
       buttonVisible: false
     })
-    const mnemonic = bip39.generateMnemonic(
-        256, undefined, bip39.wordlists[this.state.language]
-      ),
-      bip39Seed = bip39.mnemonicToSeedHex(mnemonic, this.state.passphrase)
-    this.setState({
-      mnemonic,
-      bip39Seed
-    })
+    const
+      mnemonic = genMnemonic(ENTROPY.high, this.state.language),
+      bip39Seed = hexSeed(mnemonic, this.state.passphrase)
+
+    this.setState({ mnemonic, bip39Seed })
+
     if (this.state.sjcl && this.state.StellarBase) {
-      const keyPair = generateKeyPair(bip39Seed, this.state.derivationPathIndex)
+      const keyPair = generateKeyPair(
+        bip39Seed, this.state.derivationPathIndex
+      )
       this.setState((prevState) => ({
         pubKey: keyPair.publicKey()
       }))
@@ -99,7 +100,7 @@ export default class Welcome extends Component {
     }, () => {
       if (index === 24) {
         let splitter = ' '
-        if (this.state.language === 'japanese') {
+        if (this.state.language === LANGUAGE.JP) {
           splitter = '\u3000'
         }
         let mnemonicStr = this.state.restoredPhrase.join(splitter)
@@ -165,7 +166,7 @@ export default class Welcome extends Component {
 
   renderMnemonic() {
     let splitter = ' '
-    if (this.state.language === 'japanese') {
+    if (this.state.language === LANGUAGE.JP) {
       splitter = '\u3000'
     }
     const mnemonic = this.state.mnemonic.split(splitter)
@@ -279,7 +280,7 @@ export default class Welcome extends Component {
       restoredPhrase: [],
       wordValue: '',
       passphrase: '',
-      language: 'english',
+      language: LANGUAGE.EN,
       languageDescription: 'English',
       mnemonicInvalid: false,
     })
@@ -422,25 +423,28 @@ export default class Welcome extends Component {
       language = (
         <div>
         <div className='flex-row-centered column'>
-          <RadioTag checked='true' value='english'
+          <RadioTag checked='true' value={LANGUAGE.EN}
             handleClick={this.setLanguage.bind(this)}
             name='language' label='English' />&nbsp;&nbsp;
-          <RadioTag value='spanish' handleClick={this.setLanguage.bind(this)}
+          <RadioTag value={LANGUAGE.SP} handleClick={this.setLanguage.bind(this)}
             name='language' label='Español' />&nbsp;&nbsp;
-          <RadioTag value='french' handleClick={this.setLanguage.bind(this)}
+          <RadioTag value={LANGUAGE.FR} handleClick={this.setLanguage.bind(this)}
             name='language' label='Français' />&nbsp;&nbsp;
-          <RadioTag value='italian' handleClick={this.setLanguage.bind(this)}
+          <RadioTag value={LANGUAGE.IT} handleClick={this.setLanguage.bind(this)}
             name='language' label='Italiano' />
         </div>
         <div className='flex-row-centered column'>
-          <RadioTag value='japanese' handleClick={this.setLanguage.bind(this)}
+          <RadioTag value={LANGUAGE.JP} handleClick={this.setLanguage.bind(this)}
             name='language' label='日本語' />&nbsp;&nbsp;
-          <RadioTag value='chinese_simplified'
+          <RadioTag value={LANGUAGE.CN}
             handleClick={this.setLanguage.bind(this)}
             name='language' label='中文(简体)' />&nbsp;&nbsp;
-          <RadioTag value='chinese_traditional'
+          <RadioTag value={LANGUAGE.CT}
             handleClick={this.setLanguage.bind(this)}
-            name='language' label='中文(繁體)' />
+            name='language' label='中文(繁體)' />&nbsp;&nbsp;
+          <RadioTag value={LANGUAGE.KR}
+            handleClick={this.setLanguage.bind(this)}
+              name='language' label='한국어' />
         </div>
         </div>
       )
@@ -480,7 +484,7 @@ export default class Welcome extends Component {
           {restorePanels}
         </div>
         <div className='p-t public'>
-          {pubKey}
+            {pubKey}
         </div>
         <div className='p-t secret'>
           {secretKey}

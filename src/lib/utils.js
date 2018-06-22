@@ -11,14 +11,20 @@ export const devEnv = () =>
 // asynchronously load libraries (used in dev. environment)
 export const dynamicImportLibs = async () => {
     let [
-        mnemonic,
+        keygen,
+        sjcl,
+        stellar,
         toolbox,
     ] = await Promise.all([
-        import("./mnemonic"),
+        import("./keygen"),
+        import("sjcl"),
+        import("stellar-base"),
         import("@xcmats/js-toolbox"),
     ])
     return {
-        mnemonic,
+        keygen,
+        sjcl,
+        stellar,
         toolbox,
     }
 }

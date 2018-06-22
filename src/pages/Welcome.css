@@ -35,13 +35,13 @@ div.tiny {
 .public {
   color: #207017;
   font-size: smaller;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .secret {
-  color: #8e281b;
+  color: #983b2f;
   font-size: smaller;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 div.centered {
@@ -77,4 +77,8 @@ p.warning-subtitle {
 
 .smaller {
   font-size: smaller;
+}
+
+.padded {
+  margin: 0 100;
 }

@@ -7,7 +7,7 @@ export default class Footer extends Component {
       <div className="footer">
         <footer>
           <div>
-            © <span>Stellar Fox</span> 2017.
+            © <span>Stellar Fox</span> 2017-2018.
           </div>
           <div className="right">
             Made with ♥ in Berlin | Bangkok

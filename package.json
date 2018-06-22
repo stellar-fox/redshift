@@ -38,6 +38,7 @@
         "deploy": "gh-pages -d build --message 'gh-pages update'"
     },
     "dependencies": {
+        "@xcmats/js-toolbox": "^0.3.7",
         "bip39": "^2.5.0",
         "pretty-checkbox": "^3.0.3",
         "react": "^16.3.2",

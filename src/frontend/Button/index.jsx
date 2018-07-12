@@ -5,10 +5,10 @@ import "./index.css"
 
 
 // <Button> component
-export default () =>
+export default ({ checked, handleClick, label, }) =>
     <button
-        checked={this.props.checked}
-        onClick={this.props.handleClick}
+        checked={checked}
+        onClick={handleClick}
     >
-        {this.props.label}
+        { label }
     </button>

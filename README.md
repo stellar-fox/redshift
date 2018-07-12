@@ -1,7 +1,7 @@
 <p align="center">
     <br />
     <a title="Learn more about Stellar Fox" href="https://stellarfox.net/" target="_blank">
-        <img src="https://raw.githubusercontent.com/stellar-fox/cygnus/master/public/favicon.ico" alt="Stellar Fox Logo" />
+        <img src="https://raw.githubusercontent.com/stellar-fox/redshift/master/public/favicon.ico" alt="Stellar Fox Logo" />
         <br />
         <b>stellarfox.net</b>
     </a>

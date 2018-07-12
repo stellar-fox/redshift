@@ -4,7 +4,7 @@ import { isObject } from "@xcmats/js-toolbox"
 import { devEnv, dynamicImportLibs } from "../../lib/utils"
 
 import Content from "../Content"
-import Footer from "../footer/Footer"
+import Footer from "../Footer"
 import Navbar from "../navbar/Navbar"
 
 import "typeface-roboto"

@@ -7,7 +7,7 @@ import { generateKeyPair } from "../../lib/sep5"
 import Panel from "../panel/Panel"
 import Button from "../Button"
 import Checkbox from "../Checkbox"
-import Input from "../input/Input"
+import Input from "../Input"
 import RadioTag from "../radiotag/RadioTag"
 
 import "./index.css"

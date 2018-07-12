@@ -5,7 +5,7 @@ import { devEnv, dynamicImportLibs } from "../../lib/utils"
 
 import Content from "../Content"
 import Footer from "../Footer"
-import Navbar from "../navbar/Navbar"
+import Navbar from "../Navbar"
 
 import "typeface-roboto"
 import "./index.css"

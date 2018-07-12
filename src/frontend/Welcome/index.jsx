@@ -8,7 +8,7 @@ import Panel from "../Panel"
 import Button from "../Button"
 import Checkbox from "../Checkbox"
 import Input from "../Input"
-import RadioTag from "../radiotag/RadioTag"
+import RadioTag from "../RadioTag"
 
 import "./index.css"
 

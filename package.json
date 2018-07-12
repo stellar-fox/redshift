@@ -16,6 +16,7 @@
     ],
     "dependencies": {
         "@types/bip39": "^2.4.0",
+        "@types/sjcl": "^1.0.28",
         "@xcmats/js-toolbox": "^0.3.7",
         "bip39": "^2.5.0",
         "pretty-checkbox": "^3.0.3",

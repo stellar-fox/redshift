@@ -4,7 +4,7 @@ import bip39 from "bip39"
 import { ENTROPY, LANGUAGE, genMnemonic, hexSeed } from "../../lib/keygen"
 import { generateKeyPair } from "../../lib/sep5"
 
-import Panel from "../panel/Panel"
+import Panel from "../Panel"
 import Button from "../Button"
 import Checkbox from "../Checkbox"
 import Input from "../Input"

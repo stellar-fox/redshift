@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom"
 import { isObject } from "@xcmats/js-toolbox"
 import { devEnv, dynamicImportLibs } from "../../lib/utils"
 
-import Content from "../content/Content"
+import Content from "../Content"
 import Footer from "../footer/Footer"
 import Navbar from "../navbar/Navbar"
 

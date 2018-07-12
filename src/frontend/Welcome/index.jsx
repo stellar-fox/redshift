@@ -5,7 +5,7 @@ import { ENTROPY, LANGUAGE, genMnemonic, hexSeed } from "../../lib/keygen"
 import { generateKeyPair } from "../../lib/sep5"
 
 import Panel from "../panel/Panel"
-import Button from "../button/Button"
+import Button from "../Button"
 import Checkbox from "../checkbox/Checkbox"
 import Input from "../input/Input"
 import RadioTag from "../radiotag/RadioTag"

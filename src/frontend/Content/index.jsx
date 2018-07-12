@@ -5,7 +5,7 @@ import About from "../../pages/About"
 import Contact from "../../pages/Contact"
 import Welcome from "../Welcome"
 
-import "./Content.css"
+import "./index.css"
 
 
 

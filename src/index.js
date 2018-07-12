@@ -1,8 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import React from "react"
+import ReactDOM from "react-dom"
+import { unregister } from "./caching-service-worker"
+import App from "./App"
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+import "./index.css"
+
+
+
+
+// render application's root into the DOM
+ReactDOM.render(
+    React.createElement(App),
+    document.getElementById("root")
+)
+
+
+
+
+// https://bit.ly/oocache
+unregister()

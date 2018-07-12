@@ -1,14 +1,15 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import { unregister } from "./caching-service-worker"
-import App from "./App"
+
+import RedShiftApp from "./frontend/RedShiftApp"
 
 
 
 
 // render application's root into the DOM
 ReactDOM.render(
-    React.createElement(App),
+    React.createElement(RedShiftApp),
     document.getElementById("root")
 )
 

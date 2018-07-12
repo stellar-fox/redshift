@@ -63,12 +63,14 @@ div.warning {
   -moz-background-clip: padding-box;
   background-clip: padding-box;
 }
+
 p.warning-title {
   margin-top: 3px;
   margin-left: 5px;
   margin-right: 5px;
   font-weight: 800;
 }
+
 p.warning-subtitle {
   font-size: smaller;
   margin-left: 10px;

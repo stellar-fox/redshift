@@ -3,8 +3,6 @@ import ReactDOM from "react-dom"
 import { unregister } from "./caching-service-worker"
 import App from "./App"
 
-import "./index.css"
-
 
 
 

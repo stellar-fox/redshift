@@ -1,53 +1,7 @@
-@font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Open Sans'), local('OpenSans'),
-        url('../../fonts/OpenSans-Regular.ttf') format('truetype')
-}
-
-/*
-@font-face {
-    font-family: 'Open Sans Bold';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Open Sans Bold'), local('OpenSansBold'),
-        url('./fonts/OpenSans-Bold.ttf') format('truetype')
-}
-
-@font-face {
-    font-family: 'Open Sans Italic';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Open Sans Italic'), local('OpenSansItalic'),
-        url('./fonts/OpenSans-Italic.ttf') format('truetype')
-}
-
-@font-face {
-    font-family: 'Open Sans Light';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Open Sans Light'), local('OpenSansLight'),
-        url('./fonts/OpenSans-Light.ttf') format('truetype')
-}
-
-.font-bold {
-    font-family: 'Open Sans Bold';
-}
-
-.font-light {
-    font-family: 'Open Sans Light';
-}
-
-.font-italic {
-    font-family: 'Open Sans Italic'
-}
-*/
-
-body {
+html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans';
+    font-family: "Roboto", sans-serif;
     background-color: rgb(15,46,83);
 }
 

@@ -7,6 +7,7 @@ import Content from "../content/Content"
 import Footer from "../footer/Footer"
 import Navbar from "../navbar/Navbar"
 
+import "typeface-roboto"
 import "./index.css"
 
 

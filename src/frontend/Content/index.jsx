@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Route } from "react-router-dom"
 
-import About from "../../pages/About"
+import About from "../About"
 import Contact from "../../pages/Contact"
 import Welcome from "../Welcome"
 

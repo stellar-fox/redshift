@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom'
 import './Navbar.css';
-import logo from '../images/sf.svg';
+import logo from '../RedShiftApp/logo.svg';
 
 export default class Navbar extends Component {
   render() {

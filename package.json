@@ -61,6 +61,7 @@
         "clean:modules": "rimraf node_modules",
         "deploy": "gh-pages -d build --message 'gh-pages update'",
         "eject": "react-scripts eject",
+        "lint": "eslint ./src/",
         "predeploy": "npm run build",
         "start": "react-scripts start",
         "test": "react-scripts test --env=jsdom"

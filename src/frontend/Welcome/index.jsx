@@ -1,8 +1,13 @@
 import React, { Component } from "react"
 import bip39 from "bip39"
 
-import { ENTROPY, LANGUAGE, genMnemonic, hexSeed } from "../../lib/keygen"
-import { generateKeyPair } from "../../lib/sep5"
+import {
+    ENTROPY,
+    genMnemonic,
+    hexSeed,
+    LANGUAGE,
+    keypair,
+} from "../../lib/keygen"
 
 import Panel from "../Panel"
 import Button from "../Button"
@@ -65,7 +70,7 @@ export default class Welcome extends Component {
         this.setState({ mnemonic, bip39Seed, })
 
         if (this.state.sjcl && this.state.StellarBase) {
-            const keyPair = generateKeyPair(
+            const keyPair = keypair(
                 bip39Seed,
                 this.state.derivationPathIndex
             )
@@ -102,7 +107,7 @@ export default class Welcome extends Component {
             bip39Seed,
         })
         if (this.state.sjcl && this.state.StellarBase) {
-            const keyPair = generateKeyPair(
+            const keyPair = keypair(
                 bip39Seed,
                 this.state.derivationPathIndex
             )
@@ -175,7 +180,7 @@ export default class Welcome extends Component {
                             this.state.pubKey &&
                             !this.state.restoring
                         ) {
-                            const keyPair = generateKeyPair(
+                            const keyPair = keypair(
                                 bip39Seed,
                                 this.state.derivationPathIndex
                             )
@@ -265,7 +270,7 @@ export default class Welcome extends Component {
                 derivationPathIndex: 0,
             }))
             if (this.state.pubKey) {
-                let keyPair = generateKeyPair(this.state.bip39Seed, 0)
+                let keyPair = keypair(this.state.bip39Seed, 0)
                 this.setState((_prevState) => ({
                     pubKey: keyPair.publicKey(),
                 }))
@@ -290,7 +295,7 @@ export default class Welcome extends Component {
         })
         if (this.state.pubKey) {
             if (!isNaN(index) && index >= 0) {
-                let keyPair = generateKeyPair(this.state.bip39Seed, index)
+                let keyPair = keypair(this.state.bip39Seed, index)
                 this.setState((_prevState) => ({
                     derivationPathIndex: index,
                 }))

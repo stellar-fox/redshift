@@ -48,25 +48,48 @@ export const LANGUAGE = Object.freeze({
 
 
 
-// ...
+/**
+ * Generate mnemonic.
+ *
+ * @function genMnemonic
+ * @param {Number} [entropy=ENTROPY.high]
+ * @param {String} [language=LANGUAGE.EN]
+ * @returns {String}
+ */
 export const genMnemonic = (
     entropy = ENTROPY.high,
     language = LANGUAGE.EN
 ) =>
-    bip39.generateMnemonic(entropy, undefined, bip39.wordlists[language])
+    bip39.generateMnemonic(
+        entropy, undefined, bip39.wordlists[language]
+    )
 
 
 
 
-// ...
+/**
+ * Generate hex seed from a given mnemonic.
+ *
+ * @function hexSeed
+ * @param {String} mnemonic
+ * @param {String} [passphrase=""]
+ * @returns {String}
+ */
 export const hexSeed = (mnemonic, passphrase = "") =>
     bip39.mnemonicToSeedHex(mnemonic, passphrase)
 
 
 
 
-// pathIndex - derivation path pathIndex (i.e. m/44'/148'/pathIndex')
-export const keypair = (seed, pathIndex) => {
+/**
+ * Generate stellar keypair object from a given seed and pathIndex.
+ *
+ * @function keypair
+ * @param {String} seed
+ * @param {Number} [pathIndex=0]
+ * @returns {Object}
+ */
+export const keypair = (seed, pathIndex = 0) => {
 
     const
         seedToMasterNode = (seed) => {

@@ -1,3 +1,14 @@
+/**
+ * Redshift.
+ * Stellar HD Address Generator.
+ *
+ * @module @stellar-fox/redshift
+ * @license Apache-2.0
+ */
+
+
+
+
 import bip39 from "bip39"
 import sjcl from "sjcl"
 import StellarBase from "stellar-base"
@@ -5,17 +16,25 @@ import StellarBase from "stellar-base"
 
 
 
-// ...
-export const ENTROPY = {
+/**
+ * Entropy preset.
+ *
+ * @name ENTROPY
+ */
+export const ENTROPY = Object.freeze({
     high: 256,
     medium: 128,
-}
+})
 
 
 
 
-// ...
-export const LANGUAGE = {
+/**
+ * Languages.
+ *
+ * @name LANGUAGE
+ */
+export const LANGUAGE = Object.freeze({
     CN: "chinese_simplified",
     CT: "chinese_traditional",
     EN: "english",
@@ -24,7 +43,7 @@ export const LANGUAGE = {
     JP: "japanese",
     KR: "korean",
     SP: "spanish",
-}
+})
 
 
 

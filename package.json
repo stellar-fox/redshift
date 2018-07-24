@@ -50,11 +50,8 @@
     ],
     "license": "Apache-2.0",
     "main": "src/index.js",
-    "name": "@stellar-fox/redshift",
+    "name": "@stellar-fox/redshift-app",
     "private": true,
-    "publishConfig": {
-        "access": "public"
-    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/stellar-fox/redshift.git"
@@ -69,5 +66,5 @@
         "start": "react-scripts start",
         "test": "react-scripts test --env=jsdom"
     },
-    "version": "0.1.2"
+    "version": "0.1.3"
 }

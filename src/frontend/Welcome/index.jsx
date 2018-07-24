@@ -7,7 +7,7 @@ import {
     hexSeed,
     LANGUAGE,
     keypair,
-} from "../../lib/keygen"
+} from "../../lib/src/index"
 
 import Panel from "../Panel"
 import Button from "../Button"

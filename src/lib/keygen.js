@@ -90,8 +90,9 @@ export const hexSeed = (mnemonic, passphrase = "") =>
  * @returns {Object}
  */
 export const keypair = (seed, pathIndex = 0) => {
-
     const
+
+        // ...
         seedToMasterNode = (seed) => {
             const
                 hmac = new sjcl.misc.hmac(
@@ -101,12 +102,19 @@ export const keypair = (seed, pathIndex = 0) => {
                 I = hmac.encrypt(seed),
                 IL = I.slice(0, 8),
                 IR = I.slice(8)
+
             return { IL: IL, IR: IR, }
         },
 
+
+        // ...
         derivePath = (initIL, initIR, path) => {
-            let index, I, IL = initIL, IR = initIR, pathIndex
-            for (pathIndex = 0; pathIndex < path.length; pathIndex++) {
+            let
+                index, I,
+                IL = initIL,
+                IR = initIR
+
+            for (let pathIndex = 0;  pathIndex < path.length;  pathIndex++) {
                 index = path[pathIndex] + 0x80000000
                 const hmac = new sjcl.misc.hmac(IR, sjcl.hash.sha512)
                 I = hmac.encrypt(
@@ -120,13 +128,14 @@ export const keypair = (seed, pathIndex = 0) => {
                 IL = I.slice(0, 8)
                 IR = I.slice(8)
             }
+
             return { IL: IL, IR: IR, }
         },
 
-        fromBits = (arr, padding, padding_count) => {
-            var out, i, ol, tmp, smallest
-            padding = padding === undefined ? true : padding
-            padding_count = padding_count || 8
+
+        // ...
+        fromBits = (arr, padding = true, paddingCount = 8) => {
+            var out, ol, tmp, smallest
 
             if (arr.length === 0) {
                 return new ArrayBuffer(0)
@@ -135,8 +144,9 @@ export const keypair = (seed, pathIndex = 0) => {
             ol = sjcl.bitArray.bitLength(arr) / 8
 
             // check to make sure the bitLength is divisible by 8, if it isn't
-            // we can't do anything since arraybuffers work with bytes, not bits
-            if (sjcl.bitArray.bitLength(arr) % 8 !== 0) {
+            // we can't do anything since arraybuffers work with bytes,
+            // not bits
+            if (sjcl.bitArray.bitLength(arr) % 8  !==  0) {
                 throw new Error({
                     name: "Invalid ",
                     message:
@@ -145,13 +155,13 @@ export const keypair = (seed, pathIndex = 0) => {
                 })
             }
 
-            if (padding && ol % padding_count !== 0) {
-                ol += padding_count - (ol % padding_count)
+            if (padding  &&  ol % paddingCount !== 0) {
+                ol += paddingCount - (ol % paddingCount)
             }
 
             // padded temp for easy copying
             tmp = new DataView(new ArrayBuffer(arr.length * 4))
-            for (i = 0; i < arr.length; i++) {
+            for (let i = 0;  i < arr.length;  i++) {
                 // get rid of the higher bits
                 tmp.setUint32(i * 4, (arr[i] << 32))
             }
@@ -159,23 +169,27 @@ export const keypair = (seed, pathIndex = 0) => {
             // now copy the final message if we are not going to 0 pad
             out = new DataView(new ArrayBuffer(ol))
 
-            // save a step when the tmp and out bytelength are ===
+            // save a step when the tmp and out bytelength are equal
             if (out.byteLength === tmp.byteLength) {
                 return tmp.buffer
             }
 
-            smallest = tmp.byteLength < out.byteLength ?
-                tmp.byteLength : out.byteLength
-            for (i = 0; i < smallest; i++) {
+            smallest =
+                tmp.byteLength < out.byteLength ?
+                    tmp.byteLength : out.byteLength
+
+            for (let i = 0;  i < smallest;  i++) {
                 out.setUint8(i, tmp.getUint8(i))
             }
-
 
             return out.buffer
         },
 
+
+        // ...
         hdAccountFromSeed = function (seed, pathIndex) {
-            let masterNode = seedToMasterNode(sjcl.codec.hex.toBits(seed)),
+            let
+                masterNode = seedToMasterNode(sjcl.codec.hex.toBits(seed)),
                 derivedPath = derivePath(
                     masterNode.IL, masterNode.IR, [44, 148, pathIndex,]
                 )
@@ -184,6 +198,7 @@ export const keypair = (seed, pathIndex = 0) => {
                 fromBits(derivedPath.IL)
             )
         }
+
 
     return hdAccountFromSeed(seed, pathIndex)
 }

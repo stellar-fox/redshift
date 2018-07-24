@@ -12,6 +12,7 @@
 import bip39 from "bip39"
 import sjcl from "sjcl"
 import StellarBase from "stellar-base"
+import { emptyString } from "@xcmats/js-toolbox"
 
 
 
@@ -75,7 +76,7 @@ export const genMnemonic = (
  * @param {String} [passphrase=""]
  * @returns {String}
  */
-export const hexSeed = (mnemonic, passphrase = "") =>
+export const hexSeed = (mnemonic, passphrase = emptyString()) =>
     bip39.mnemonicToSeedHex(mnemonic, passphrase)
 
 
@@ -206,14 +207,22 @@ export const keypair = (seed, pathIndex = 0) => {
 
 
 
-// ...
+/**
+ * Randomly generate object with mnemonic, seed, keypair, publicKey and secret.
+ *
+ * @function random
+ * @param {String} [language=LANGUAGE.EN]
+ * @param {String} [passphrase=""]
+ * @param {Number} [pathIndex=0]
+ * @returns {Object}
+ */
 export const random = (
     language = LANGUAGE.EN,
-    passphrase = "",
+    passphrase = emptyString(),
     pathIndex = 0
 ) => {
     const
-        mnemonic = genMnemonic(undefined, language),
+        mnemonic = genMnemonic(ENTROPY.high, language),
         seed = hexSeed(mnemonic, passphrase),
         keys = keypair(seed, pathIndex)
 

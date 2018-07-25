@@ -2,8 +2,11 @@
 
 Stellar HD Accounts Generator - library.
 
+[![npm version](https://img.shields.io/npm/v/@stellar-fox/redshift.svg)](https://www.npmjs.com/package/@stellar-fox/redshift)
+[![npm license](https://img.shields.io/npm/l/@stellar-fox/redshift.svg)](https://www.npmjs.com/package/@stellar-fox/redshift)
 [![GitHub top language](https://img.shields.io/github/languages/top/stellar-fox/redshift.svg)](https://github.com/stellar-fox/redshift)
 [![GitHub code size](https://img.shields.io/github/languages/code-size/stellar-fox/redshift.svg)](https://github.com/stellar-fox/redshift)
+[![GitHub tag](https://img.shields.io/github/tag/stellar-fox/redshift.svg)](https://github.com/stellar-fox/redshift)
 
 ```bash
 $ npm install @stellar-fox/redshift
@@ -16,7 +19,7 @@ $ npm install @stellar-fox/redshift
 
 ## experimenting in browser
 
-...
+> [RunKit with @stellar-fox/redshift](https://npm.runkit.com/@stellar-fox/redshift)
 
 <br />
 

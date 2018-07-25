@@ -148,12 +148,10 @@ export const keypair = (seed, pathIndex = 0) => {
             // we can't do anything since arraybuffers work with bytes,
             // not bits
             if (sjcl.bitArray.bitLength(arr) % 8  !==  0) {
-                throw new Error({
-                    name: "Invalid ",
-                    message:
-                        "Invalid bit size, must be divisble by 8 " +
-                        "to fit in an arraybuffer correctly",
-                })
+                throw new Error(
+                    "Invalid bit size. It must be divisble by 8 " +
+                    "to fit in an ArrayBuffer correctly.",
+                )
             }
 
             if (padding  &&  ol % paddingCount !== 0) {

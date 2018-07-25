@@ -1,12 +1,12 @@
 import React, { Component } from "react"
 import bip39 from "bip39"
+import { emptyString } from "@xcmats/js-toolbox"
 
 import {
-    ENTROPY,
     genMnemonic,
     hexSeed,
-    LANGUAGE,
     keypair,
+    LANGUAGE,
 } from "../../lib/src/index"
 
 import Panel from "../Panel"
@@ -40,9 +40,9 @@ export default class Welcome extends Component {
         buttonVisible: true,
         restoring: false,
         restoredPhrase: [],
-        wordValue: "",
-        passphrase: "",
-        language: "english",
+        wordValue: emptyString(),
+        passphrase: emptyString(),
+        language: LANGUAGE.EN,
         languageDescription: "English",
         mnemonicInvalid: false,
     }
@@ -61,10 +61,9 @@ export default class Welcome extends Component {
 
     // ...
     updateMnemonic = () => {
-        this.setState({
-            buttonVisible: false,
-        })
-        const mnemonic = genMnemonic(ENTROPY.high, this.state.language),
+        this.setState({ buttonVisible: false, })
+        const
+            mnemonic = genMnemonic(this.state.language),
             bip39Seed = hexSeed(mnemonic, this.state.passphrase)
 
         this.setState({ mnemonic, bip39Seed, })
@@ -86,26 +85,19 @@ export default class Welcome extends Component {
 
     // ...
     enterMnemonic = () => {
-        this.setState({
-            buttonVisible: false,
-        })
-
-        this.setState((_prevState) => ({
-            restoring: 1,
-        }))
+        this.setState({ buttonVisible: false, })
+        this.setState((_prevState) => ({ restoring: 1, }))
     }
 
 
     // ...
     restoreMnemonic = (mnemonic) => {
-        this.setState((_prevState) => ({
-            restoring: undefined,
-        }))
-        const bip39Seed = bip39.mnemonicToSeedHex(mnemonic)
-        this.setState({
-            mnemonic,
-            bip39Seed,
-        })
+        this.setState((_prevState) => ({ restoring: undefined, }))
+
+        const bip39Seed = hexSeed(mnemonic)
+
+        this.setState({ mnemonic, bip39Seed, })
+
         if (this.state.sjcl && this.state.StellarBase) {
             const keyPair = keypair(
                 bip39Seed,
@@ -123,9 +115,7 @@ export default class Welcome extends Component {
 
     // ...
     advanceWord = (index, value) => {
-        this.setState({
-            restoring: index + 1,
-        })
+        this.setState({ restoring: index + 1, })
         this.setState(
             {
                 restoredPhrase: [...this.state.restoredPhrase, value,],
@@ -144,9 +134,7 @@ export default class Welcome extends Component {
                 }
             }
         )
-        this.setState((_prevState) => ({
-            wordValue: "",
-        }))
+        this.setState((_prevState) => ({ wordValue: emptyString(), }))
     }
 
 
@@ -229,8 +217,8 @@ export default class Welcome extends Component {
             buttonVisible: true,
             restoring: false,
             restoredPhrase: [],
-            wordValue: "",
-            passphrase: "",
+            wordValue: emptyString(),
+            passphrase: emptyString(),
             language: LANGUAGE.EN,
             languageDescription: "English",
             mnemonicInvalid: false,

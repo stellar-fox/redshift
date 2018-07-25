@@ -11,7 +11,7 @@ export const devEnv = () =>
 // asynchronously load libraries (used in dev. environment)
 export const dynamicImportLibs = async () => {
     let [
-        keygen,
+        redshift,
         sjcl,
         stellar,
         toolbox,
@@ -22,7 +22,7 @@ export const dynamicImportLibs = async () => {
         import("@xcmats/js-toolbox"),
     ])
     return {
-        keygen,
+        redshift,
         sjcl,
         stellar,
         toolbox,

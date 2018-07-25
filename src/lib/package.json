@@ -1,0 +1,96 @@
+{
+    "bugs": {
+        "url": "https://github.com/stellar-fox/redshift/issues"
+    },
+    "contributors": [
+        {
+            "name": "drmats",
+            "email": "xcmats@protonmail.com",
+            "url": "https://twitter.com/xcmats/"
+        },
+        {
+            "name": "syntaxval",
+            "email": "syntaxval@protonmail.com",
+            "url": "https://twitter.com/syntaxval/"
+        }
+    ],
+    "dependencies": {
+        "@types/bip39": "^2.4.0",
+        "@babel/runtime": "^7.0.0-beta.54",
+        "@types/sjcl": "^1.0.28",
+        "@xcmats/js-toolbox": "^0.3.7",
+        "bip39": "^2.5.0",
+        "sjcl": "^1.0.7",
+        "stellar-base": "^0.8.0"
+    },
+    "description": "Stellar HD Accounts Generator - library.",
+    "devDependencies": {
+        "@babel/cli": "^7.0.0-beta.54",
+        "@babel/core": "^7.0.0-beta.54",
+        "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.54",
+        "@babel/plugin-transform-arrow-functions": "^7.0.0-beta.54",
+        "@babel/plugin-transform-block-scoped-functions": "^7.0.0-beta.54",
+        "@babel/plugin-transform-block-scoping": "^7.0.0-beta.54",
+        "@babel/plugin-transform-computed-properties": "^7.0.0-beta.54",
+        "@babel/plugin-transform-destructuring": "^7.0.0-beta.54",
+        "@babel/plugin-transform-exponentiation-operator": "^7.0.0-beta.54",
+        "@babel/plugin-transform-literals": "^7.0.0-beta.54",
+        "@babel/plugin-transform-parameters": "^7.0.0-beta.54",
+        "@babel/plugin-transform-runtime": "^7.0.0-beta.54",
+        "@babel/plugin-transform-shorthand-properties": "^7.0.0-beta.54",
+        "@babel/plugin-transform-spread": "^7.0.0-beta.54",
+        "@babel/plugin-transform-template-literals": "^7.0.0-beta.54",
+        "@babel/preset-env": "^7.0.0-beta.54",
+        "babel-eslint": "^8.2.6",
+        "cross-env": "^5.2.0",
+        "eslint": "^5.2.0",
+        "jsdoc": "^3.5.5",
+        "rimraf": "^2.6.2"
+    },
+    "engines": {
+        "node": ">=6.0.0",
+        "npm": ">=5.0.0"
+    },
+    "files": [
+        "doc",
+        "es",
+        "lib",
+        "src",
+        "typings"
+    ],
+    "homepage": "https://github.com/stellar-fox/redshift/tree/master/src/lib",
+    "keywords": [
+        "hd accounts",
+        "keys",
+        "stellar"
+    ],
+    "license": "Apache-2.0",
+    "main": "lib/index.js",
+    "module": "es/index.js",
+    "name": "@stellar-fox/redshift",
+    "private": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/stellar-fox/redshift.git"
+    },
+    "scripts": {
+        "build": "npm run clean:build && npm run build:commonjs && npm run build:es",
+        "build:commonjs": "cross-env BABEL_ENV=commonjs babel ./src/ -d ./lib/",
+        "build:es": "cross-env BABEL_ENV=es babel ./src/ -d ./es/",
+        "clean": "npm run clean:build && npm run clean:doc",
+        "clean:build": "rimraf ./es ./lib",
+        "clean:doc": "rimraf ./doc",
+        "clean:modules": "rimraf node_modules",
+        "doc": "npm run clean:doc && npm run jsdoc",
+        "jsdoc": "jsdoc -c ./jsdoc.json -R ./README.md ./src/ -d ./doc/",
+        "lint": "eslint ./src/",
+        "prepublishOnly": "npm run test && npm run doc && npm run build",
+        "start": "npm run build:commonjs && node ./scripts/start.js",
+        "test": "npm run lint && echo \"Warning: no tests specified (yet)\""
+    },
+    "typings": "typings/redshift.d.ts",
+    "version": "0.1.0"
+}

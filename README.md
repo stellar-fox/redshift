@@ -12,15 +12,25 @@
 <br />
 
 
+
+
 # Redshift
 Stellar HD Accounts Generator
-
-<br />
-
 
 https://stellar-fox.github.io/redshift/
 
 <br />
+
+
+
+
+## Redshift library
+
+https://github.com/stellar-fox/redshift/tree/master/src/lib
+
+<br />
+
+
 
 
 ## Support

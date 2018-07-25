@@ -31,10 +31,9 @@
         "stellar-base": "^0.8.0",
         "typeface-roboto": "0.0.54"
     },
-    "description": "Stellar HD Accounts Generator",
+    "description": "Stellar HD Accounts Generator.",
     "devDependencies": {
         "babel-eslint": "^8.2.6",
-        "cross-env": "^5.2.0",
         "eslint": "^5.2.0",
         "eslint-config-react-app": "^2.1.0",
         "eslint-plugin-react": "^7.10.0",

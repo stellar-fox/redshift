@@ -53,13 +53,13 @@ export const LANGUAGE = Object.freeze({
  * Generate mnemonic.
  *
  * @function genMnemonic
- * @param {Number} [entropy=ENTROPY.high]
  * @param {String} [language=LANGUAGE.EN]
+ * @param {Number} [entropy=ENTROPY.high]
  * @returns {String}
  */
 export const genMnemonic = (
-    entropy = ENTROPY.high,
-    language = LANGUAGE.EN
+    language = LANGUAGE.EN,
+    entropy = ENTROPY.high
 ) =>
     bip39.generateMnemonic(
         entropy, undefined, bip39.wordlists[language]
@@ -220,7 +220,7 @@ export const random = (
     pathIndex = 0
 ) => {
     const
-        mnemonic = genMnemonic(ENTROPY.high, language),
+        mnemonic = genMnemonic(language),
         seed = hexSeed(mnemonic, passphrase),
         keys = keypair(seed, pathIndex)
 

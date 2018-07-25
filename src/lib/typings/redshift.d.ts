@@ -33,7 +33,7 @@ declare module "@stellar-fox/redshift" {
     /**
      * Generate mnemonic.
      */
-    export function genMnemonic (entropy: string, language: string): string;
+    export function genMnemonic (language: string, entropy: number): string;
 
 
 

@@ -97,7 +97,7 @@ $ npm start
 
     ```javascript
     > redshift.genMnemonic(redshift.LANGUAGE.IT, redshift.ENTROPY.medium)
-    'desumere sogno cuculo stirpe sepolto salmone elfico giocare rodaggio ...'
+    'desumere sogno cuculo stirpe sepolto salmone elfico giocare ...'
     ```
 
 
@@ -105,10 +105,10 @@ $ npm start
 
     ```javascript
     > mnemonic = redshift.genMnemonic()
-    'hold awful slender tide arrange window burden erase bamboo woman ...'
+    'hold awful slender tide arrange window burden erase bamboo ...'
 
     > seed = redshift.hexSeed(mnemonic)
-    '016d98a5956955896613c59e277cf...baf80a5318ca1e6d94f792316b8f5afa0d8f2dc6'
+    '016d98a5956955896613c59e277cf...318ca1e6d94f792316b8f5afa0d8f2dc6'
     ```
 
 
@@ -116,10 +116,10 @@ $ npm start
 
     ```javascript
     > mnemonic = redshift.genMnemonic()
-    'ride throw body pet abstract gossip few online acoustic scare limit ...'
+    'ride throw body pet abstract gossip few online acoustic scare ...'
 
     > seed = redshift.hexSeed(mnemonic, 'my secret phrase')
-    '2b8b5c2a3bac1f54a5c716621e3c487...4dc085f54d68f7e14402ac9ff76f1fcf92096e'
+    '2b8b5c2a3bac1f54a5c716621e3c487...f54d68f7e14402ac9ff76f1fcf92096e'
     ```
 
 
@@ -129,9 +129,9 @@ $ npm start
     > kp = redshift.keypair(seed)
     Keypair {
     type: 'ed25519',
-    _secretSeed: <Buffer 95 a7 98 1e 87 b0 6f 23 ff 82 c5 6e e4 8d 25 ... >,
-    _secretKey: <Buffer 95 a7 98 1e 87 b0 6f 23 ff 82 c5 6e e4 8d 25 86 ... >,
-    _publicKey: <Buffer 16 90 31 d3 48 b4 ea 78 d1 11 96 e0 35 cd 9b 01 ... > }
+    _secretSeed: <Buffer 95 a7 98 1e 87 b0 6f 23 ff 82 c5 6e ... >,
+    _secretKey: <Buffer 95 a7 98 1e 87 b0 6f 23 ff 82 c5 6e ... >,
+    _publicKey: <Buffer 16 90 31 d3 48 b4 ea 78 d1 11 96 e0 ... > }
 
     > kp.
     kp.canSign    kp.publicKey       kp.rawPublicKey     kp.rawSecretKey

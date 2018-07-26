@@ -116,7 +116,11 @@ export const keypair = (seed, pathIndex = 0) => {
         derivePath = (initIL, initIR, path) => {
             let IL = initIL, IR = initIR
 
-            for (let pathIndex = 0;  pathIndex < path.length;  pathIndex++) {
+            for (
+                let pathIndex = 0;
+                pathIndex < path.length;
+                pathIndex++
+            ) {
                 let
                     index = path[pathIndex] + 0x80000000,
                     I = (new sjclMisc.hmac(IR, hash.sha512)).encrypt(
@@ -135,11 +139,9 @@ export const keypair = (seed, pathIndex = 0) => {
 
         // ...
         fromBits = (arr, padding = true, paddingCount = 8) => {
-            let ol, out, tmp, smallest
-
             if (arr.length === 0) { return new ArrayBuffer(0) }
 
-            ol = bitArray.bitLength(arr) / 8
+            let ol = bitArray.bitLength(arr) / 8
 
             // check to make sure the bitLength is divisible by 8,
             // if it isn't we can't do anything
@@ -156,7 +158,7 @@ export const keypair = (seed, pathIndex = 0) => {
             }
 
             // padded temp for easy copying
-            tmp = new DataView(new ArrayBuffer(arr.length * 4))
+            let tmp = new DataView(new ArrayBuffer(arr.length * 4))
 
             for (let i = 0;  i < arr.length;  i++) {
                 // get rid of the higher bits
@@ -164,12 +166,12 @@ export const keypair = (seed, pathIndex = 0) => {
             }
 
             // now copy the final message if we are not going to 0 pad
-            out = new DataView(new ArrayBuffer(ol))
+            let out = new DataView(new ArrayBuffer(ol))
 
             // save a step when the tmp and out bytelength are equal
             if (out.byteLength === tmp.byteLength) { return tmp.buffer }
 
-            smallest = tmp.byteLength < out.byteLength  ?
+            let smallest = tmp.byteLength < out.byteLength  ?
                 tmp.byteLength : out.byteLength
 
             for (let i = 0;  i < smallest;  i++) {

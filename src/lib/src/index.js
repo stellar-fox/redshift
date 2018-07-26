@@ -14,7 +14,12 @@ import {
     mnemonicToSeedHex,
     wordlists,
 } from "bip39"
-import sjcl from "sjcl"
+import {
+    bitArray,
+    codec,
+    misc as sjclMisc,
+    hash,
+} from "sjcl"
 import { Keypair } from "stellar-base"
 import { emptyString } from "@xcmats/js-toolbox"
 
@@ -100,9 +105,9 @@ export const keypair = (seed, pathIndex = 0) => {
         // ...
         seedToMasterNode = (seed) => {
             const
-                hmac = new sjcl.misc.hmac(
-                    sjcl.codec.utf8String.toBits("ed25519 seed"),
-                    sjcl.hash.sha512
+                hmac = new sjclMisc.hmac(
+                    codec.utf8String.toBits("ed25519 seed"),
+                    hash.sha512
                 ),
                 I = hmac.encrypt(seed),
                 IL = I.slice(0, 8),
@@ -121,13 +126,13 @@ export const keypair = (seed, pathIndex = 0) => {
 
             for (let pathIndex = 0;  pathIndex < path.length;  pathIndex++) {
                 index = path[pathIndex] + 0x80000000
-                const hmac = new sjcl.misc.hmac(IR, sjcl.hash.sha512)
+                const hmac = new sjclMisc.hmac(IR, hash.sha512)
                 I = hmac.encrypt(
-                    sjcl.bitArray.concat(
-                        sjcl.bitArray.concat(
-                            sjcl.codec.hex.toBits("0x00"), IL
+                    bitArray.concat(
+                        bitArray.concat(
+                            codec.hex.toBits("0x00"), IL
                         ),
-                        sjcl.codec.hex.toBits(index.toString(16))
+                        codec.hex.toBits(index.toString(16))
                     )
                 )
                 IL = I.slice(0, 8)
@@ -146,12 +151,12 @@ export const keypair = (seed, pathIndex = 0) => {
                 return new ArrayBuffer(0)
             }
 
-            ol = sjcl.bitArray.bitLength(arr) / 8
+            ol = bitArray.bitLength(arr) / 8
 
             // check to make sure the bitLength is divisible by 8, if it isn't
             // we can't do anything since arraybuffers work with bytes,
             // not bits
-            if (sjcl.bitArray.bitLength(arr) % 8  !==  0) {
+            if (bitArray.bitLength(arr) % 8  !==  0) {
                 throw new Error(
                     "Invalid bit size. It must be divisble by 8 " +
                     "to fit in an ArrayBuffer correctly.",
@@ -192,7 +197,7 @@ export const keypair = (seed, pathIndex = 0) => {
         // ...
         hdAccountFromSeed = () => {
             let
-                masterNode = seedToMasterNode(sjcl.codec.hex.toBits(seed)),
+                masterNode = seedToMasterNode(codec.hex.toBits(seed)),
                 derivedPath = derivePath(
                     masterNode.IL, masterNode.IR, [44, 148, pathIndex,]
                 )

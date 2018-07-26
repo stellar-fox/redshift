@@ -71,7 +71,9 @@ export const genMnemonic = (
     entropy = ENTROPY.high
 ) =>
     generateMnemonic(
-        entropy, undefined, wordlists[language]
+        entropy,
+        undefined,
+        wordlists[language]
     )
 
 
@@ -85,8 +87,7 @@ export const genMnemonic = (
  * @param {String} [passphrase=""]
  * @returns {String}
  */
-export const hexSeed = (mnemonic, passphrase = emptyString()) =>
-    mnemonicToSeedHex(mnemonic, passphrase)
+export const hexSeed = mnemonicToSeedHex
 
 
 
@@ -103,38 +104,27 @@ export const keypair = (seed, pathIndex = 0) => {
     const
 
         // ...
-        seedToMasterNode = (seed) => {
-            const
-                hmac = new sjclMisc.hmac(
-                    codec.utf8String.toBits("ed25519 seed"),
-                    hash.sha512
-                ),
-                I = hmac.encrypt(seed),
-                IL = I.slice(0, 8),
-                IR = I.slice(8)
-
-            return { IL: IL, IR: IR, }
-        },
+        seedToMasterNode = (seed) => (
+            (I) => ({ IL: I.slice(0, 8), IR: I.slice(8), })
+        )((new sjclMisc.hmac(
+            codec.utf8String.toBits("ed25519 seed"),
+            hash.sha512
+        )).encrypt(seed)),
 
 
         // ...
         derivePath = (initIL, initIR, path) => {
-            let
-                index, I,
-                IL = initIL,
-                IR = initIR
+            let IL = initIL, IR = initIR
 
             for (let pathIndex = 0;  pathIndex < path.length;  pathIndex++) {
-                index = path[pathIndex] + 0x80000000
-                const hmac = new sjclMisc.hmac(IR, hash.sha512)
-                I = hmac.encrypt(
-                    bitArray.concat(
+                let
+                    index = path[pathIndex] + 0x80000000,
+                    I = (new sjclMisc.hmac(IR, hash.sha512)).encrypt(
                         bitArray.concat(
-                            codec.hex.toBits("0x00"), IL
-                        ),
-                        codec.hex.toBits(index.toString(16))
+                            bitArray.concat(codec.hex.toBits("0x00"), IL),
+                            codec.hex.toBits(index.toString(16))
+                        )
                     )
-                )
                 IL = I.slice(0, 8)
                 IR = I.slice(8)
             }
@@ -145,17 +135,15 @@ export const keypair = (seed, pathIndex = 0) => {
 
         // ...
         fromBits = (arr, padding = true, paddingCount = 8) => {
-            var out, ol, tmp, smallest
+            let ol, out, tmp, smallest
 
-            if (arr.length === 0) {
-                return new ArrayBuffer(0)
-            }
+            if (arr.length === 0) { return new ArrayBuffer(0) }
 
             ol = bitArray.bitLength(arr) / 8
 
-            // check to make sure the bitLength is divisible by 8, if it isn't
-            // we can't do anything since arraybuffers work with bytes,
-            // not bits
+            // check to make sure the bitLength is divisible by 8,
+            // if it isn't we can't do anything
+            // since arraybuffers work with bytes not bits
             if (bitArray.bitLength(arr) % 8  !==  0) {
                 throw new Error(
                     "Invalid bit size. It must be divisble by 8 " +
@@ -169,6 +157,7 @@ export const keypair = (seed, pathIndex = 0) => {
 
             // padded temp for easy copying
             tmp = new DataView(new ArrayBuffer(arr.length * 4))
+
             for (let i = 0;  i < arr.length;  i++) {
                 // get rid of the higher bits
                 tmp.setUint32(i * 4, (arr[i] << 32))
@@ -178,13 +167,10 @@ export const keypair = (seed, pathIndex = 0) => {
             out = new DataView(new ArrayBuffer(ol))
 
             // save a step when the tmp and out bytelength are equal
-            if (out.byteLength === tmp.byteLength) {
-                return tmp.buffer
-            }
+            if (out.byteLength === tmp.byteLength) { return tmp.buffer }
 
-            smallest =
-                tmp.byteLength < out.byteLength ?
-                    tmp.byteLength : out.byteLength
+            smallest = tmp.byteLength < out.byteLength  ?
+                tmp.byteLength : out.byteLength
 
             for (let i = 0;  i < smallest;  i++) {
                 out.setUint8(i, tmp.getUint8(i))
@@ -195,27 +181,20 @@ export const keypair = (seed, pathIndex = 0) => {
 
 
         // ...
-        hdAccountFromSeed = () => {
-            let
-                masterNode = seedToMasterNode(codec.hex.toBits(seed)),
-                derivedPath = derivePath(
-                    masterNode.IL, masterNode.IR, [44, 148, pathIndex,]
-                )
-
-            return Keypair.fromRawEd25519Seed(
-                fromBits(derivedPath.IL)
-            )
-        }
+        masterNode = seedToMasterNode(codec.hex.toBits(seed))
 
 
-    return hdAccountFromSeed()
+    return Keypair.fromRawEd25519Seed(fromBits(derivePath(
+        masterNode.IL, masterNode.IR, [44, 148, pathIndex,]
+    ).IL))
 }
 
 
 
 
 /**
- * Randomly generate object with mnemonic, seed, keypair, publicKey and secret.
+ * Randomly generate object
+ * with mnemonic, seed, keypair, publicKey and secret.
  *
  * @function random
  * @param {String} [language=LANGUAGE.EN]

@@ -174,9 +174,9 @@ $ npm start
     > kp = redshift.keypair(seed)
     Keypair {
     type: 'ed25519',
-    _secretSeed: <Buffer 95 a7 98 1e 87 b0 6f 23 ff 82 c5 6e ... >,
-    _secretKey: <Buffer 95 a7 98 1e 87 b0 6f 23 ff 82 c5 6e ... >,
-    _publicKey: <Buffer 16 90 31 d3 48 b4 ea 78 d1 11 96 e0 ... > }
+    _secretSeed: <Buffer 95 a7 98 ... >,
+    _secretKey: <Buffer 95 a7 98 ... >,
+    _publicKey: <Buffer 16 90 31 ... > }
 
     > kp.
     kp.canSign  kp.publicKey     kp.rawPublicKey   kp.rawSecretKey
@@ -203,3 +203,12 @@ $ npm start
     > kp.secret()
     'SBNWL6JJ3Q5CS6U4JUVUTOWIU24NDCWEI5P7BINENF4K3PHRST3QDOZH'
     ```
+
+<br />
+
+
+
+
+## support
+
+    GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR

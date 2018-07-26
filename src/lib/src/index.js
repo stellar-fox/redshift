@@ -11,7 +11,7 @@
 
 import bip39 from "bip39"
 import sjcl from "sjcl"
-import StellarBase from "stellar-base"
+import { Keypair } from "stellar-base"
 import { emptyString } from "@xcmats/js-toolbox"
 
 
@@ -186,20 +186,20 @@ export const keypair = (seed, pathIndex = 0) => {
 
 
         // ...
-        hdAccountFromSeed = function (seed, pathIndex) {
+        hdAccountFromSeed = () => {
             let
                 masterNode = seedToMasterNode(sjcl.codec.hex.toBits(seed)),
                 derivedPath = derivePath(
                     masterNode.IL, masterNode.IR, [44, 148, pathIndex,]
                 )
 
-            return StellarBase.Keypair.fromRawEd25519Seed(
+            return Keypair.fromRawEd25519Seed(
                 fromBits(derivedPath.IL)
             )
         }
 
 
-    return hdAccountFromSeed(seed, pathIndex)
+    return hdAccountFromSeed()
 }
 
 

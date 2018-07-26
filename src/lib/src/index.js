@@ -9,7 +9,11 @@
 
 
 
-import bip39 from "bip39"
+import {
+    generateMnemonic,
+    mnemonicToSeedHex,
+    wordlists,
+} from "bip39"
 import sjcl from "sjcl"
 import { Keypair } from "stellar-base"
 import { emptyString } from "@xcmats/js-toolbox"
@@ -61,8 +65,8 @@ export const genMnemonic = (
     language = LANGUAGE.EN,
     entropy = ENTROPY.high
 ) =>
-    bip39.generateMnemonic(
-        entropy, undefined, bip39.wordlists[language]
+    generateMnemonic(
+        entropy, undefined, wordlists[language]
     )
 
 
@@ -77,7 +81,7 @@ export const genMnemonic = (
  * @returns {String}
  */
 export const hexSeed = (mnemonic, passphrase = emptyString()) =>
-    bip39.mnemonicToSeedHex(mnemonic, passphrase)
+    mnemonicToSeedHex(mnemonic, passphrase)
 
 
 

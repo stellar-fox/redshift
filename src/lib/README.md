@@ -17,6 +17,51 @@ $ npm install @stellar-fox/redshift
 
 
 
+## [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) hierarchical deterministic addresses
+
+`BIP39` mnemonics can be used to generate deterministic series of account
+addresses. The method implemented here uses `24` (or `12`) words to generate
+series of deterministic _Stellar_ key pairs. `24` word mnemonics are also used
+by many hardware wallets (such as _Ledger Nano S_). This library can also be
+used to restore account based on the mnemonic that was generated earlier
+by either the hardware wallet or any other wallets compatible with `BIP32`,
+`BIP39` and `BIP44` specifications.
+
+<br />
+
+
+
+
+## [BIP44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki) multi-account hierarchy for deterministic wallets
+
+_redshift library_ uses `BIP32` path with hardened derivation. One can choose
+to derive key pair for default account (with `pathIndex` address equal to `0`)
+or select `pathIndex` number of desired account hierarchy. The upper limit of
+`pathIndex` number of child accounts is `2**31`.
+
+<br />
+
+
+
+
+## [SEP-0005](https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0005.md) key derivation methods for stellar accounts
+
+_Stellar Ecosystem Proposal_ describes implementation of deterministic key
+derivation for _Stellar_ accounts based on word mnemonic of different lengths.
+_redshift library_ uses `24` (or `12`) word mnemonics.
+
+<br />
+
+
+
+
+> Tested with `SEP-0005` Vectors 3 and 4
+
+<br />
+
+
+
+
 ## experimenting in browser
 
 > [RunKit with @stellar-fox/redshift](https://npm.runkit.com/@stellar-fox/redshift)
@@ -134,9 +179,9 @@ $ npm start
     _publicKey: <Buffer 16 90 31 d3 48 b4 ea 78 d1 11 96 e0 ... > }
 
     > kp.
-    kp.canSign    kp.publicKey       kp.rawPublicKey     kp.rawSecretKey
-    kp.secret     kp.sign            kp.signDecorated    kp.signatureHint
-    kp.verify     kp.xdrAccountId    kp.xdrPublicKey
+    kp.canSign  kp.publicKey     kp.rawPublicKey   kp.rawSecretKey
+    kp.secret   kp.sign          kp.signDecorated  kp.signatureHint
+    kp.verify   kp.xdrAccountId  kp.xdrPublicKey
 
     > kp.publicKey()
     'GALJAMOTJC2OU6GRCGLOANONTMAVHI3ZD6PTTR7ED5NPSJV3D2VC37RL'

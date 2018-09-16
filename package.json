@@ -60,6 +60,8 @@
     },
     "scripts": {
         "build": "react-scripts build",
+        "clean": "npm run clean:build",
+        "clean:build": "rimraf ./build",
         "clean:modules": "rimraf node_modules",
         "deploy": "gh-pages -d build --message 'gh-pages update'",
         "eject": "react-scripts eject",
@@ -68,5 +70,5 @@
         "start": "react-scripts start",
         "test": "react-scripts test --env=jsdom"
     },
-    "version": "0.3.0"
+    "version": "0.3.1"
 }

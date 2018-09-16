@@ -92,5 +92,5 @@
         "test": "npm run lint && echo \"Warning: no tests specified (yet)\""
     },
     "typings": "typings/redshift.d.ts",
-    "version": "0.3.0"
+    "version": "0.3.1"
 }

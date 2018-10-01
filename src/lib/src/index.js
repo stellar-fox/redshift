@@ -21,7 +21,7 @@ import {
     hash,
 } from "sjcl"
 import { Keypair } from "stellar-base"
-import { emptyString } from "@xcmats/js-toolbox"
+import { string } from "@xcmats/js-toolbox"
 
 
 
@@ -206,7 +206,7 @@ export const keypair = (seed, pathIndex = 0) => {
  */
 export const random = (
     language = LANGUAGE.EN,
-    passphrase = emptyString(),
+    passphrase = string.empty(),
     pathIndex = 0
 ) => {
     const

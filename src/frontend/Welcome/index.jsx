@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import bip39 from "bip39"
-import { emptyString } from "@xcmats/js-toolbox"
+import { string } from "@xcmats/js-toolbox"
 
 import {
     genMnemonic,
@@ -40,8 +40,8 @@ export default class Welcome extends Component {
         buttonVisible: true,
         restoring: false,
         restoredPhrase: [],
-        wordValue: emptyString(),
-        passphrase: emptyString(),
+        wordValue: string.empty(),
+        passphrase: string.empty(),
         language: LANGUAGE.EN,
         languageDescription: "English",
         mnemonicInvalid: false,
@@ -134,7 +134,7 @@ export default class Welcome extends Component {
                 }
             }
         )
-        this.setState((_prevState) => ({ wordValue: emptyString(), }))
+        this.setState((_prevState) => ({ wordValue: string.empty(), }))
     }
 
 
@@ -217,8 +217,8 @@ export default class Welcome extends Component {
             buttonVisible: true,
             restoring: false,
             restoredPhrase: [],
-            wordValue: emptyString(),
-            passphrase: emptyString(),
+            wordValue: string.empty(),
+            passphrase: string.empty(),
             language: LANGUAGE.EN,
             languageDescription: "English",
             mnemonicInvalid: false,

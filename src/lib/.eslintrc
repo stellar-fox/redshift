@@ -29,6 +29,7 @@
         "indent": ["error", 4, { "SwitchCase": 1 }],
         "linebreak-style": ["error", "unix"],
         "no-console": "off",
+        "no-unexpected-multiline": "error",
         "no-unused-vars": [2, {"args": "all", "argsIgnorePattern": "^_"}],
         "quotes": ["error", "double"],
         "semi": ["error", "never"],

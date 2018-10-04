@@ -27,6 +27,7 @@
         "quotes": ["error", "double"],
         "semi": ["error", "never"],
         "space-before-function-paren": ["error", "always"],
+        "no-unexpected-multiline": "error",
         "no-unused-vars": [2, {"args": "all", "argsIgnorePattern": "^_"}],
         "comma-dangle": [
             "error",

@@ -1,3 +1,8 @@
+"use strict";
+
+
+
+
 module.exports = function (api) {
     api.cache.using(() => process.env.BABEL_ENV);
     console.log("Compiling for", "'" + api.env() + "'", "...");

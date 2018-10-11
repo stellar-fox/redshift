@@ -1,7 +1,10 @@
 import React, { Fragment } from "react"
 import { BrowserRouter as Router } from "react-router-dom"
-import { isObject } from "@xcmats/js-toolbox"
-import { devEnv, dynamicImportLibs } from "../../utils"
+import {
+    devEnv,
+    isObject,
+} from "@xcmats/js-toolbox"
+import { dynamicImportLibs } from "../../utils"
 
 import Content from "../Content"
 import Footer from "../Footer"

@@ -105,7 +105,7 @@ export const keypair = (seed, pathIndex = 0) => {
 
         // ...
         seedToMasterNode = (seed) => (
-            (I) => ({ IL: I.slice(0, 8), IR: I.slice(8), })
+            (I) => ({ IL: I.slice(0, 8), IR: I.slice(8) })
         )((new sjclMisc.hmac(
             codec.utf8String.toBits("ed25519 seed"),
             hash.sha512
@@ -133,7 +133,7 @@ export const keypair = (seed, pathIndex = 0) => {
                 IR = I.slice(8)
             }
 
-            return { IL: IL, IR: IR, }
+            return { IL: IL, IR: IR }
         },
 
 
@@ -187,7 +187,7 @@ export const keypair = (seed, pathIndex = 0) => {
 
 
     return Keypair.fromRawEd25519Seed(fromBits(derivePath(
-        masterNode.IL, masterNode.IR, [44, 148, pathIndex,]
+        masterNode.IL, masterNode.IR, [44, 148, pathIndex]
     ).IL))
 }
 

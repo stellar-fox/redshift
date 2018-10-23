@@ -113,8 +113,8 @@ export const keypair = (seed, pathIndex = 0) => {
             (I) => ({ IL: I.slice(0, 8), IR: I.slice(8) })
         )(
             new sjclMisc.hmac(
-                    sjclCodec.utf8String.toBits("ed25519 seed"),
-                    sjclHash.sha512
+                sjclCodec.utf8String.toBits("ed25519 seed"),
+                sjclHash.sha512
             ).encrypt(seed)
         ),
 

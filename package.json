@@ -25,14 +25,14 @@
         "@types/react-dom": "^16.0.9",
         "@types/react-router-dom": "^4.3.1",
         "@types/sjcl": "^1.0.28",
-        "@xcmats/js-toolbox": "^0.6.6",
+        "@xcmats/js-toolbox": "^0.6.8",
         "bip39": "^2.5.0",
         "pretty-checkbox": "^3.0.3",
         "react": "^16.5.2",
         "react-dom": "^16.5.2",
         "react-load-script": "0.0.6",
         "react-router-dom": "^4.3.1",
-        "react-scripts": "2.0.4",
+        "react-scripts": "2.0.5",
         "sjcl": "^1.0.7",
         "stellar-base": "^0.9.0",
         "typeface-roboto": "0.0.54"
@@ -72,5 +72,5 @@
         "start": "cross-env PORT=3000 BROWSER=none react-scripts start",
         "test": "react-scripts test --env=jsdom"
     },
-    "version": "0.3.2"
+    "version": "0.4.0"
 }

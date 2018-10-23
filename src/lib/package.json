@@ -15,6 +15,7 @@
         }
     ],
     "dependencies": {
+        "@babel/runtime": "^7.1.2",
         "@types/bip39": "^2.4.0",
         "@types/sjcl": "^1.0.28",
         "@xcmats/js-toolbox": "^0.6.8",
@@ -86,6 +87,7 @@
         "clean:build": "rimraf ./es ./lib",
         "clean:doc": "rimraf ./doc",
         "clean:modules": "rimraf node_modules",
+        "configure:sjcl": "./scripts/configureSjcl.sh",
         "doc": "npm run clean:doc && npm run jsdoc",
         "jsdoc": "echo \"Generating jsdoc ...\" && jsdoc -c ./jsdoc.json -R ./README.md ./src/ -d ./doc/",
         "lint": "eslint ./src/",

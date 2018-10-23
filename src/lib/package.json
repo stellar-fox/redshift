@@ -87,7 +87,7 @@
         "clean:build": "rimraf ./es ./lib",
         "clean:doc": "rimraf ./doc",
         "clean:modules": "rimraf node_modules",
-        "configure:sjcl": "./scripts/configureSjcl.sh",
+        "configure:sjcl": "./scripts/configure.sjcl.sh",
         "doc": "npm run clean:doc && npm run jsdoc",
         "jsdoc": "echo \"Generating jsdoc ...\" && jsdoc -c ./jsdoc.json -R ./README.md ./src/ -d ./doc/",
         "lint": "eslint ./src/",

@@ -15,17 +15,17 @@ import {
     wordlists,
 } from "bip39"
 import {
+    codec,
+    func,
+    string,
+} from "@xcmats/js-toolbox"
+import {
     bitArray,
     codec as sjclCodec,
     misc as sjclMisc,
     hash as sjclHash,
 } from "sjcl"
 import { Keypair } from "stellar-base"
-import {
-    codec,
-    func,
-    string,
-} from "@xcmats/js-toolbox"
 
 
 
@@ -105,15 +105,18 @@ export const hexSeed = mnemonicToSeedHex
  * @returns {Object}
  */
 export const keypair = (seed, pathIndex = 0) => {
+
     const
 
         // ...
         seedToMasterNode = (seed) => (
             (I) => ({ IL: I.slice(0, 8), IR: I.slice(8) })
-        )((new sjclMisc.hmac(
-            sjclCodec.utf8String.toBits("ed25519 seed"),
-            sjclHash.sha512
-        )).encrypt(seed)),
+        )(
+            new sjclMisc.hmac(
+                    sjclCodec.utf8String.toBits("ed25519 seed"),
+                    sjclHash.sha512
+            ).encrypt(seed)
+        ),
 
 
         // ...
@@ -127,7 +130,7 @@ export const keypair = (seed, pathIndex = 0) => {
             ) {
                 let
                     index = path[pathIndex] + 0x80000000,
-                    I = (new sjclMisc.hmac(IR, sjclHash.sha512)).encrypt(
+                    I = new sjclMisc.hmac(IR, sjclHash.sha512).encrypt(
                         bitArray.concat(
                             bitArray.concat(sjclCodec.hex.toBits("0x00"), IL),
                             sjclCodec.hex.toBits(index.toString(16))
@@ -140,8 +143,12 @@ export const keypair = (seed, pathIndex = 0) => {
             return { IL: IL, IR: IR }
         },
 
+
         // ...
-        masterNode = seedToMasterNode(sjclCodec.hex.toBits(seed))
+        masterNode = func.compose(
+            seedToMasterNode,
+            sjclCodec.hex.toBits
+        )(seed)
 
 
     return func.compose(
@@ -176,6 +183,7 @@ export const random = (
     passphrase = string.empty(),
     pathIndex = 0
 ) => {
+
     const
         mnemonic = genMnemonic(language),
         seed = hexSeed(mnemonic, passphrase),
@@ -188,4 +196,5 @@ export const random = (
         publicKey: keys.publicKey(),
         secret: keys.secret(),
     }
+
 }

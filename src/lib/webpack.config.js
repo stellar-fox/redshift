@@ -9,7 +9,8 @@ const
     path = require("path"),
     webpack = require("webpack"),
     MinifyPlugin = require("babel-minify-webpack-plugin"),
-    projectRoot = fs.realpathSync(process.cwd())
+    projectRoot = fs.realpathSync(process.cwd()),
+    nodeExternals = require("webpack-node-externals")
 
 
 
@@ -32,14 +33,14 @@ module.exports = {
         path: path.resolve(__dirname, "./dist"),
         library: "shambhalaClient",
         libraryTarget: "umd",
-        globalObject: "self",
+        globalObject: "global",
     },
 
 
     externals: [
-        "@xcmats/js-toolbox",
-        "bip39",
-        "stellar-base",
+        nodeExternals({
+            whitelist: ["sjcl"],
+        }),
     ],
 
 

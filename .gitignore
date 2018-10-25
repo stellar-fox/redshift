@@ -7,9 +7,9 @@
 
 # production
 /build
-/src/lib/doc
+/src/lib/dist
 /src/lib/es
-/src/lib/lib
+/src/lib/jsdoc
 
 # misc
 .DS_Store

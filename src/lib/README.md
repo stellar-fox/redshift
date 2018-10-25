@@ -84,7 +84,7 @@ $ npm start
 
 ```javascript
 > redshift
-{ ENTROPY: { high: 256, medium: 128 },
+{ ENTROPY: { HIGH: 256, MEDIUM: 128 },
   LANGUAGE:
    { CN: 'chinese_simplified',
      CT: 'chinese_traditional',

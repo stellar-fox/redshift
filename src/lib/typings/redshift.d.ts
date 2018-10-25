@@ -17,7 +17,11 @@ declare module "@stellar-fox/redshift" {
     /**
      * Entropy preset.
      */
-    export const ENTROPY: object;
+    export interface Entropy {
+        HIGH: number;
+        MEDIUM: number;
+    }
+    export const ENTROPY: Entropy;
 
 
 
@@ -25,7 +29,17 @@ declare module "@stellar-fox/redshift" {
     /**
      * Languages.
      */
-    export const LANGUAGE: object;
+    export interface Language {
+        CN: string;
+        CT: string;
+        EN: string;
+        FR: string;
+        IT: string;
+        JP: string;
+        KR: string;
+        SP: string;
+    };
+    export const LANGUAGE: Language;
 
 
 

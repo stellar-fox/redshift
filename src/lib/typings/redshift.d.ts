@@ -17,7 +17,7 @@ declare module "@stellar-fox/redshift" {
     /**
      * Entropy preset.
      */
-    export declare const ENTROPY: object;
+    export const ENTROPY: object;
 
 
 
@@ -25,7 +25,7 @@ declare module "@stellar-fox/redshift" {
     /**
      * Languages.
      */
-    export declare const LANGUAGE: object;
+    export const LANGUAGE: object;
 
 
 
@@ -33,7 +33,7 @@ declare module "@stellar-fox/redshift" {
     /**
      * Generate mnemonic.
      */
-    export declare function genMnemonic (
+    export function genMnemonic (
         language?: string,
         entropy?: number
     ): string;
@@ -44,7 +44,7 @@ declare module "@stellar-fox/redshift" {
     /**
      * Generate hex seed from a given mnemonic.
      */
-    export declare function hexSeed (
+    export function hexSeed (
         mnemonic: string,
         passphrase?: string
     ): string;
@@ -55,7 +55,7 @@ declare module "@stellar-fox/redshift" {
     /**
      * Generate stellar keypair object from a given seed and pathIndex.
      */
-    export declare function keypair (
+    export function keypair (
         seed: string,
         pathIndex?: number
     ): object;
@@ -67,7 +67,7 @@ declare module "@stellar-fox/redshift" {
      * Randomly generate object with mnemonic, seed,
      * keypair, publicKey and secret.
      */
-    export declare function random (
+    export function random (
         language?: string,
         passphrase?: string,
         pathIndex?: number

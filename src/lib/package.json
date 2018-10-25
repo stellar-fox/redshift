@@ -35,7 +35,6 @@
         "@babel/plugin-transform-destructuring": "^7.1.2",
         "@babel/plugin-transform-exponentiation-operator": "^7.1.0",
         "@babel/plugin-transform-literals": "^7.0.0",
-        "@babel/plugin-transform-modules-commonjs": "^7.1.0",
         "@babel/plugin-transform-parameters": "^7.1.0",
         "@babel/plugin-transform-runtime": "^7.1.0",
         "@babel/plugin-transform-shorthand-properties": "^7.0.0",
@@ -43,12 +42,16 @@
         "@babel/plugin-transform-template-literals": "^7.0.0",
         "@babel/preset-env": "^7.1.0",
         "babel-eslint": "^10.0.1",
+        "babel-loader": "^8.0.4",
+        "babel-minify-webpack-plugin": "^0.3.1",
         "cross-env": "^5.2.0",
         "eslint": "^5.7.0",
         "eslint-plugin-react": "^7.11.1",
         "jsdoc": "^3.5.5",
         "mocha": "^5.2.0",
-        "rimraf": "^2.6.2"
+        "rimraf": "^2.6.2",
+        "webpack": "^4.23.1",
+        "webpack-cli": "^3.1.2"
     },
     "engines": {
         "node": ">=6.0.0",
@@ -80,8 +83,8 @@
         "url": "git+https://github.com/stellar-fox/redshift.git"
     },
     "scripts": {
-        "build": "npm run clean:build && npm run build:commonjs && npm run build:es",
-        "build:commonjs": "cross-env BABEL_ENV=commonjs babel ./src/ -d ./dist/",
+        "build": "npm run clean:build && npm run build:umd && npm run build:es",
+        "build:umd": "cross-env BABEL_ENV=production webpack -p --config=webpack.config.js",
         "build:es": "cross-env BABEL_ENV=es babel ./src/ -d ./es/",
         "clean": "npm run clean:build && npm run clean:doc",
         "clean:build": "rimraf ./es ./dist",
@@ -92,8 +95,8 @@
         "jsdoc": "echo \"Generating jsdoc ...\" && jsdoc -c ./jsdoc.json -R ./README.md ./src/ -d ./jsdoc/",
         "lint": "eslint ./src/",
         "prepublishOnly": "npm run test && npm run doc && npm run build",
-        "start": "npm run build:commonjs && node ./scripts/start.js",
-        "test": "npm run lint && npm run build:commonjs && mocha"
+        "start": "npm run build:umd && node ./scripts/start.js",
+        "test": "npm run lint && npm run build:umd && mocha"
     },
     "typings": "typings/redshift.d.ts",
     "version": "0.4.0"

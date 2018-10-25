@@ -36,8 +36,8 @@ import { Keypair } from "stellar-base"
  * @name ENTROPY
  */
 export const ENTROPY = Object.freeze({
-    high: 256,
-    medium: 128,
+    HIGH: 256,
+    MEDIUM: 128,
 })
 
 
@@ -67,12 +67,12 @@ export const LANGUAGE = Object.freeze({
  *
  * @function genMnemonic
  * @param {String} [language=LANGUAGE.EN]
- * @param {Number} [entropy=ENTROPY.high]
+ * @param {Number} [entropy=ENTROPY.HIGH]
  * @returns {String}
  */
 export const genMnemonic = (
     language = LANGUAGE.EN,
-    entropy = ENTROPY.high
+    entropy = ENTROPY.HIGH
 ) =>
     generateMnemonic(
         entropy,

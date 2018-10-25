@@ -55,9 +55,9 @@
         "npm": ">=5.0.0"
     },
     "files": [
-        "doc",
+        "dist",
         "es",
-        "lib",
+        "jsdoc",
         "src",
         "typings"
     ],
@@ -68,7 +68,7 @@
         "stellar"
     ],
     "license": "Apache-2.0",
-    "main": "lib/index.js",
+    "main": "dist/index.js",
     "module": "es/index.js",
     "name": "@stellar-fox/redshift",
     "private": false,
@@ -81,19 +81,19 @@
     },
     "scripts": {
         "build": "npm run clean:build && npm run build:commonjs && npm run build:es",
-        "build:commonjs": "cross-env BABEL_ENV=commonjs babel ./src/ -d ./lib/",
+        "build:commonjs": "cross-env BABEL_ENV=commonjs babel ./src/ -d ./dist/",
         "build:es": "cross-env BABEL_ENV=es babel ./src/ -d ./es/",
         "clean": "npm run clean:build && npm run clean:doc",
-        "clean:build": "rimraf ./es ./lib",
-        "clean:doc": "rimraf ./doc",
+        "clean:build": "rimraf ./es ./dist",
+        "clean:doc": "rimraf ./jsdoc",
         "clean:modules": "rimraf node_modules",
         "configure:sjcl": "./scripts/configure.sjcl.sh",
         "doc": "npm run clean:doc && npm run jsdoc",
-        "jsdoc": "echo \"Generating jsdoc ...\" && jsdoc -c ./jsdoc.json -R ./README.md ./src/ -d ./doc/",
+        "jsdoc": "echo \"Generating jsdoc ...\" && jsdoc -c ./jsdoc.json -R ./README.md ./src/ -d ./jsdoc/",
         "lint": "eslint ./src/",
         "prepublishOnly": "npm run test && npm run doc && npm run build",
         "start": "npm run build:commonjs && node ./scripts/start.js",
-        "test": "npm run lint && mocha"
+        "test": "npm run lint && npm run build:commonjs && mocha"
     },
     "typings": "typings/redshift.d.ts",
     "version": "0.4.0"

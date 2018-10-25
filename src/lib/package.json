@@ -63,6 +63,7 @@
         "es",
         "jsdoc",
         "src",
+        "test",
         "typings"
     ],
     "homepage": "https://github.com/stellar-fox/redshift/tree/master/src/lib",

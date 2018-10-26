@@ -45,7 +45,7 @@ declare module "@stellar-fox/redshift" {
 
 
     /**
-     * Generate mnemonic.
+     * Generate mnemonic. BIP39 implementation.
      */
     export function genMnemonic (
         language?: string,
@@ -56,9 +56,10 @@ declare module "@stellar-fox/redshift" {
 
 
     /**
-     * Generate hex seed from a given mnemonic.
+     * Generate hex seed from a given `mnemonic` and `passphrase`.
+     * BIP39 implementation.
      */
-    export function hexSeed (
+    export function mnemonicToSeedHex (
         mnemonic: string,
         passphrase?: string
     ): string;
@@ -67,9 +68,9 @@ declare module "@stellar-fox/redshift" {
 
 
     /**
-     * Generate stellar keypair object from a given seed and pathIndex.
+     * Generate `stellar` Keypair object from a given `seed` and a `pathIndex`.
      */
-    export function keypair (
+    export function genKeypair (
         seed: string,
         pathIndex?: number
     ): object;
@@ -78,14 +79,28 @@ declare module "@stellar-fox/redshift" {
 
 
     /**
-     * Randomly generate object with mnemonic, seed,
-     * keypair, publicKey and secret.
+     * redshift.newAccount() return value description.
      */
-    export function random (
+    export interface AccountDescription {
+        mnemonic: string;
+        passphrase: string;
+        pathIndex: number;
+        seed: string;
+        keypair: object;
+    };
+
+
+
+
+    /**
+     * Randomly generate object with `mnemonic`,
+     * `passphrase`, `pathIndex`, `seed` and `keypair`.
+     */
+    export function newAccount (
+        pathIndex?: number,
         language?: string,
-        passphrase?: string,
-        pathIndex?: number
-    ): object;
+        passphrase?: string
+    ): AccountDescription;
 
 
 

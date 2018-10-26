@@ -94,9 +94,10 @@
         "doc": "npm run clean:doc && npm run jsdoc",
         "jsdoc": "echo \"Generating jsdoc ...\" && jsdoc -c ./jsdoc.json -R ./README.md ./src/ -d ./jsdoc/",
         "lint": "eslint ./src/",
-        "prepublishOnly": "npm run test && npm run doc",
+        "prepublishOnly": "npm run test:full && npm run doc",
         "start": "npm run build:umd && node ./scripts/start.js",
-        "test": "npm run lint && npm run clean:build && npm run build:umd && mocha"
+        "test": "mocha",
+        "test:full": "npm run lint && npm run clean:build && npm run build:umd && mocha"
     },
     "typings": "typings/redshift.d.ts",
     "version": "0.4.1"

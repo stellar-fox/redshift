@@ -64,6 +64,8 @@ _redshift library_ uses `24` (or `12`) word mnemonics.
 
 
 
+## tests
+
 > Tested with `SEP-0005` Vectors 3 and 4
 
 ```bash

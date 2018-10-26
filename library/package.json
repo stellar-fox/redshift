@@ -66,7 +66,7 @@
         "test",
         "typings"
     ],
-    "homepage": "https://github.com/stellar-fox/redshift/tree/master/src/lib",
+    "homepage": "https://github.com/stellar-fox/redshift/tree/master/library/",
     "keywords": [
         "hd accounts",
         "keys",

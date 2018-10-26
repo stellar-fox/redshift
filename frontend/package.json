@@ -46,7 +46,7 @@
         "node": ">=6.0.0",
         "npm": ">=5.0.0"
     },
-    "homepage": "https://stellar-fox.github.io/redshift",
+    "homepage": "https://stellar-fox.github.io/redshift/",
     "keywords": [
         "stellar",
         "hd accounts"

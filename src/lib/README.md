@@ -119,22 +119,25 @@ $ npm start
 ```
 
 ```javascript
-> redshift
-{ ENTROPY: { HIGH: 256, MEDIUM: 128 },
-  LANGUAGE:
-   { CN: 'chinese_simplified',
-     CT: 'chinese_traditional',
-     EN: 'english',
-     FR: 'french',
-     IT: 'italian',
-     JP: 'japanese',
-     KR: 'korean',
-     SP: 'spanish' },
-  genMnemonic: [Function: genMnemonic],
-  mnemonicToSeedHex: [Function: mnemonicToSeedHex],
-  genKeypair: [Function: genKeypair],
-  newAccount: [Function: newAccount] }
+redshift
 ```
+
+> ```javascript
+> { ENTROPY: { HIGH: 256, MEDIUM: 128 },
+>   LANGUAGE:
+>    { CN: 'chinese_simplified',
+>      CT: 'chinese_traditional',
+>      EN: 'english',
+>      FR: 'french',
+>      IT: 'italian',
+>      JP: 'japanese',
+>      KR: 'korean',
+>      SP: 'spanish' },
+>   genMnemonic: [Function: genMnemonic],
+>   mnemonicToSeedHex: [Function: mnemonicToSeedHex],
+>   genKeypair: [Function: genKeypair],
+>   newAccount: [Function: newAccount] }
+> ```
 
 <br />
 
@@ -146,99 +149,167 @@ $ npm start
 * Randomly generate `mnemonic` of a high entropy using english words.
 
     ```javascript
-    > redshift.genMnemonic().split(' ')
-    [ 'eye',
-    'urge',
-    'child',
-    'before',
-    'sudden',
-    'this',
-    'assault',
-    'else',
-    'brisk',
-    'twelve',
-    'hair',
-    'topic',
-    'divert',
-    'raw',
-    'onion',
-    'cattle',
-    'result',
-    'birth',
-    'catalog',
-    'dice',
-    'auction',
-    'sibling',
-    'goat',
-    'initial' ]
+    redshift.genMnemonic().split(' ')
     ```
+
+    > ```javascript
+    > [ 'eye',
+    > 'urge',
+    > 'child',
+    > 'before',
+    > 'sudden',
+    > 'this',
+    > 'assault',
+    > 'else',
+    > 'brisk',
+    > 'twelve',
+    > 'hair',
+    > 'topic',
+    > 'divert',
+    > 'raw',
+    > 'onion',
+    > 'cattle',
+    > 'result',
+    > 'birth',
+    > 'catalog',
+    > 'dice',
+    > 'auction',
+    > 'sibling',
+    > 'goat',
+    > 'initial' ]
+    > ```
 
 
 * Randomly generate `mnemonic` of a medium entropy in italian.
 
     ```javascript
-    > redshift.genMnemonic(redshift.LANGUAGE.IT, redshift.ENTROPY.medium)
-    'desumere sogno cuculo stirpe sepolto salmone elfico giocare ...'
+    redshift.genMnemonic(redshift.LANGUAGE.IT, redshift.ENTROPY.medium)
     ```
+
+    > ```javascript
+    > 'desumere sogno cuculo stirpe sepolto salmone elfico giocare ...'
+    > ```
 
 
 * Generate hex `seed` from a given `mnemonic`.
 
     ```javascript
-    > mnemonic = redshift.genMnemonic()
-    'hold awful slender tide arrange window burden erase bamboo ...'
-
-    > seed = redshift.mnemonicToSeedHex(mnemonic)
-    '016d98a5956955896613c59e277cf...318ca1e6d94f792316b8f5afa0d8f2dc6'
+    mnemonic = redshift.genMnemonic()
     ```
+
+    > ```javascript
+    > 'hold awful slender tide arrange window burden erase bamboo ...'
+    > ```
+
+    ```javascript
+    seed = redshift.mnemonicToSeedHex(mnemonic)
+    ```
+
+    > ```javascript
+    > '016d98a5956955896613c59e277cf...318ca1e6d94f792316b8f5afa0d8f2dc6'
+    > ```
 
 
 * Generate hex `seed` from a given `mnemonic` and secret `passphrase`.
 
     ```javascript
-    > mnemonic = redshift.genMnemonic()
-    'ride throw body pet abstract gossip few online acoustic scare ...'
-
-    > seed = redshift.mnemonicToSeedHex(mnemonic, 'my secret phrase')
-    '2b8b5c2a3bac1f54a5c716621e3c487...f54d68f7e14402ac9ff76f1fcf92096e'
+    mnemonic = redshift.genMnemonic()
     ```
+
+    > ```javascript
+    > 'ride throw body pet abstract gossip few online acoustic scare ...'
+    > ```
+
+    ```javascript
+    seed = redshift.mnemonicToSeedHex(mnemonic, 'my secret phrase')
+    ```
+
+    > ```javascript
+    > '2b8b5c2a3bac1f54a5c716621e3c487...f54d68f7e14402ac9ff76f1fcf92096e'
+    > ```
 
 
 * Generate _stellar_ `keypair` object from a given `seed`.
 
     ```javascript
-    > kp = redshift.genKeypair(seed)
-    Keypair {
-    type: 'ed25519',
-    _secretSeed: <Buffer 95 a7 98 ... >,
-    _secretKey: <Buffer 95 a7 98 ... >,
-    _publicKey: <Buffer 16 90 31 ... > }
-
-    > kp.
-    kp.canSign  kp.publicKey     kp.rawPublicKey   kp.rawSecretKey
-    kp.secret   kp.sign          kp.signDecorated  kp.signatureHint
-    kp.verify   kp.xdrAccountId  kp.xdrPublicKey
-
-    > kp.publicKey()
-    'GALJAMOTJC2OU6GRCGLOANONTMAVHI3ZD6PTTR7ED5NPSJV3D2VC37RL'
-
-    > kp.secret()
-    'SCK2PGA6Q6YG6I77QLCW5ZENEWDDX4KHEBMT2AIV7FLAWCAGFCG2FZIT'
+    kp = redshift.genKeypair(seed)
     ```
 
-
-* Generate _stellar_ keypair object from a given `seed` and `pathIndex`.
+    > ```javascript
+    > Keypair {
+    > type: 'ed25519',
+    > _secretSeed: <Buffer 95 a7 98 ... >,
+    > _secretKey: <Buffer 95 a7 98 ... >,
+    > _publicKey: <Buffer 16 90 31 ... > }
+    > ```
 
     ```javascript
-    > kp = redshift.genKeypair(seed, 27)
-    ...
-
-    > kp.publicKey()
-    'GBDKU27YWDIRYDFAZF5J2JNPI2CPICSML4VBREP3SC45MKV433NHRNCR'
-
-    > kp.secret()
-    'SBNWL6JJ3Q5CS6U4JUVUTOWIU24NDCWEI5P7BINENF4K3PHRST3QDOZH'
+    kp.<press-TAB-key>
     ```
+
+    > ```javascript
+    > kp.canSign  kp.publicKey     kp.rawPublicKey   kp.rawSecretKey
+    > kp.secret   kp.sign          kp.signDecorated  kp.signatureHint
+    > kp.verify   kp.xdrAccountId  kp.xdrPublicKey
+    > ```
+
+    ```javascript
+    kp.publicKey()
+    ```
+
+    > ```javascript
+    > 'GALJAMOTJC2OU6GRCGLOANONTMAVHI3ZD6PTTR7ED5NPSJV3D2VC37RL'
+    > ```
+
+    ```javascript
+    kp.secret()
+    ```
+
+    > ```javascript
+    > 'SCK2PGA6Q6YG6I77QLCW5ZENEWDDX4KHEBMT2AIV7FLAWCAGFCG2FZIT'
+    > ```
+
+
+* Generate _stellar_ `keypair` object from a given `seed` and `pathIndex`.
+
+    ```javascript
+    kp = redshift.genKeypair(seed, 27)
+    ...
+    kp.publicKey()
+    ```
+
+    > ```javascript
+    > 'GBDKU27YWDIRYDFAZF5J2JNPI2CPICSML4VBREP3SC45MKV433NHRNCR'
+    > ```
+
+    ```javascript
+    kp.secret()
+    ```
+
+    > ```javascript
+    > 'SBNWL6JJ3Q5CS6U4JUVUTOWIU24NDCWEI5P7BINENF4K3PHRST3QDOZH'
+    > ```
+
+
+* Generate object with a new `mnemonic` of high entropy and resulting
+    `seed` and _stellar_ `keypair`. Optionally `passphrase` and `pathIndex`
+    can be passed as an arguments.
+
+    ```javascript
+    redshift.newAccount("strawberry fields forever", 27)
+    ```
+
+    > ```javascript
+    > { mnemonic: 'spell crawl shiver swallow ecology mercy unaware ...',
+    > passphrase: 'strawberry fields forever',
+    > pathIndex: 27,
+    > seed: 'd3dbb69cf5a538ef8594fafd364...2370a10a806b9a44be5157917',
+    > keypair:
+    > Keypair {
+    >     type: 'ed25519',
+    >     _secretSeed: <Buffer 3c 1c a1 8c d9 ... >,
+    >     _publicKey: <Buffer f6 6b c5 75 ce ... > } }
+    > ```
 
 <br />
 

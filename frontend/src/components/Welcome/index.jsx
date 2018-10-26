@@ -7,7 +7,7 @@ import {
     mnemonicToSeedHex,
     genKeypair,
     LANGUAGE,
-} from "../../../../library/dist/redshift"
+} from "../../lib/redshift"
 
 import Panel from "../Panel"
 import Button from "../Button"

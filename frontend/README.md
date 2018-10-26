@@ -7,7 +7,7 @@
     </a>
 </p>
 
-> Next generation, personal micro finance service, which offers nearly instant and extremely low fee remittance service.
+> Next generation, personal micro finance solution, which offers nearly instant and extremely low fee remittance service.
 
 <br />
 

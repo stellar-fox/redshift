@@ -229,7 +229,7 @@ redshift
     ```
 
     > ```javascript
-    > '016d98a5956955896613c59e277cf...318ca1e6d94f792316b8f5afa0d8f2dc6'
+    > '016d98a5956955896613c59e277...8ca1e6d94f792316b8f5afa0d8f2dc6'
     > ```
 
 
@@ -240,7 +240,7 @@ redshift
     ```
 
     > ```javascript
-    > 'ride throw body pet abstract gossip few online acoustic scare ...'
+    > 'ride throw body pet abstract gossip few online acoustic ...'
     > ```
 
     ```javascript
@@ -248,7 +248,7 @@ redshift
     ```
 
     > ```javascript
-    > '2b8b5c2a3bac1f54a5c716621e3c487...f54d68f7e14402ac9ff76f1fcf92096e'
+    > '2b8b5c2a3bac1f54a5c716621e3c4...4d68f7e14402ac9ff76f1fcf92096e'
     > ```
 
 
@@ -323,10 +323,10 @@ redshift
     ```
 
     > ```javascript
-    > { mnemonic: 'spell crawl shiver swallow ecology mercy unaware ...',
+    > { mnemonic: 'spell crawl shiver swallow ecology mercy ...',
     > passphrase: 'strawberry fields forever',
     > pathIndex: 27,
-    > seed: 'd3dbb69cf5a538ef8594fafd364...2370a10a806b9a44be5157917',
+    > seed: 'd3dbb69cf5a538ef8594fafd3...70a10a806b9a44be5157917',
     > keypair:
     > Keypair {
     >     type: 'ed25519',

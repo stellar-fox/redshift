@@ -31,9 +31,9 @@ module.exports = {
     output: {
         filename: "[name].js",
         path: path.resolve(__dirname, "./dist"),
-        library: "shambhalaClient",
+        library: "redshift",
         libraryTarget: "umd",
-        globalObject: "global",
+        globalObject: "(typeof self !== 'undefined' ? self : this)",
     },
 
 

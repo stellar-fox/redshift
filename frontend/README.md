@@ -25,24 +25,6 @@ https://stellar-fox.github.io/redshift/
 
 
 
-## Redshift frontend
-
-https://github.com/stellar-fox/redshift/tree/master/frontend
-
-<br />
-
-
-
-
-## Redshift library
-
-https://github.com/stellar-fox/redshift/tree/master/library
-
-<br />
-
-
-
-
 ## Support
 
 ```

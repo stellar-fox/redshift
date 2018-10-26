@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>index.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html">@stellar-fox/redshift</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genKeypair">genKeypair</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genMnemonic">genMnemonic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~mnemonicToSeedHex">mnemonicToSeedHex</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~newAccount">newAccount</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">index.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Redshift.
+ * Stellar HD Address Generator.
+ *
+ * @module @stellar-fox/redshift
+ * @license Apache-2.0
+ */
+
+
+
+
+import {
+    generateMnemonic,
+    mnemonicToSeedHex,
+    wordlists,
+} from "bip39"
+import {
+    codec,
+    func,
+    string,
+} from "@xcmats/js-toolbox"
+import {
+    bitArray,
+    codec as sjclCodec,
+    misc as sjclMisc,
+    hash as sjclHash,
+} from "sjcl"
+import { Keypair } from "stellar-base"
+
+
+
+
+/**
+ * Entropy preset.
+ *
+ * @name ENTROPY
+ */
+export const ENTROPY = Object.freeze({
+    HIGH: 256,
+    MEDIUM: 128,
+})
+
+
+
+
+/**
+ * Languages.
+ *
+ * @name LANGUAGE
+ */
+export const LANGUAGE = Object.freeze({
+    CN: "chinese_simplified",
+    CT: "chinese_traditional",
+    EN: "english",
+    FR: "french",
+    IT: "italian",
+    JP: "japanese",
+    KR: "korean",
+    SP: "spanish",
+})
+
+
+
+
+/**
+ * Generate mnemonic. BIP39 implementation.
+ *
+ * @function genMnemonic
+ * @param {String} [language=LANGUAGE.EN]
+ * @param {Number} [entropy=ENTROPY.HIGH]
+ * @returns {String}
+ */
+export const genMnemonic = (
+    language = LANGUAGE.EN,
+    entropy = ENTROPY.HIGH
+) =>
+    generateMnemonic(
+        entropy,
+        undefined,
+        wordlists[language]
+    )
+
+
+
+
+/**
+ * Generate hex seed from a given `mnemonic` and `passphrase`.
+ * BIP39 implementation.
+ *
+ * @function mnemonicToSeedHex
+ * @param {String} mnemonic
+ * @param {String} [passphrase=""]
+ * @returns {String}
+ */
+export { mnemonicToSeedHex } from "bip39"
+
+
+
+
+/**
+ * Generate `stellar` Keypair object from a given `seed` and a `pathIndex`.
+ *
+ * @function genKeypair
+ * @param {String} seed
+ * @param {Number} [pathIndex=0]
+ * @returns {Object}
+ */
+export const genKeypair = (seed, pathIndex = 0) => {
+
+    const
+
+        // ...
+        seedToMasterNode = (seed) => (
+            (I) => ({ IL: I.slice(0, 8), IR: I.slice(8) })
+        )(
+            new sjclMisc.hmac(
+                sjclCodec.utf8String.toBits("ed25519 seed"),
+                sjclHash.sha512
+            ).encrypt(seed)
+        ),
+
+
+        // ...
+        derivePath = (initIL, initIR, path) => {
+            let IL = initIL, IR = initIR
+
+            for (
+                let pathIndex = 0;
+                pathIndex &lt; path.length;
+                pathIndex++
+            ) {
+                let
+                    index = path[pathIndex] + 0x80000000,
+                    I = new sjclMisc.hmac(IR, sjclHash.sha512).encrypt(
+                        bitArray.concat(
+                            bitArray.concat(sjclCodec.hex.toBits("0x00"), IL),
+                            sjclCodec.hex.toBits(index.toString(16))
+                        )
+                    )
+                IL = I.slice(0, 8)
+                IR = I.slice(8)
+            }
+
+            return { IL, IR }
+        },
+
+
+        // ...
+        masterNode = func.compose(
+            seedToMasterNode,
+            sjclCodec.hex.toBits
+        )(seed)
+
+
+    return func.compose(
+        Keypair.fromRawEd25519Seed.bind(Keypair),
+        codec.hexToBytes,
+        sjclCodec.hex.fromBits
+    )(
+        derivePath(
+            masterNode.IL,
+            masterNode.IR,
+            [44, 148, pathIndex]
+        ).IL
+    )
+
+}
+
+
+
+
+/**
+ * Randomly generate object with `mnemonic`,
+ * `passphrase`, `pathIndex`, `seed` and `keypair`.
+ *
+ * @function newAccount
+ * @param {String} [passphrase=""]
+ * @param {Number} [pathIndex=0]
+ * @param {String} [language=LANGUAGE.EN]
+ * @returns {Object}
+ */
+export const newAccount = (
+    passphrase = string.empty(),
+    pathIndex = 0,
+    language = LANGUAGE.EN
+) => {
+
+    let
+        mnemonic = genMnemonic(language),
+        seed = mnemonicToSeedHex(mnemonic, passphrase),
+        keypair = genKeypair(seed, pathIndex)
+
+    return { mnemonic, passphrase, pathIndex, seed, keypair }
+
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Oct 26 2018 21:03:08 GMT+0200 (CEST) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

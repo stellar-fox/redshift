@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Home - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html">@stellar-fox/redshift</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genKeypair">genKeypair</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genMnemonic">genMnemonic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~mnemonicToSeedHex">mnemonicToSeedHex</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~newAccount">newAccount</a></span></li>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+    <section class="readme">
+        <article><h1>redshift</h1><p>Stellar HD Accounts Generator - library.</p>
+<p><a href="https://www.npmjs.com/package/@stellar-fox/redshift"><img src="https://img.shields.io/npm/v/@stellar-fox/redshift.svg" alt="npm version"></a>
+<a href="https://www.npmjs.com/package/@stellar-fox/redshift"><img src="https://img.shields.io/npm/l/@stellar-fox/redshift.svg" alt="npm license"></a>
+<a href="https://github.com/stellar-fox/redshift"><img src="https://img.shields.io/github/languages/top/stellar-fox/redshift.svg" alt="GitHub top language"></a>
+<a href="https://github.com/stellar-fox/redshift"><img src="https://img.shields.io/github/languages/code-size/stellar-fox/redshift.svg" alt="GitHub code size"></a>
+<a href="https://github.com/stellar-fox/redshift"><img src="https://img.shields.io/github/tag/stellar-fox/redshift.svg" alt="GitHub tag"></a></p>
+<pre class="prettyprint source lang-bash"><code>$ npm i @stellar-fox/redshift</code></pre><p><br /></p>
+<h2><a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">BIP39</a> hierarchical deterministic addresses</h2><p><code>BIP39</code> mnemonics can be used to generate deterministic series of account
+addresses. The method implemented here uses <code>24</code> (or <code>12</code>) words to generate
+series of deterministic <em>Stellar</em> key pairs. <code>24</code> word mnemonics are also used
+by many hardware wallets (such as <em>Ledger Nano S</em>). This library can also be
+used to restore account based on the mnemonic that was generated earlier
+by either the hardware wallet or any other wallets compatible with <code>BIP32</code>,
+<code>BIP39</code> and <code>BIP44</code> specifications.</p>
+<p><br /></p>
+<h2><a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">BIP44</a> multi-account hierarchy for deterministic wallets</h2><p><em>redshift library</em> uses <code>BIP32</code> path with hardened derivation. One can choose
+to derive key pair for default account (with <code>pathIndex</code> address equal to <code>0</code>)
+or select <code>pathIndex</code> number of desired account hierarchy. The upper limit of
+<code>pathIndex</code> number of child accounts is <code>2**31</code>.</p>
+<p><br /></p>
+<h2><a href="https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0005.md">SEP-0005</a> key derivation methods for stellar accounts</h2><p><em>Stellar Ecosystem Proposal</em> describes implementation of deterministic key
+derivation for <em>Stellar</em> accounts based on word mnemonic of different lengths.
+<em>redshift library</em> uses <code>24</code> (or <code>12</code>) word mnemonics.</p>
+<p><br /></p>
+<h2>documentation</h2><blockquote>
+<p><a href="https://stellar-fox.github.io/redshift/jsdoc/">API Reference</a></p>
+</blockquote>
+<p><br /></p>
+<h2>tests</h2><blockquote>
+<p>Tested with <code>SEP-0005</code> Vectors 3 and 4</p>
+</blockquote>
+<pre class="prettyprint source lang-bash"><code>$ npm run test
+
+  Test Vector 3 (SEP-0005)
+    BIP39 Seed
+      ✓ should return: 937ae91...f567866
+    Public Key (m/44'/148'/0')
+      ✓ should return: GC3MM...BTPJQ (58ms)
+    Public Key (m/44'/148'/1')
+      ✓ should return: GB3MT...YYISO
+    Public Key (m/44'/148'/2')
+      ✓ should return: GDYF7...DGAKU
+   ...
+      ✓ should return: SBSHU...2ZEO2
+    Secret Key (m/44'/148'/7')
+      ✓ should return: SC2QO...YWC6E
+    Secret Key (m/44'/148'/8')
+      ✓ should return: SCGMC...MAQST
+    Secret Key (m/44'/148'/9')
+      ✓ should return: SCPA5...C37GF
+
+  Test Vector 4 (SEP-0005)
+    BIP39 Seed
+      ✓ should return: d425d39...742a489
+    Public Key (m/44'/148'/0')
+      ✓ should return: GDAHP...B63EQ
+    Public Key (m/44'/148'/1')
+      ✓ should return: GDY47...4OJOC
+    ...
+    Secret Key (m/44'/148'/9')
+      ✓ should return: SDXDY...UXNOS
+
+
+  42 passing (567ms)</code></pre><p><br /></p>
+<h2>experimenting in browser</h2><blockquote>
+<p><a href="https://npm.runkit.com/@stellar-fox/redshift">RunKit with @stellar-fox/redshift</a></p>
+</blockquote>
+<p><br /></p>
+<h2>experimenting in <a href="https://nodejs.org/">node.js</a></h2><pre class="prettyprint source lang-bash"><code>$ git clone git@github.com:stellar-fox/redshift.git
+Cloning into 'redshift'...
+$ cd redshift/library/
+$ npm i
+$ npm start
+Compiling for 'production' ...
+Hash: ce2fa61bbab7389719ad
+Version: webpack 4.23.1
+Time: 1436ms
+Built at: 2018-10-26 19:10:45
+      Asset      Size  Chunks             Chunk Names
+redshift.js  12.3 KiB       0  [emitted]  redshift
+Entrypoint redshift = redshift.js
+[1] external &quot;bip39&quot; 42 bytes {0} [built]
+[2] external &quot;@xcmats/js-toolbox&quot; 42 bytes {0} [built]
+[3] external &quot;stellar-base&quot; 42 bytes {0} [built]
+[4] ./src/index.js 2.71 KiB {0} [built]
+    + 1 hidden module</code></pre><pre class="prettyprint source lang-javascript"><code>redshift</code></pre><blockquote>
+<pre class="prettyprint source lang-javascript"><code>{ ENTROPY: { HIGH: 256, MEDIUM: 128 },
+  LANGUAGE:
+   { CN: 'chinese_simplified',
+     CT: 'chinese_traditional',
+     EN: 'english',
+     FR: 'french',
+     IT: 'italian',
+     JP: 'japanese',
+     KR: 'korean',
+     SP: 'spanish' },
+  genMnemonic: [Function: genMnemonic],
+  mnemonicToSeedHex: [Function: mnemonicToSeedHex],
+  genKeypair: [Function: genKeypair],
+  newAccount: [Function: newAccount] }</code></pre></blockquote>
+<p><br /></p>
+<h2>examples</h2><ul>
+<li><p>Randomly generate <code>mnemonic</code> of a high entropy using english words.</p>
+<pre class="prettyprint source lang-javascript"><code>  redshift.genMnemonic().split(' ')</code></pre><blockquote>
+<pre class="prettyprint source lang-javascript"><code>[ 'eye',
+'urge',
+'child',
+'before',
+'sudden',
+'this',
+'assault',
+'else',
+'brisk',
+'twelve',
+'hair',
+'topic',
+'divert',
+'raw',
+'onion',
+'cattle',
+'result',
+'birth',
+'catalog',
+'dice',
+'auction',
+'sibling',
+'goat',
+'initial' ]</code></pre></blockquote>
+</li>
+</ul>
+<ul>
+<li><p>Randomly generate <code>mnemonic</code> of a medium entropy in italian.</p>
+<pre class="prettyprint source lang-javascript"><code>  redshift.genMnemonic(redshift.LANGUAGE.IT, redshift.ENTROPY.medium)</code></pre><blockquote>
+<pre class="prettyprint source lang-javascript"><code>'desumere sogno cuculo stirpe sepolto salmone elfico giocare ...'</code></pre></blockquote>
+</li>
+</ul>
+<ul>
+<li><p>Generate hex <code>seed</code> from a given <code>mnemonic</code>.</p>
+<pre class="prettyprint source lang-javascript"><code>  mnemonic = redshift.genMnemonic()</code></pre><blockquote>
+<pre class="prettyprint source lang-javascript"><code>'hold awful slender tide arrange window burden erase bamboo ...'</code></pre></blockquote>
+<pre class="prettyprint source lang-javascript"><code>  seed = redshift.mnemonicToSeedHex(mnemonic)</code></pre><blockquote>
+<pre class="prettyprint source lang-javascript"><code>'016d98a5956955896613c59e277cf...318ca1e6d94f792316b8f5afa0d8f2dc6'</code></pre></blockquote>
+</li>
+</ul>
+<ul>
+<li><p>Generate hex <code>seed</code> from a given <code>mnemonic</code> and secret <code>passphrase</code>.</p>
+<pre class="prettyprint source lang-javascript"><code>  mnemonic = redshift.genMnemonic()</code></pre><blockquote>
+<pre class="prettyprint source lang-javascript"><code>'ride throw body pet abstract gossip few online acoustic scare ...'</code></pre></blockquote>
+<pre class="prettyprint source lang-javascript"><code>  seed = redshift.mnemonicToSeedHex(mnemonic, 'my secret phrase')</code></pre><blockquote>
+<pre class="prettyprint source lang-javascript"><code>'2b8b5c2a3bac1f54a5c716621e3c487...f54d68f7e14402ac9ff76f1fcf92096e'</code></pre></blockquote>
+</li>
+</ul>
+<ul>
+<li><p>Generate <em>stellar</em> <code>keypair</code> object from a given <code>seed</code>.</p>
+<pre class="prettyprint source lang-javascript"><code>  kp = redshift.genKeypair(seed)</code></pre><blockquote>
+<pre class="prettyprint source lang-javascript"><code>Keypair {
+type: 'ed25519',
+_secretSeed: &lt;Buffer ... >,
+_secretKey: &lt;Buffer ... >,
+_publicKey: &lt;Buffer ... > }</code></pre></blockquote>
+<pre class="prettyprint source lang-javascript"><code>  kp.&lt;press-TAB-key></code></pre><blockquote>
+<pre class="prettyprint source lang-javascript"><code>kp.canSign  kp.publicKey     kp.rawPublicKey   kp.rawSecretKey
+kp.secret   kp.sign          kp.signDecorated  kp.signatureHint
+kp.verify   kp.xdrAccountId  kp.xdrPublicKey</code></pre></blockquote>
+<pre class="prettyprint source lang-javascript"><code>  kp.publicKey()</code></pre><blockquote>
+<pre class="prettyprint source lang-javascript"><code>'GALJAMOTJC2OU6GRCGLOANONTMAVHI3ZD6PTTR7ED5NPSJV3D2VC37RL'</code></pre></blockquote>
+<pre class="prettyprint source lang-javascript"><code>  kp.secret()</code></pre><blockquote>
+<pre class="prettyprint source lang-javascript"><code>'SCK2PGA6Q6YG6I77QLCW5ZENEWDDX4KHEBMT2AIV7FLAWCAGFCG2FZIT'</code></pre></blockquote>
+</li>
+</ul>
+<ul>
+<li><p>Generate <em>stellar</em> <code>keypair</code> object from a given <code>seed</code> and <code>pathIndex</code>.</p>
+<pre class="prettyprint source lang-javascript"><code>  kp = redshift.genKeypair(seed, 27)
+  ...
+  kp.publicKey()</code></pre><blockquote>
+<pre class="prettyprint source lang-javascript"><code>'GBDKU27YWDIRYDFAZF5J2JNPI2CPICSML4VBREP3SC45MKV433NHRNCR'</code></pre></blockquote>
+<pre class="prettyprint source lang-javascript"><code>  kp.secret()</code></pre><blockquote>
+<pre class="prettyprint source lang-javascript"><code>'SBNWL6JJ3Q5CS6U4JUVUTOWIU24NDCWEI5P7BINENF4K3PHRST3QDOZH'</code></pre></blockquote>
+</li>
+</ul>
+<ul>
+<li><p>Generate object with a new <code>mnemonic</code> of high entropy and resulting
+  <code>seed</code> and <em>stellar</em> <code>keypair</code>. Optionally <code>passphrase</code> and <code>pathIndex</code>
+  can be passed as an arguments.</p>
+<pre class="prettyprint source lang-javascript"><code>  redshift.newAccount(&quot;strawberry fields forever&quot;, 27)</code></pre><blockquote>
+<pre class="prettyprint source lang-javascript"><code>{ mnemonic: 'spell crawl shiver swallow ecology mercy unaware ...',
+passphrase: 'strawberry fields forever',
+pathIndex: 27,
+seed: 'd3dbb69cf5a538ef8594fafd364...2370a10a806b9a44be5157917',
+keypair:
+Keypair {
+    type: 'ed25519',
+    _secretSeed: &lt;Buffer ... >,
+    _publicKey: &lt;Buffer ... > } }</code></pre></blockquote>
+</li>
+</ul>
+<p><br /></p>
+<h2>support</h2><pre class="prettyprint source"><code>GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR</code></pre></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Oct 26 2018 21:03:08 GMT+0200 (CEST) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

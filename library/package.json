@@ -84,7 +84,7 @@
         "url": "git+https://github.com/stellar-fox/redshift.git"
     },
     "scripts": {
-        "build": "npm run clean:build && npm run build:umd",
+        "build": "npm run clean:build && npm run build:umd && npm run doc",
         "build:umd": "npm run configure:sjcl && cross-env BABEL_ENV=production webpack -p --config=webpack.config.js",
         "clean": "npm run clean:build && npm run clean:doc",
         "clean:build": "rimraf ./dist",
@@ -96,7 +96,7 @@
         "lint": "eslint ./src/",
         "prepublishOnly": "npm run test && npm run doc",
         "start": "npm run build:umd && node ./scripts/start.js",
-        "test": "npm run lint && npm run build && mocha"
+        "test": "npm run lint && npm run clean:build && npm run build:umd && mocha"
     },
     "typings": "typings/redshift.d.ts",
     "version": "0.4.0"

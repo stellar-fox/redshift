@@ -11,6 +11,7 @@ var
 
     // test data
     testVector3Mnemonic  = "bench hurt jump file august wise shallow faculty impulse spring exact slush thunder author capable act festival slice deposit sauce coconut afford frown better",
+    testVector3SeedHex = "937ae91f6ab6f12461d9936dfc1375ea5312d097f3f1eb6fed6a82fbe38c85824da8704389831482db0433e5f6c6c9700ff1946aa75ad8cc2654d6e40f567866",
     testVector3PublicKeys = [
         "GC3MMSXBWHL6CPOAVERSJITX7BH76YU252WGLUOM5CJX3E7UCYZBTPJQ",
         "GB3MTYFXPBZBUINVG72XR7AQ6P2I32CYSXWNRKJ2PV5H5C7EAM5YYISO",
@@ -46,10 +47,10 @@ describe("Test Vector 3 (SEP-0005)", () => {
 
     // seed
     describe("BIP39 Seed", () =>
-        it("should return: 937ae91...f567866", () =>
+        it(`should return: ${string.shorten(testVector3SeedHex, 15)}`, () =>
             assert.equal(
                 redshift.mnemonicToSeedHex(testVector3Mnemonic),
-                "937ae91f6ab6f12461d9936dfc1375ea5312d097f3f1eb6fed6a82fbe38c85824da8704389831482db0433e5f6c6c9700ff1946aa75ad8cc2654d6e40f567866"
+                testVector3SeedHex
             )
         )
     )

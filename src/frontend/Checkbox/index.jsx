@@ -10,9 +10,7 @@ import "./index.css"
 export default class Checkbox extends Component {
 
     // ...
-    state = {
-        checked: false,
-    }
+    state = { checked: false }
 
 
     // ...

@@ -5,7 +5,7 @@ import "./index.css"
 
 
 // <Button> component
-export default ({ checked, handleClick, label, }) =>
+export default ({ checked, handleClick, label }) =>
     <button
         checked={checked}
         onClick={handleClick}

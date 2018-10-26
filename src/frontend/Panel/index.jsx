@@ -6,7 +6,7 @@ import "./index.css"
 
 
 // <Panel> component
-export default ({ title, content, }) =>
+export default ({ title, content }) =>
     <article className="message">
         <div className="message-header">
             <p>{title}</p>

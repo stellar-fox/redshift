@@ -116,4 +116,11 @@ declare module "@stellar-fox/redshift" {
 
 
 
+    /**
+     * Library version.
+     *
+     * @constant version
+     */
+    export const version: string;
+
 }

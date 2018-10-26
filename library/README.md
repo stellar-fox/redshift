@@ -160,7 +160,8 @@ redshift
 >   validateMnemonic: [Function: validateMnemonic],
 >   mnemonicToSeedHex: [Function: mnemonicToSeedHex],
 >   genKeypair: [Function: genKeypair],
->   newAccount: [Function: newAccount] }
+>   newAccount: [Function: newAccount],
+>   version: [Getter] }
 > ```
 
 <br />

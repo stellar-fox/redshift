@@ -208,3 +208,13 @@ export const newAccount = (
     return { mnemonic, passphrase, pathIndex, seed, keypair }
 
 }
+
+
+
+
+/**
+ * Library version.
+ *
+ * @constant version
+ */
+export { version } from "../package.json"

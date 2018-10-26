@@ -6,7 +6,7 @@ import "./index.css"
 
 
 // <RadioTag> component
-export default ({ handleClick, checked, value, name, label, }) =>
+export default ({ handleClick, checked, value, name, label }) =>
     <div className="radio-tag" onClick={handleClick}>
         <input
             defaultChecked={checked}

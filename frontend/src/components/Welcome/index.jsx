@@ -424,7 +424,7 @@ export default class Welcome extends Component {
                     <Input
                         label="Account Index"
                         inputType="text"
-                        maxLength="100"
+                        maxLength="20"
                         autoComplete="off"
                         value={this.state.derivationPath}
                         handleChange={this.handlePathChange.bind(this)}

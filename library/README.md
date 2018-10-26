@@ -64,51 +64,6 @@ _redshift library_ uses `24` (or `12`) word mnemonics.
 
 
 
-## tests
-
-> Tested with `SEP-0005` Vectors 3 and 4
-
-```bash
-$ npm run test
-
-  Test Vector 3 (SEP-0005)
-    BIP39 Seed
-      ✓ should return: 937ae91...f567866
-    Public Key (m/44'/148'/0')
-      ✓ should return: GC3MM...BTPJQ (58ms)
-    Public Key (m/44'/148'/1')
-      ✓ should return: GB3MT...YYISO
-    Public Key (m/44'/148'/2')
-      ✓ should return: GDYF7...DGAKU
-   ...
-      ✓ should return: SBSHU...2ZEO2
-    Secret Key (m/44'/148'/7')
-      ✓ should return: SC2QO...YWC6E
-    Secret Key (m/44'/148'/8')
-      ✓ should return: SCGMC...MAQST
-    Secret Key (m/44'/148'/9')
-      ✓ should return: SCPA5...C37GF
-
-  Test Vector 4 (SEP-0005)
-    BIP39 Seed
-      ✓ should return: d425d39...742a489
-    Public Key (m/44'/148'/0')
-      ✓ should return: GDAHP...B63EQ
-    Public Key (m/44'/148'/1')
-      ✓ should return: GDY47...4OJOC
-    ...
-    Secret Key (m/44'/148'/9')
-      ✓ should return: SDXDY...UXNOS
-
-
-  42 passing (567ms)
-```
-
-<br />
-
-
-
-
 ## experimenting in browser
 
 > [RunKit with @stellar-fox/redshift](https://npm.runkit.com/@stellar-fox/redshift)
@@ -118,7 +73,7 @@ $ npm run test
 
 
 
-## experimenting in [node.js](https://nodejs.org/)
+## experimenting locally
 
 ```bash
 $ git clone git@github.com:stellar-fox/redshift.git
@@ -335,6 +290,55 @@ redshift
     >     _secretSeed: <Buffer ... >,
     >     _publicKey: <Buffer ... > } }
     > ```
+
+<br />
+
+
+
+
+## tests
+
+> Tested with `SEP-0005` Vectors 3 and 4
+
+```bash
+$ npm run test
+
+  Test Vector 3 (SEP-0005)
+    Test Vector 3 Mnemonic Validation
+      ✓ should be valid
+    BIP39 Seed
+      ✓ should return: 937ae91...f567866
+    Public Key (m/44'/148'/0')
+      ✓ should return: GC3MM...BTPJQ (58ms)
+    Public Key (m/44'/148'/1')
+      ✓ should return: GB3MT...YYISO
+    Public Key (m/44'/148'/2')
+      ✓ should return: GDYF7...DGAKU
+   ...
+      ✓ should return: SBSHU...2ZEO2
+    Secret Key (m/44'/148'/7')
+      ✓ should return: SC2QO...YWC6E
+    Secret Key (m/44'/148'/8')
+      ✓ should return: SCGMC...MAQST
+    Secret Key (m/44'/148'/9')
+      ✓ should return: SCPA5...C37GF
+
+  Test Vector 4 (SEP-0005)
+    Test Vector 4 Mnemonic Validation
+      ✓ should be valid
+    BIP39 Seed
+      ✓ should return: d425d39...742a489
+    Public Key (m/44'/148'/0')
+      ✓ should return: GDAHP...B63EQ
+    Public Key (m/44'/148'/1')
+      ✓ should return: GDY47...4OJOC
+    ...
+    Secret Key (m/44'/148'/9')
+      ✓ should return: SDXDY...UXNOS
+
+
+  44 passing (567ms)
+```
 
 <br />
 

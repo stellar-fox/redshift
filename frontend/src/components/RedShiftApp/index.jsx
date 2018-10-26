@@ -4,7 +4,7 @@ import {
     devEnv,
     isObject,
 } from "@xcmats/js-toolbox"
-import { dynamicImportLibs } from "../../utils"
+import { dynamicImportLibs } from "../../lib/utils"
 
 import Content from "../Content"
 import Footer from "../Footer"

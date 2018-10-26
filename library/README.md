@@ -55,6 +55,15 @@ _redshift library_ uses `24` (or `12`) word mnemonics.
 
 
 
+## documentation
+
+> [API Reference](https://stellar-fox.github.io/redshift/jsdoc/)
+
+<br />
+
+
+
+
 > Tested with `SEP-0005` Vectors 3 and 4
 
 ```bash

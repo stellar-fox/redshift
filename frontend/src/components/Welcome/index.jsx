@@ -1,12 +1,12 @@
 import React, { Component } from "react"
-import bip39 from "bip39"
 import { string } from "@xcmats/js-toolbox"
 
 import {
+    LANGUAGE,
+    genKeypair,
     genMnemonic,
     mnemonicToSeedHex,
-    genKeypair,
-    LANGUAGE,
+    validateMnemonic,
 } from "../../lib/redshift"
 
 import Panel from "../Panel"
@@ -127,7 +127,7 @@ export default class Welcome extends Component {
                         splitter = "\u3000"
                     }
                     let mnemonicStr = this.state.restoredPhrase.join(splitter)
-                    if (!bip39.validateMnemonic(mnemonicStr)) {
+                    if (!validateMnemonic(mnemonicStr)) {
                         this.setState({ mnemonicInvalid: true })
                     }
                     this.restoreMnemonic(mnemonicStr)
@@ -153,7 +153,7 @@ export default class Welcome extends Component {
                 passphrase: event.target.value,
             },
             () => {
-                const bip39Seed = bip39.mnemonicToSeedHex(
+                const bip39Seed = mnemonicToSeedHex(
                     this.state.mnemonic,
                     this.state.passphrase
                 )

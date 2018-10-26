@@ -12,6 +12,7 @@
 import {
     generateMnemonic,
     mnemonicToSeedHex,
+    validateMnemonic as bip39validateMnemonic,
     wordlists,
 } from "bip39"
 import {
@@ -79,6 +80,20 @@ export const genMnemonic = (
         undefined,
         wordlists[language]
     )
+
+
+
+
+/**
+ * Check mnemonic validity. BIP39 implementation.
+ *
+ * @function validateMnemonic
+ * @param {String} mnemonic
+ * @param {String} [language=LANGUAGE.EN]
+ * @returns {Boolean} `true` if mnemonic checksum is ok, `false` otherwise
+ */
+export const validateMnemonic = (mnemonic, language = LANGUAGE.EN) =>
+    bip39validateMnemonic(mnemonic, wordlists[language])
 
 
 

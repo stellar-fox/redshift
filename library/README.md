@@ -157,6 +157,7 @@ redshift
 >      KR: 'korean',
 >      SP: 'spanish' },
 >   genMnemonic: [Function: genMnemonic],
+>   validateMnemonic: [Function: validateMnemonic],
 >   mnemonicToSeedHex: [Function: mnemonicToSeedHex],
 >   genKeypair: [Function: genKeypair],
 >   newAccount: [Function: newAccount] }

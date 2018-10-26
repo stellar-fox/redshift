@@ -301,7 +301,7 @@ redshift
 > Tested with `SEP-0005` Vectors 3 and 4
 
 ```bash
-$ npm run test
+$ npm run test:full
 
   Test Vector 3 (SEP-0005)
     Test Vector 3 Mnemonic Validation

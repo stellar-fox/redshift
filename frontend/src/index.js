@@ -1,8 +1,8 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { unregister } from "./frontend/caching-service-worker"
+import { unregister } from "./lib/caching-service-worker"
 
-import RedShiftApp from "./frontend/RedShiftApp"
+import RedShiftApp from "./components/RedShiftApp"
 
 
 

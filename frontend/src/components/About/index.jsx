@@ -145,17 +145,12 @@ export default () =>
             devices. Different mnemonic lengths will be implemented in
             the future.
         </p>
-        <p className="title">Libraries used:</p>
+        <p className="title">Library used:</p>
         <ul>
             <li>
-                <a href="https://crypto.stanford.edu/sjcl/">sjcl</a> -
-                Stanford Javascript Crypto Library
-            </li>
-            <li>
-                <a href="https://github.com/stellar/js-stellar-base">
-                    js-stellar-base
-                </a>{" "}
-                - Lowest level stellar helper library.
+                <a href="https://www.npmjs.com/package/@stellar-fox/redshift">
+                    redshift
+                </a>{" "} - Stellar HD Accounts Generator.
             </li>
         </ul>
 

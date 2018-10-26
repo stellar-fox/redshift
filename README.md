@@ -14,7 +14,7 @@
 
 
 
-# Redshift
+# redshift
 
 Stellar HD Accounts Generator
 
@@ -25,7 +25,7 @@ https://stellar-fox.github.io/redshift/
 
 
 
-## Redshift frontend
+## redshift frontend
 
 https://github.com/stellar-fox/redshift/tree/master/frontend
 
@@ -34,7 +34,7 @@ https://github.com/stellar-fox/redshift/tree/master/frontend
 
 
 
-## Redshift library
+## redshift library
 
 https://github.com/stellar-fox/redshift/tree/master/library
 
@@ -43,7 +43,7 @@ https://github.com/stellar-fox/redshift/tree/master/library
 
 
 
-## Support
+## support
 
 ```
 GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR

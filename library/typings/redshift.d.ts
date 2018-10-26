@@ -56,6 +56,17 @@ declare module "@stellar-fox/redshift" {
 
 
     /**
+     * Check mnemonic validity. BIP39 implementation.
+     */
+    export function validateMnemonic (
+        mnemonic: string,
+        language?: string
+    ): boolean;
+
+
+
+
+    /**
      * Generate hex seed from a given `mnemonic` and `passphrase`.
      * BIP39 implementation.
      */

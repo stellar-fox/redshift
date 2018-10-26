@@ -4,10 +4,10 @@ import { string } from "@xcmats/js-toolbox"
 
 import {
     genMnemonic,
-    hexSeed,
-    keypair,
+    mnemonicToSeedHex,
+    genKeypair,
     LANGUAGE,
-} from "../../lib/src/index"
+} from "../../lib/dist/redshift"
 
 import Panel from "../Panel"
 import Button from "../Button"
@@ -61,23 +61,23 @@ export default class Welcome extends Component {
 
     // ...
     updateMnemonic = () => {
-        this.setState({ buttonVisible: false, })
+        this.setState({ buttonVisible: false })
         const
             mnemonic = genMnemonic(this.state.language),
-            bip39Seed = hexSeed(mnemonic, this.state.passphrase)
+            bip39Seed = mnemonicToSeedHex(mnemonic, this.state.passphrase)
 
-        this.setState({ mnemonic, bip39Seed, })
+        this.setState({ mnemonic, bip39Seed })
 
         if (this.state.sjcl && this.state.StellarBase) {
-            const keyPair = keypair(
+            const keypair = genKeypair(
                 bip39Seed,
                 this.state.derivationPathIndex
             )
             this.setState((_prevState) => ({
-                pubKey: keyPair.publicKey(),
+                pubKey: keypair.publicKey(),
             }))
             this.setState((_prevState) => ({
-                secretKey: keyPair.secret(),
+                secretKey: keypair.secret(),
             }))
         }
     }
@@ -85,21 +85,21 @@ export default class Welcome extends Component {
 
     // ...
     enterMnemonic = () => {
-        this.setState({ buttonVisible: false, })
-        this.setState((_prevState) => ({ restoring: 1, }))
+        this.setState({ buttonVisible: false })
+        this.setState((_prevState) => ({ restoring: 1 }))
     }
 
 
     // ...
     restoreMnemonic = (mnemonic) => {
-        this.setState((_prevState) => ({ restoring: undefined, }))
+        this.setState((_prevState) => ({ restoring: undefined }))
 
-        const bip39Seed = hexSeed(mnemonic)
+        const bip39Seed = mnemonicToSeedHex(mnemonic)
 
-        this.setState({ mnemonic, bip39Seed, })
+        this.setState({ mnemonic, bip39Seed })
 
         if (this.state.sjcl && this.state.StellarBase) {
-            const keyPair = keypair(
+            const keyPair = genKeypair(
                 bip39Seed,
                 this.state.derivationPathIndex
             )
@@ -115,10 +115,10 @@ export default class Welcome extends Component {
 
     // ...
     advanceWord = (index, value) => {
-        this.setState({ restoring: index + 1, })
+        this.setState({ restoring: index + 1 })
         this.setState(
             {
-                restoredPhrase: [...this.state.restoredPhrase, value,],
+                restoredPhrase: [...this.state.restoredPhrase, value],
             },
             () => {
                 if (index === 24) {
@@ -128,13 +128,13 @@ export default class Welcome extends Component {
                     }
                     let mnemonicStr = this.state.restoredPhrase.join(splitter)
                     if (!bip39.validateMnemonic(mnemonicStr)) {
-                        this.setState({ mnemonicInvalid: true, })
+                        this.setState({ mnemonicInvalid: true })
                     }
                     this.restoreMnemonic(mnemonicStr)
                 }
             }
         )
-        this.setState((_prevState) => ({ wordValue: string.empty(), }))
+        this.setState((_prevState) => ({ wordValue: string.empty() }))
     }
 
 
@@ -168,7 +168,7 @@ export default class Welcome extends Component {
                             this.state.pubKey &&
                             !this.state.restoring
                         ) {
-                            const keyPair = keypair(
+                            const keyPair = genKeypair(
                                 bip39Seed,
                                 this.state.derivationPathIndex
                             )
@@ -258,7 +258,7 @@ export default class Welcome extends Component {
                 derivationPathIndex: 0,
             }))
             if (this.state.pubKey) {
-                let keyPair = keypair(this.state.bip39Seed, 0)
+                let keyPair = genKeypair(this.state.bip39Seed, 0)
                 this.setState((_prevState) => ({
                     pubKey: keyPair.publicKey(),
                 }))
@@ -283,7 +283,7 @@ export default class Welcome extends Component {
         })
         if (this.state.pubKey) {
             if (!isNaN(index) && index >= 0) {
-                let keyPair = keypair(this.state.bip39Seed, index)
+                let keyPair = genKeypair(this.state.bip39Seed, index)
                 this.setState((_prevState) => ({
                     derivationPathIndex: index,
                 }))

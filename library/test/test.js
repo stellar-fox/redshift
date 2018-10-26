@@ -8,8 +8,7 @@ var
     redshift = require("../dist/redshift"),
     { string } = require("@xcmats/js-toolbox"),
 
-
-    // test data
+    // test data - vector 3
     testVector3Mnemonic  = "bench hurt jump file august wise shallow faculty impulse spring exact slush thunder author capable act festival slice deposit sauce coconut afford frown better",
     testVector3SeedHex = "937ae91f6ab6f12461d9936dfc1375ea5312d097f3f1eb6fed6a82fbe38c85824da8704389831482db0433e5f6c6c9700ff1946aa75ad8cc2654d6e40f567866",
     testVector3PublicKeys = [
@@ -36,6 +35,8 @@ var
         "SCGMC5AHAAVB3D4JXQPCORWW37T44XJZUNPEMLRW6DCOEARY3H5MAQST",
         "SCPA5OX4EYINOPAUEQCPY6TJMYICUS5M7TVXYKWXR3G5ZRAJXY3C37GF",
     ],
+
+    // test data - vector 4
     testVector4Mnemonic  = "cable spray genius state float twenty onion head street palace net private method loan turn phrase state blanket interest dry amazing dress blast tube",
     testVector4Passhrase = "p4ssphr4se",
     testVector4SeedHex = "d425d39998fb42ce4cf31425f0eaec2f0a68f47655ea030d6d26e70200d8ff8bd4326b4bdf562ea8640a1501ae93ccd0fd7992116da5dfa24900e570a742a489",
@@ -67,8 +68,18 @@ var
 
 
 
-// Vector 3
+// vector 3
 describe("Test Vector 3 (SEP-0005)", () => {
+
+    // mnemonic validation
+    describe("Test Vector 3 Mnemonic Validation", () =>
+        it("should be valid", () =>
+            assert.equal(
+                redshift.validateMnemonic(testVector3Mnemonic), true
+            )
+        )
+    )
+
 
     // seed
     describe("BIP39 Seed", () =>
@@ -115,8 +126,18 @@ describe("Test Vector 3 (SEP-0005)", () => {
 
 
 
-// Vector 4
+// vector 4
 describe("Test Vector 4 (SEP-0005)", () => {
+
+    // mnemonic validation
+    describe("Test Vector 4 Mnemonic Validation", () =>
+        it("should be valid", () =>
+            assert.equal(
+                redshift.validateMnemonic(testVector4Mnemonic), true
+            )
+        )
+    )
+
 
     // seed
     describe("BIP39 Seed", () =>

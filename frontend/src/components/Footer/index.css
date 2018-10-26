@@ -1,9 +1,10 @@
 div.footer {
-    background: none repeat scroll 0 0 rgb(15,46,83);
-    border-top: 1px solid rgba(212,228,188,0.4);
-    padding: 8px 8px 8px 8px;
+    background-color: #091b31;
+    border-top: 1px solid rgba(212, 228, 188, 0.4);
+    padding: 6px;
     font-size: 0.8em;
-    color: rgba(212,228,188,0.4);
+    line-height: 1.2em;
+    color: rgba(212, 228, 188, 0.6);
     position: fixed;
     bottom: 0;
     left: 0;
@@ -18,6 +19,10 @@ footer {
     align-items: baseline;
 }
 
-footer.right {
-    justify-content: flex-end;
-}
+footer.right { justify-content: flex-end; }
+
+.footersfox a { color: #b5bbc1; }
+
+.footermoji { color: white; }
+
+.footerheart { color: rgba(255, 0, 0, 0.75); }

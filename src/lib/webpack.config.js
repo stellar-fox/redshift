@@ -22,7 +22,7 @@ module.exports = {
 
 
     entry: {
-        "index": path.resolve(
+        "redshift": path.resolve(
             projectRoot, "src/index.js"
         ),
     },

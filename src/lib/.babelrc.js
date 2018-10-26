@@ -9,36 +9,6 @@ module.exports = function (api) {
 
     return {
         "env": {
-            "es": {
-                "comments": false,
-                "plugins": [
-                    "@babel/plugin-proposal-object-rest-spread",
-                    "@babel/plugin-transform-arrow-functions",
-                    "@babel/plugin-transform-block-scoped-functions",
-                    "@babel/plugin-transform-block-scoping",
-                    "@babel/plugin-transform-computed-properties",
-                    "@babel/plugin-transform-destructuring",
-                    "@babel/plugin-transform-exponentiation-operator",
-                    "@babel/plugin-transform-literals",
-                    "@babel/plugin-transform-parameters",
-                    "@babel/plugin-transform-runtime",
-                    "@babel/plugin-transform-shorthand-properties",
-                    "@babel/plugin-transform-spread",
-                    "@babel/plugin-transform-template-literals"
-                ],
-                "presets": [
-                    [
-                        "@babel/preset-env",
-                        {
-                            "modules": false,
-                            "shippedProposals": true,
-                            "targets": {
-                                "esmodules": true
-                            }
-                        }
-                    ]
-                ]
-            },
             "production": {
                 "comments": false,
                 "plugins": [

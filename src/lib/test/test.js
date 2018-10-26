@@ -1,6 +1,6 @@
 /* global describe it */
 var assert = require("assert")
-var redshift = require("../dist/index")
+var redshift = require("../dist/redshift")
 
 var testVector3Mnemonic  = "bench hurt jump file august wise shallow faculty impulse spring exact slush thunder author capable act festival slice deposit sauce coconut afford frown better"
 var testVector4Mnemonic  = "cable spray genius state float twenty onion head street palace net private method loan turn phrase state blanket interest dry amazing dress blast tube"

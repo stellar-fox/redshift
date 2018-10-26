@@ -61,7 +61,6 @@
     },
     "files": [
         "dist",
-        "es",
         "jsdoc",
         "src",
         "test",
@@ -74,8 +73,7 @@
         "stellar"
     ],
     "license": "Apache-2.0",
-    "main": "dist/index.js",
-    "module": "es/index.js",
+    "main": "dist/redshift.js",
     "name": "@stellar-fox/redshift",
     "private": false,
     "publishConfig": {
@@ -86,20 +84,19 @@
         "url": "git+https://github.com/stellar-fox/redshift.git"
     },
     "scripts": {
-        "build": "npm run clean:build && npm run build:umd && npm run build:es",
+        "build": "npm run clean:build && npm run build:umd",
         "build:umd": "npm run configure:sjcl && cross-env BABEL_ENV=production webpack -p --config=webpack.config.js",
-        "build:es": "cross-env BABEL_ENV=es babel ./src/ -d ./es/",
         "clean": "npm run clean:build && npm run clean:doc",
-        "clean:build": "rimraf ./es ./dist",
+        "clean:build": "rimraf ./dist",
         "clean:doc": "rimraf ./jsdoc",
         "clean:modules": "rimraf node_modules",
         "configure:sjcl": "./scripts/configure.sjcl.sh",
         "doc": "npm run clean:doc && npm run jsdoc",
         "jsdoc": "echo \"Generating jsdoc ...\" && jsdoc -c ./jsdoc.json -R ./README.md ./src/ -d ./jsdoc/",
         "lint": "eslint ./src/",
-        "prepublishOnly": "npm run test && npm run doc && npm run build",
+        "prepublishOnly": "npm run test && npm run doc",
         "start": "npm run build:umd && node ./scripts/start.js",
-        "test": "npm run lint && npm run build:umd && mocha"
+        "test": "npm run lint && npm run build && mocha"
     },
     "typings": "typings/redshift.d.ts",
     "version": "0.4.0"

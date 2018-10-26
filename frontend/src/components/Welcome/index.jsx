@@ -127,7 +127,7 @@ export default class Welcome extends Component {
                         splitter = "\u3000"
                     }
                     let mnemonicStr = this.state.restoredPhrase.join(splitter)
-                    if (!validateMnemonic(mnemonicStr)) {
+                    if (!validateMnemonic(mnemonicStr, this.state.language)) {
                         this.setState({ mnemonicInvalid: true })
                     }
                     this.restoreMnemonic(mnemonicStr)

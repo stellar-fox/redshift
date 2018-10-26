@@ -63,7 +63,7 @@ export const LANGUAGE = Object.freeze({
 
 
 /**
- * Generate mnemonic.
+ * Generate mnemonic. BIP39 implementation.
  *
  * @function genMnemonic
  * @param {String} [language=LANGUAGE.EN]
@@ -84,27 +84,28 @@ export const genMnemonic = (
 
 
 /**
- * Generate hex seed from a given mnemonic.
+ * Generate hex seed from a given `mnemonic` and `passphrase`.
+ * BIP39 implementation.
  *
- * @function hexSeed
+ * @function mnemonicToSeedHex
  * @param {String} mnemonic
  * @param {String} [passphrase=""]
  * @returns {String}
  */
-export const hexSeed = mnemonicToSeedHex
+export { mnemonicToSeedHex } from "bip39"
 
 
 
 
 /**
- * Generate stellar keypair object from a given seed and pathIndex.
+ * Generate `stellar` Keypair object from a given `seed` and a `pathIndex`.
  *
- * @function keypair
+ * @function genKeypair
  * @param {String} seed
  * @param {Number} [pathIndex=0]
  * @returns {Object}
  */
-export const keypair = (seed, pathIndex = 0) => {
+export const genKeypair = (seed, pathIndex = 0) => {
 
     const
 
@@ -140,7 +141,7 @@ export const keypair = (seed, pathIndex = 0) => {
                 IR = I.slice(8)
             }
 
-            return { IL: IL, IR: IR }
+            return { IL, IR }
         },
 
 
@@ -169,32 +170,26 @@ export const keypair = (seed, pathIndex = 0) => {
 
 
 /**
- * Randomly generate object
- * with mnemonic, seed, keypair, publicKey and secret.
+ * Randomly generate object with `mnemonic`,
+ * `passphrase`, `pathIndex`, `seed` and `keypair`.
  *
- * @function random
- * @param {String} [language=LANGUAGE.EN]
+ * @function newAccount
  * @param {String} [passphrase=""]
  * @param {Number} [pathIndex=0]
+ * @param {String} [language=LANGUAGE.EN]
  * @returns {Object}
  */
-export const random = (
-    language = LANGUAGE.EN,
+export const newAccount = (
     passphrase = string.empty(),
-    pathIndex = 0
+    pathIndex = 0,
+    language = LANGUAGE.EN
 ) => {
 
-    const
+    let
         mnemonic = genMnemonic(language),
-        seed = hexSeed(mnemonic, passphrase),
-        keys = keypair(seed, pathIndex)
+        seed = mnemonicToSeedHex(mnemonic, passphrase),
+        keypair = genKeypair(seed, pathIndex)
 
-    return {
-        mnemonic,
-        seed,
-        keypair: keys,
-        publicKey: keys.publicKey(),
-        secret: keys.secret(),
-    }
+    return { mnemonic, passphrase, pathIndex, seed, keypair }
 
 }

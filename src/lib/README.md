@@ -131,9 +131,9 @@ $ npm start
      KR: 'korean',
      SP: 'spanish' },
   genMnemonic: [Function: genMnemonic],
-  hexSeed: [Function: hexSeed],
-  keypair: [Function: keypair],
-  random: [Function: random] }
+  mnemonicToSeedHex: [Function: mnemonicToSeedHex],
+  genKeypair: [Function: genKeypair],
+  newAccount: [Function: newAccount] }
 ```
 
 <br />
@@ -143,7 +143,7 @@ $ npm start
 
 ## examples
 
-* Randomly generate `mnemonic` of a high entropy in english.
+* Randomly generate `mnemonic` of a high entropy using english words.
 
     ```javascript
     > redshift.genMnemonic().split(' ')
@@ -188,26 +188,26 @@ $ npm start
     > mnemonic = redshift.genMnemonic()
     'hold awful slender tide arrange window burden erase bamboo ...'
 
-    > seed = redshift.hexSeed(mnemonic)
+    > seed = redshift.mnemonicToSeedHex(mnemonic)
     '016d98a5956955896613c59e277cf...318ca1e6d94f792316b8f5afa0d8f2dc6'
     ```
 
 
-* Generate hex `seed` from a given `mnemonic` and secret passphrase.
+* Generate hex `seed` from a given `mnemonic` and secret `passphrase`.
 
     ```javascript
     > mnemonic = redshift.genMnemonic()
     'ride throw body pet abstract gossip few online acoustic scare ...'
 
-    > seed = redshift.hexSeed(mnemonic, 'my secret phrase')
+    > seed = redshift.mnemonicToSeedHex(mnemonic, 'my secret phrase')
     '2b8b5c2a3bac1f54a5c716621e3c487...f54d68f7e14402ac9ff76f1fcf92096e'
     ```
 
 
-* Generate stellar keypair object from a given `seed`.
+* Generate _stellar_ `keypair` object from a given `seed`.
 
     ```javascript
-    > kp = redshift.keypair(seed)
+    > kp = redshift.genKeypair(seed)
     Keypair {
     type: 'ed25519',
     _secretSeed: <Buffer 95 a7 98 ... >,
@@ -227,10 +227,10 @@ $ npm start
     ```
 
 
-* Generate stellar keypair object from a given `seed` and `pathIndex`.
+* Generate _stellar_ keypair object from a given `seed` and `pathIndex`.
 
     ```javascript
-    > kp = redshift.keypair(seed, 27)
+    > kp = redshift.genKeypair(seed, 27)
     ...
 
     > kp.publicKey()

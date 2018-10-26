@@ -2,18 +2,15 @@
 export const dynamicImportLibs = async () => {
     let [
         redshift,
-        sjcl,
         stellar,
         toolbox,
     ] = await Promise.all([
-        import("./lib/src/index"),
-        import("sjcl"),
+        import("./lib/dist/redshift"),
         import("stellar-base"),
         import("@xcmats/js-toolbox"),
     ])
     return {
         redshift,
-        sjcl,
         stellar,
         toolbox,
     }

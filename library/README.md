@@ -9,7 +9,7 @@ Stellar HD Accounts Generator - library.
 [![GitHub tag](https://img.shields.io/github/tag/stellar-fox/redshift.svg)](https://github.com/stellar-fox/redshift)
 
 ```bash
-$ npm install @stellar-fox/redshift
+$ npm i @stellar-fox/redshift
 ```
 
 <br />
@@ -318,4 +318,6 @@ redshift
 
 ## support
 
-    GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR
+```
+GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR
+```

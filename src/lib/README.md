@@ -238,9 +238,9 @@ redshift
     > ```javascript
     > Keypair {
     > type: 'ed25519',
-    > _secretSeed: <Buffer 95 a7 98 ... >,
-    > _secretKey: <Buffer 95 a7 98 ... >,
-    > _publicKey: <Buffer 16 90 31 ... > }
+    > _secretSeed: <Buffer ... >,
+    > _secretKey: <Buffer ... >,
+    > _publicKey: <Buffer ... > }
     > ```
 
     ```javascript
@@ -307,8 +307,8 @@ redshift
     > keypair:
     > Keypair {
     >     type: 'ed25519',
-    >     _secretSeed: <Buffer 3c 1c a1 8c d9 ... >,
-    >     _publicKey: <Buffer f6 6b c5 75 ce ... > } }
+    >     _secretSeed: <Buffer ... >,
+    >     _publicKey: <Buffer ... > } }
     > ```
 
 <br />

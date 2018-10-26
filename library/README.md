@@ -112,10 +112,22 @@ $ npm run test
 ```bash
 $ git clone git@github.com:stellar-fox/redshift.git
 Cloning into 'redshift'...
-$ cd redshift/src/lib/
+$ cd redshift/library/
 $ npm i
 $ npm start
-🎉  Successfully compiled 1 file with Babel.
+Compiling for 'production' ...
+Hash: ce2fa61bbab7389719ad
+Version: webpack 4.23.1
+Time: 1436ms
+Built at: 2018-10-26 19:10:45
+      Asset      Size  Chunks             Chunk Names
+redshift.js  12.3 KiB       0  [emitted]  redshift
+Entrypoint redshift = redshift.js
+[1] external "bip39" 42 bytes {0} [built]
+[2] external "@xcmats/js-toolbox" 42 bytes {0} [built]
+[3] external "stellar-base" 42 bytes {0} [built]
+[4] ./src/index.js 2.71 KiB {0} [built]
+    + 1 hidden module
 ```
 
 ```javascript

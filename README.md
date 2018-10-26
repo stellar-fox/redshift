@@ -27,7 +27,8 @@ https://stellar-fox.github.io/redshift/
 
 ## redshift frontend
 
-https://github.com/stellar-fox/redshift/tree/master/frontend
+* [source repository](https://github.com/stellar-fox/redshift/tree/master/frontend/)
+* [live deployment](https://stellar-fox.github.io/redshift/)
 
 <br />
 
@@ -36,7 +37,9 @@ https://github.com/stellar-fox/redshift/tree/master/frontend
 
 ## redshift library
 
-https://github.com/stellar-fox/redshift/tree/master/library
+* [source repository](https://github.com/stellar-fox/redshift/tree/master/library/)
+* [npm package](https://www.npmjs.com/package/@stellar-fox/redshift)
+* [documentation](https://stellar-fox.github.io/redshift/jsdoc/)
 
 <br />
 

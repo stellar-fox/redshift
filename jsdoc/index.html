@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html">@stellar-fox/redshift</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genKeypair">genKeypair</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genMnemonic">genMnemonic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~mnemonicToSeedHex">mnemonicToSeedHex</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~newAccount">newAccount</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html">@stellar-fox/redshift</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genKeypair">genKeypair</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genMnemonic">genMnemonic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~mnemonicToSeedHex">mnemonicToSeedHex</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~newAccount">newAccount</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~validateMnemonic">validateMnemonic</a></span></li>
 </nav>
 
 <div id="main">
@@ -76,47 +76,11 @@ derivation for <em>Stellar</em> accounts based on word mnemonic of different len
 <p><a href="https://stellar-fox.github.io/redshift/jsdoc/">API Reference</a></p>
 </blockquote>
 <p><br /></p>
-<h2>tests</h2><blockquote>
-<p>Tested with <code>SEP-0005</code> Vectors 3 and 4</p>
-</blockquote>
-<pre class="prettyprint source lang-bash"><code>$ npm run test
-
-  Test Vector 3 (SEP-0005)
-    BIP39 Seed
-      ✓ should return: 937ae91...f567866
-    Public Key (m/44'/148'/0')
-      ✓ should return: GC3MM...BTPJQ (58ms)
-    Public Key (m/44'/148'/1')
-      ✓ should return: GB3MT...YYISO
-    Public Key (m/44'/148'/2')
-      ✓ should return: GDYF7...DGAKU
-   ...
-      ✓ should return: SBSHU...2ZEO2
-    Secret Key (m/44'/148'/7')
-      ✓ should return: SC2QO...YWC6E
-    Secret Key (m/44'/148'/8')
-      ✓ should return: SCGMC...MAQST
-    Secret Key (m/44'/148'/9')
-      ✓ should return: SCPA5...C37GF
-
-  Test Vector 4 (SEP-0005)
-    BIP39 Seed
-      ✓ should return: d425d39...742a489
-    Public Key (m/44'/148'/0')
-      ✓ should return: GDAHP...B63EQ
-    Public Key (m/44'/148'/1')
-      ✓ should return: GDY47...4OJOC
-    ...
-    Secret Key (m/44'/148'/9')
-      ✓ should return: SDXDY...UXNOS
-
-
-  42 passing (567ms)</code></pre><p><br /></p>
 <h2>experimenting in browser</h2><blockquote>
 <p><a href="https://npm.runkit.com/@stellar-fox/redshift">RunKit with @stellar-fox/redshift</a></p>
 </blockquote>
 <p><br /></p>
-<h2>experimenting in <a href="https://nodejs.org/">node.js</a></h2><pre class="prettyprint source lang-bash"><code>$ git clone git@github.com:stellar-fox/redshift.git
+<h2>experimenting locally</h2><pre class="prettyprint source lang-bash"><code>$ git clone git@github.com:stellar-fox/redshift.git
 Cloning into 'redshift'...
 $ cd redshift/library/
 $ npm i
@@ -145,9 +109,11 @@ Entrypoint redshift = redshift.js
      KR: 'korean',
      SP: 'spanish' },
   genMnemonic: [Function: genMnemonic],
+  validateMnemonic: [Function: validateMnemonic],
   mnemonicToSeedHex: [Function: mnemonicToSeedHex],
   genKeypair: [Function: genKeypair],
-  newAccount: [Function: newAccount] }</code></pre></blockquote>
+  newAccount: [Function: newAccount],
+  version: [Getter] }</code></pre></blockquote>
 <p><br /></p>
 <h2>examples</h2><ul>
 <li><p>Randomly generate <code>mnemonic</code> of a high entropy using english words.</p>
@@ -189,15 +155,15 @@ Entrypoint redshift = redshift.js
 <pre class="prettyprint source lang-javascript"><code>  mnemonic = redshift.genMnemonic()</code></pre><blockquote>
 <pre class="prettyprint source lang-javascript"><code>'hold awful slender tide arrange window burden erase bamboo ...'</code></pre></blockquote>
 <pre class="prettyprint source lang-javascript"><code>  seed = redshift.mnemonicToSeedHex(mnemonic)</code></pre><blockquote>
-<pre class="prettyprint source lang-javascript"><code>'016d98a5956955896613c59e277cf...318ca1e6d94f792316b8f5afa0d8f2dc6'</code></pre></blockquote>
+<pre class="prettyprint source lang-javascript"><code>'016d98a5956955896613c59e277...8ca1e6d94f792316b8f5afa0d8f2dc6'</code></pre></blockquote>
 </li>
 </ul>
 <ul>
 <li><p>Generate hex <code>seed</code> from a given <code>mnemonic</code> and secret <code>passphrase</code>.</p>
 <pre class="prettyprint source lang-javascript"><code>  mnemonic = redshift.genMnemonic()</code></pre><blockquote>
-<pre class="prettyprint source lang-javascript"><code>'ride throw body pet abstract gossip few online acoustic scare ...'</code></pre></blockquote>
+<pre class="prettyprint source lang-javascript"><code>'ride throw body pet abstract gossip few online acoustic ...'</code></pre></blockquote>
 <pre class="prettyprint source lang-javascript"><code>  seed = redshift.mnemonicToSeedHex(mnemonic, 'my secret phrase')</code></pre><blockquote>
-<pre class="prettyprint source lang-javascript"><code>'2b8b5c2a3bac1f54a5c716621e3c487...f54d68f7e14402ac9ff76f1fcf92096e'</code></pre></blockquote>
+<pre class="prettyprint source lang-javascript"><code>'2b8b5c2a3bac1f54a5c716621e3c4...4d68f7e14402ac9ff76f1fcf92096e'</code></pre></blockquote>
 </li>
 </ul>
 <ul>
@@ -233,10 +199,10 @@ kp.verify   kp.xdrAccountId  kp.xdrPublicKey</code></pre></blockquote>
   <code>seed</code> and <em>stellar</em> <code>keypair</code>. Optionally <code>passphrase</code> and <code>pathIndex</code>
   can be passed as an arguments.</p>
 <pre class="prettyprint source lang-javascript"><code>  redshift.newAccount(&quot;strawberry fields forever&quot;, 27)</code></pre><blockquote>
-<pre class="prettyprint source lang-javascript"><code>{ mnemonic: 'spell crawl shiver swallow ecology mercy unaware ...',
+<pre class="prettyprint source lang-javascript"><code>{ mnemonic: 'spell crawl shiver swallow ecology mercy ...',
 passphrase: 'strawberry fields forever',
 pathIndex: 27,
-seed: 'd3dbb69cf5a538ef8594fafd364...2370a10a806b9a44be5157917',
+seed: 'd3dbb69cf5a538ef8594fafd3...70a10a806b9a44be5157917',
 keypair:
 Keypair {
     type: 'ed25519',
@@ -245,6 +211,46 @@ Keypair {
 </li>
 </ul>
 <p><br /></p>
+<h2>tests</h2><blockquote>
+<p>Tested with <code>SEP-0005</code> Vectors 3 and 4</p>
+</blockquote>
+<pre class="prettyprint source lang-bash"><code>$ npm run test:full
+
+  Test Vector 3 (SEP-0005)
+    Test Vector 3 Mnemonic Validation
+      ✓ should be valid
+    BIP39 Seed
+      ✓ should return: 937ae91...f567866
+    Public Key (m/44'/148'/0')
+      ✓ should return: GC3MM...BTPJQ (58ms)
+    Public Key (m/44'/148'/1')
+      ✓ should return: GB3MT...YYISO
+    Public Key (m/44'/148'/2')
+      ✓ should return: GDYF7...DGAKU
+   ...
+      ✓ should return: SBSHU...2ZEO2
+    Secret Key (m/44'/148'/7')
+      ✓ should return: SC2QO...YWC6E
+    Secret Key (m/44'/148'/8')
+      ✓ should return: SCGMC...MAQST
+    Secret Key (m/44'/148'/9')
+      ✓ should return: SCPA5...C37GF
+
+  Test Vector 4 (SEP-0005)
+    Test Vector 4 Mnemonic Validation
+      ✓ should be valid
+    BIP39 Seed
+      ✓ should return: d425d39...742a489
+    Public Key (m/44'/148'/0')
+      ✓ should return: GDAHP...B63EQ
+    Public Key (m/44'/148'/1')
+      ✓ should return: GDY47...4OJOC
+    ...
+    Secret Key (m/44'/148'/9')
+      ✓ should return: SDXDY...UXNOS
+
+
+  44 passing (567ms)</code></pre><p><br /></p>
 <h2>support</h2><pre class="prettyprint source"><code>GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR</code></pre></article>
     </section>
 
@@ -258,7 +264,7 @@ Keypair {
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Oct 26 2018 21:03:08 GMT+0200 (CEST) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Oct 26 2018 23:45:48 GMT+0200 (CEST) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

@@ -154,5 +154,9 @@ export default () =>
             </li>
         </ul>
 
-        <p>Tested with SEP-0005 Vectors 3 and 4</p>
+        <p>
+            <a href="https://github.com/stellar-fox/redshift/blob/master/library/test/test.js">
+                Tested with SEP-0005 Vectors 3 and 4
+            </a>
+        </p>
     </div>

@@ -324,7 +324,7 @@ redshift
     > { mnemonic: 'innocent yellow push captain end focus ...',
     >   passphrase: 's3cRET',
     >   account: 3,
-    >   seed: 'ac16748b113fb3ca85fb5cac515e...9235290d80bec70cd4fda0878',
+    >   seed: 'ac16748b113fb3ca85fb5cac...5290d80bec70cd4fda0878',
     >   keypair:
     >    Keypair {
     >      type: 'ed25519',

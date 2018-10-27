@@ -221,6 +221,33 @@ export const newAddress = (
 
 
 /**
+ * Restore address from a given `mnemonic`,
+ * `passphrase` and `account` number.
+ *
+ * @function restoreAddress
+ * @param {String} mnemonic
+ * @param {String} [passphrase=""]
+ * @param {Number} [account=0]
+ * @returns {AddressDescription}
+ */
+export const restoreAddress = (
+    mnemonic,
+    passphrase = string.empty(),
+    account = 0
+) => {
+
+    let
+        seed = mnemonicToSeedHex(mnemonic, passphrase),
+        keypair = genKeypair(seed, account)
+
+    return { mnemonic, passphrase, account, seed, keypair }
+
+}
+
+
+
+
+/**
  * Library version.
  *
  * @constant version

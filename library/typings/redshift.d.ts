@@ -121,6 +121,19 @@ declare module "@stellar-fox/redshift" {
 
 
     /**
+     * Restore address from a given `mnemonic`,
+     * `passphrase` and `account` number.
+     */
+    export function restoreAddress (
+        mnemonic: string,
+        passphrase: string,
+        account: number
+    ): AddressDescription;
+
+
+
+
+    /**
      * Library version.
      *
      * @constant version

@@ -130,6 +130,7 @@ redshift
 >   mnemonicToSeedHex: [Function: mnemonicToSeedHex],
 >   genKeypair: [Function: genKeypair],
 >   newAddress: [Function: newAddress],
+>   restoreAddress: [Function: restoreAddress],
 >   version: [Getter] }
 > ```
 
@@ -291,19 +292,44 @@ redshift
     and `account` number can be passed as an arguments.
 
     ```javascript
-    redshift.newAddress("strawberry fields forever", 27)
+    redshift.newAddress('strawberryFieldsF0R3V3R', 27)
     ```
 
     > ```javascript
     > { mnemonic: 'spell crawl shiver swallow ecology mercy ...',
-    > passphrase: 'strawberry fields forever',
-    > account: 27,
-    > seed: 'd3dbb69cf5a538ef8594fafd3...70a10a806b9a44be5157917',
-    > keypair:
-    > Keypair {
-    >     type: 'ed25519',
-    >     _secretSeed: <Buffer ... >,
-    >     _publicKey: <Buffer ... > } }
+    >   passphrase: 'strawberryFieldsF0R3V3R',
+    >   account: 27,
+    >   seed: 'd3dbb69cf5a538ef8594fafd3...70a10a806b9a44be5157917',
+    >   keypair:
+    >    Keypair {
+    >      type: 'ed25519',
+    >      _secretSeed: <Buffer ... >,
+    >      _publicKey: <Buffer ... > } }
+    > ```
+
+
+* Restore address from a given `mnemonic`, `passphrase`
+    and an `account` number.
+
+    ```javascript
+    redshift.restoreAddress(
+        'innocent yellow push captain end focus solution ...',
+        's3cRET',
+        3
+    )
+    ```
+
+    > ```javascript
+    > { mnemonic: 'innocent yellow push captain end focus ...',
+    >   passphrase: 's3cRET',
+    >   account: 3,
+    >   seed: 'ac16748b113fb3ca85fb5cac515e...9235290d80bec70cd4fda0878',
+    >   keypair:
+    >    Keypair {
+    >      type: 'ed25519',
+    >      _secretSeed: <Buffer ... >,
+    >      _secretKey: <Buffer ... >,
+    >      _publicKey: <Buffer ... > } }
     > ```
 
 <br />

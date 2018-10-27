@@ -75,12 +75,12 @@ _redshift library_ uses `24` (or `12`) word mnemonics.
 * recovering _stellar_ keypair based on known `mnemonic`,
     `passphrase` and an `account` number:
 
-    https://runkit.com/xcmats/redshift.restore.address/0.4.2/
+    https://runkit.com/xcmats/redshift.restore/
 
 
 * generating a new _stellar_ address:
 
-    https://runkit.com/xcmats/redshift.new.address/0.4.2/
+    https://runkit.com/xcmats/redshift.new/
 
 <br />
 

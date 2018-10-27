@@ -75,12 +75,12 @@ _redshift library_ uses `24` (or `12`) word mnemonics.
 * recovering _stellar_ keypair based on known `mnemonic`,
     `passphrase` and an `account` number:
 
-    https://runkit.com/embed/t85upkaiinad
+    https://runkit.com/xcmats/redshift.restore.address/0.4.2/
 
 
 * generating a new _stellar_ address:
 
-    https://runkit.com/embed/vcvtt226ibe8
+    https://runkit.com/xcmats/redshift.new.address/0.4.2/
 
 <br />
 
@@ -96,17 +96,18 @@ $ cd redshift/library/
 $ npm i
 $ npm start
 Compiling for 'production' ...
-Hash: ce2fa61bbab7389719ad
+Hash: f3832f6c64d8af6ce6d0
 Version: webpack 4.23.1
-Time: 1436ms
-Built at: 2018-10-26 19:10:45
+Time: 1861ms
+Built at: 2018-10-27 23:38:41
       Asset      Size  Chunks             Chunk Names
-redshift.js  12.3 KiB       0  [emitted]  redshift
+redshift.js  12.7 KiB       0  [emitted]  redshift
 Entrypoint redshift = redshift.js
-[1] external "bip39" 42 bytes {0} [built]
+[0] external "bip39" 42 bytes {0} [built]
 [2] external "@xcmats/js-toolbox" 42 bytes {0} [built]
 [3] external "stellar-base" 42 bytes {0} [built]
-[4] ./src/index.js 2.71 KiB {0} [built]
+[4] ./package.json 3.61 KiB {0} [built]
+[5] ./src/index.js 3.03 KiB {0} [built]
     + 1 hidden module
 ```
 
@@ -378,7 +379,7 @@ $ npm run test:full
       ✓ should return: SDXDY...UXNOS
 
 
-  44 passing (567ms)
+  44 passing (517ms)
 ```
 
 <br />

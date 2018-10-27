@@ -68,6 +68,16 @@ _redshift library_ uses `24` (or `12`) word mnemonics.
 
 > [RunKit with @stellar-fox/redshift](https://npm.runkit.com/@stellar-fox/redshift)
 
+
+* recovering _stellar_ keypair based on known `mnemonic`, `passphrase` and a `path index`:
+
+    https://runkit.com/embed/t85upkaiinad
+
+
+* generating a new _stellar_ address:
+
+    https://runkit.com/embed/vcvtt226ibe8
+
 <br />
 
 

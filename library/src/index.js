@@ -117,7 +117,7 @@ export { mnemonicToSeedHex } from "bip39"
  *
  * @function genKeypair
  * @see {@link https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki}
- * @param {String} seed
+ * @param {String} seed hex-encoded seed
  * @param {Number} [pathIndex=0]
  * @returns {Object}
  */
@@ -164,13 +164,13 @@ export const genKeypair = (seed, pathIndex = 0) => {
  * Randomly generate object with `mnemonic`,
  * `passphrase`, `pathIndex`, `seed` and `keypair`.
  *
- * @function newAccount
+ * @function newAddress
  * @param {String} [passphrase=""]
  * @param {Number} [pathIndex=0]
  * @param {String} [language=LANGUAGE.EN]
  * @returns {Object}
  */
-export const newAccount = (
+export const newAddress = (
     passphrase = string.empty(),
     pathIndex = 0,
     language = LANGUAGE.EN

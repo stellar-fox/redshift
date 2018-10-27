@@ -107,7 +107,7 @@ declare module "@stellar-fox/redshift" {
      * Randomly generate object with `mnemonic`,
      * `passphrase`, `pathIndex`, `seed` and `keypair`.
      */
-    export function newAccount (
+    export function newAddress (
         pathIndex?: number,
         language?: string,
         passphrase?: string

@@ -125,7 +125,7 @@ redshift
 >   validateMnemonic: [Function: validateMnemonic],
 >   mnemonicToSeedHex: [Function: mnemonicToSeedHex],
 >   genKeypair: [Function: genKeypair],
->   newAccount: [Function: newAccount],
+>   newAddress: [Function: newAddress],
 >   version: [Getter] }
 > ```
 
@@ -286,7 +286,7 @@ redshift
     can be passed as an arguments.
 
     ```javascript
-    redshift.newAccount("strawberry fields forever", 27)
+    redshift.newAddress("strawberry fields forever", 27)
     ```
 
     > ```javascript

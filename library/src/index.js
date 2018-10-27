@@ -116,67 +116,43 @@ export { mnemonicToSeedHex } from "bip39"
  * Generate `stellar` Keypair object from a given `seed` and a `pathIndex`.
  *
  * @function genKeypair
+ * @see {@link https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki}
  * @param {String} seed
  * @param {Number} [pathIndex=0]
  * @returns {Object}
  */
 export const genKeypair = (seed, pathIndex = 0) => {
 
-    const
+    // hash-based message authentication using sha512
+    const hmac512 = (key, data) =>
+        new sjclMisc.hmac(key, sjclHash.sha512).encrypt(data)
 
-        // ...
-        seedToMasterNode = (seed) => (
-            (I) => ({ IL: I.slice(0, 8), IR: I.slice(8) })
-        )(
-            new sjclMisc.hmac(
-                sjclCodec.utf8String.toBits("ed25519 seed"),
-                sjclHash.sha512
-            ).encrypt(seed)
-        ),
-
-
-        // ...
-        derivePath = (initIL, initIR, path) => {
-            let IL = initIL, IR = initIR
-
-            for (
-                let pathIndex = 0;
-                pathIndex < path.length;
-                pathIndex++
-            ) {
-                let
-                    index = path[pathIndex] + 0x80000000,
-                    I = new sjclMisc.hmac(IR, sjclHash.sha512).encrypt(
-                        bitArray.concat(
-                            bitArray.concat(sjclCodec.hex.toBits("0x00"), IL),
-                            sjclCodec.hex.toBits(index.toString(16))
-                        )
-                    )
-                IL = I.slice(0, 8)
-                IR = I.slice(8)
-            }
-
-            return { IL, IR }
-        },
-
-
-        // ...
-        masterNode = func.compose(
-            seedToMasterNode,
-            sjclCodec.hex.toBits
-        )(seed)
-
-
+    // generate _stellar_ `Keypair` object from a path-derived `seed`
     return func.compose(
+        // consume seed represented as `TypedArray`
+        // and produce _stellar_ `Keypair` object
         Keypair.fromRawEd25519Seed.bind(Keypair),
-        codec.hexToBytes,
-        sjclCodec.hex.fromBits
+        // convert SJCL's `bits` representation to a `TypedArray` in two steps:
+        // `bits-to-hex` and then `hex-to-bytes` (read it right-to-left)
+        codec.hexToBytes, sjclCodec.hex.fromBits
     )(
-        derivePath(
-            masterNode.IL,
-            masterNode.IR,
-            [44, 148, pathIndex]
-        ).IL
+        // walk the path and compute "hardened child extended private key"
+        [44, 148, pathIndex].reduce(
+            // compute "hardened child"
+            (acc, el) => hmac512(
+                acc.slice(8),
+                [
+                    sjclCodec.hex.toBits("0x00"),
+                    acc.slice(0, 8),
+                    sjclCodec.hex.toBits((el + 0x80000000).toString(16)),
+                ].reduce(bitArray.concat, [])
+            ),
+            // derive a "master extended private key" from an address seed
+            hmac512(
+                sjclCodec.utf8String.toBits("ed25519 seed"),
+                sjclCodec.hex.toBits(seed)
+            )
+        ).slice(0, 8)
     )
 
 }

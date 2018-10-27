@@ -399,6 +399,6 @@ GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR
 [bip39]: https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki
 [bip43]: https://github.com/bitcoin/bips/blob/master/bip-0043.mediawiki
 [bip44]: https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki
-[slip10]: https://github.com/satoshilabs/slips/blob/master/slip-0010.md}
-[slip44]: https://github.com/satoshilabs/slips/blob/master/slip-0044.md}
+[slip10]: https://github.com/satoshilabs/slips/blob/master/slip-0010.md
+[slip44]: https://github.com/satoshilabs/slips/blob/master/slip-0044.md
 [sep05]: https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0005.md

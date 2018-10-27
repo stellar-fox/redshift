@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html">@stellar-fox/redshift</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genKeypair">genKeypair</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genMnemonic">genMnemonic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~mnemonicToSeedHex">mnemonicToSeedHex</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~newAccount">newAccount</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~validateMnemonic">validateMnemonic</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html">@stellar-fox/redshift</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genKeypair">genKeypair</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genMnemonic">genMnemonic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~mnemonicToSeedHex">mnemonicToSeedHex</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~newAddress">newAddress</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~restoreAddress">restoreAddress</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~validateMnemonic">validateMnemonic</a></span></li>
 </nav>
 
 <div id="main">
@@ -321,7 +321,7 @@ Stellar HD Address Generator.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line215">line 215</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line251">line 251</a>
     </li></ul></dd>
     
 
@@ -352,14 +352,17 @@ Stellar HD Address Generator.</p></div>
 
     
 
-    <h4 class="name" id="~genKeypair"><span class="type-signature">(inner) </span>genKeypair<span class="signature">(seed, pathIndex<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="~genKeypair"><span class="type-signature">(inner) </span>genKeypair<span class="signature">(seed, account<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Generate <code>stellar</code> Keypair object from a given <code>seed</code> and a <code>pathIndex</code>.</p>
+    <p>Generate <code>stellar</code> Keypair object
+from a given <code>seed</code> and an <code>account</code> number.</p>
+<p><code>m / purpose' / coin_type' / account'</code> (names defined in BIP-0044)</p>
+<p><code>m /      44' /       148' / account'</code> (3 levels of BIP-0032 path)</p>
 </div>
 
 
@@ -401,6 +404,25 @@ Stellar HD Address Generator.</p></div>
 
     
 
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki</a></li>
+        
+            <li><a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki</a></li>
+        
+            <li><a href="https://github.com/bitcoin/bips/blob/master/bip-0043.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0043.mediawiki</a></li>
+        
+            <li><a href="https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki">https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki</a></li>
+        
+            <li><a href="https://github.com/satoshilabs/slips/blob/master/slip-0010.md">https://github.com/satoshilabs/slips/blob/master/slip-0010.md</a></li>
+        
+            <li><a href="https://github.com/satoshilabs/slips/blob/master/slip-0044.md">https://github.com/satoshilabs/slips/blob/master/slip-0044.md</a></li>
+        
+            <li><a href="https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0005.md">https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0005.md</a></li>
+        </ul>
+    </dd>
     
 
     
@@ -472,7 +494,7 @@ Stellar HD Address Generator.</p></div>
             
 
             <td class="description last">
-                
+                <p>hex-encoded seed</p>
                 
             </td>
         </tr>
@@ -481,7 +503,7 @@ Stellar HD Address Generator.</p></div>
 
         <tr>
             
-                <td class="name"><code>pathIndex</code></td>
+                <td class="name"><code>account</code></td>
             
 
             <td class="type">
@@ -999,7 +1021,7 @@ BIP39 implementation.</p>
 
     
 
-    <h4 class="name" id="~newAccount"><span class="type-signature">(inner) </span>newAccount<span class="signature">(passphrase<span class="signature-attributes">opt</span>, pathIndex<span class="signature-attributes">opt</span>, language<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="~newAddress"><span class="type-signature">(inner) </span>newAddress<span class="signature">(passphrase<span class="signature-attributes">opt</span>, account<span class="signature-attributes">opt</span>, language<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {AddressDescription}</span></h4>
 
     
 
@@ -1007,7 +1029,7 @@ BIP39 implementation.</p>
 
 <div class="description">
     <p>Randomly generate object with <code>mnemonic</code>,
-<code>passphrase</code>, <code>pathIndex</code>, <code>seed</code> and <code>keypair</code>.</p>
+<code>passphrase</code>, <code>account</code> number, <code>seed</code> and <code>keypair</code>.</p>
 </div>
 
 
@@ -1043,7 +1065,7 @@ BIP39 implementation.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line187">line 187</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line196">line 196</a>
     </li></ul></dd>
     
 
@@ -1133,7 +1155,7 @@ BIP39 implementation.</p>
 
         <tr>
             
-                <td class="name"><code>pathIndex</code></td>
+                <td class="name"><code>account</code></td>
             
 
             <td class="type">
@@ -1241,7 +1263,264 @@ BIP39 implementation.</p>
     </dt>
     <dd>
         
-<span class="param-type"><code>Object</code></span>
+<span class="param-type"><code>AddressDescription</code></span>
+
+
+    </dd>
+</dl>
+
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="~restoreAddress"><span class="type-signature">(inner) </span>restoreAddress<span class="signature">(mnemonic, passphrase<span class="signature-attributes">opt</span>, account<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {AddressDescription}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Restore address from a given <code>mnemonic</code>,
+<code>passphrase</code> and <code>account</code> number.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line224">line 224</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>mnemonic</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">
+                
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>passphrase</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    ""
+                
+                </td>
+            
+
+            <td class="description last">
+                
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>account</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Number</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">
+                
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>AddressDescription</code></span>
 
 
     </dd>
@@ -1476,6 +1755,234 @@ BIP39 implementation.</p>
     
 
     
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        
+                
+<div class="section-members">
+<h4 class="name" id="~AddressDescription">AddressDescription</h4>
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>mnemonic</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>passphrase</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>account</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>seed</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>keypair</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+        
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line184">line 184</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><code>Object</code></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</div>
+
+            
+    
 
     
 </article>
@@ -1490,7 +1997,7 @@ BIP39 implementation.</p>
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Oct 26 2018 23:45:48 GMT+0200 (CEST) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Oct 28 2018 00:27:15 GMT+0200 (CEST) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

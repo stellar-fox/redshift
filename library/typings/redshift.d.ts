@@ -83,6 +83,7 @@ declare module "@stellar-fox/redshift" {
      * from a given `seed` and an `account` number.
      *
      * ` m / purpose' / coin_type' / account' ` (names defined in BIP-0044)
+     *
      * ` m /      44' /       148' / account' ` (3 levels of BIP-0032 path)
      */
     export function genKeypair (

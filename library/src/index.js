@@ -117,6 +117,7 @@ export { mnemonicToSeedHex } from "bip39"
  * from a given `seed` and an `account` number.
  *
  * ` m / purpose' / coin_type' / account' ` (names defined in BIP-0044)
+ *
  * ` m /      44' /       148' / account' ` (3 levels of BIP-0032 path)
  *
  * @function genKeypair

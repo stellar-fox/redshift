@@ -1,5 +1,6 @@
 import React from "react"
-
+import { array } from "@xcmats/js-toolbox"
+import { version } from "../../../package.json"
 import "./index.css"
 
 
@@ -12,6 +13,8 @@ export default () =>
             <div>
                 &nbsp;© &nbsp;&nbsp;<span class="footersfox"><b><a href="https://stellarfox.net">Stellar Fox</a></b></span>&nbsp;&nbsp; <span class="footermoji" aria-label="fox" role="img">🦊</span> &nbsp;&nbsp;2017-2018.
             </div>
-            <div className="right">Made with &nbsp;<span class="footerheart" aria-label="love" role="img">❤</span>&nbsp; in Wrocław | Berlin | Bangkok &nbsp;&nbsp; &nbsp;<span class="footermoji" aria-label="rocket" role="img">🚀</span>&nbsp;</div>
+            <div className="right">
+                Made with &nbsp;<span class="footerheart" aria-label="love" role="img">❤</span>&nbsp; in { array.draw(["Wrocław", "Berlin", "Bangkok"]) }. ver. <b>{ version }</b> &nbsp;&nbsp; &nbsp;<span class="footermoji" aria-label="rocket" role="img">🚀</span>&nbsp;
+            </div>
         </footer>
     </div>

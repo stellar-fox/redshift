@@ -17,34 +17,37 @@ $ npm i @stellar-fox/redshift
 
 
 
-## [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) hierarchical deterministic addresses
+## hierarchical deterministic addresses
 
-`BIP39` mnemonics can be used to generate deterministic series of account
-addresses. The method implemented here uses `24` (or `12`) words to generate
-series of deterministic _Stellar_ key pairs. `24` word mnemonics are also used
-by many hardware wallets (such as _Ledger Nano S_). This library can also be
-used to restore account based on the mnemonic that was generated earlier
-by either the hardware wallet or any other wallets compatible with `BIP32`,
-`BIP39` and `BIP44` specifications.
-
-<br />
-
-
-
-
-## [BIP44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki) multi-account hierarchy for deterministic wallets
-
-_redshift library_ uses `BIP32` path with hardened derivation. One can choose
-to derive key pair for default account (with `pathIndex` address equal to `0`)
-or select `pathIndex` number of desired account hierarchy. The upper limit of
-`pathIndex` number of child accounts is `2**31`.
+Mnemonic (a lists of specially prepared words) can be used to generate
+deterministic series of account addresses. The method implemented here uses
+`24` (or `12`) words to generate series of deterministic _Stellar_ key pairs.
+`24` word mnemonics are also used by many hardware wallets
+(such as _Ledger Nano S_). This library can also be used to restore account
+based on the mnemonic that was generated earlier by either the hardware wallet
+or any other wallets compatible with [BIP-0032][bip32], [BIP-0039][bip39],
+[BIP-0043][bip43], [BIP-0044][bip44], [SLIP-0010][slip10], [SLIP-0044][slip44]
+and [SEP-0005][sep05] specifications.
 
 <br />
 
 
 
 
-## [SEP-0005](https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0005.md) key derivation methods for stellar accounts
+## multi-account hierarchy for deterministic wallets
+
+_redshift library_ uses [BIP-0032][bip32] path with a hardened derivation.
+One can choose to derive key pair for default account (with `account` number
+equal to `0`) or select other `account` number in `m / 44' / 148' / account'`
+hierarchy. The upper limit of `account` number of child accounts is `2**31`
+(`2'147'483'648`).
+
+<br />
+
+
+
+
+## key derivation methods for stellar accounts
 
 _Stellar Ecosystem Proposal_ describes implementation of deterministic key
 derivation for _Stellar_ accounts based on word mnemonic of different lengths.
@@ -69,7 +72,8 @@ _redshift library_ uses `24` (or `12`) word mnemonics.
 > [RunKit with @stellar-fox/redshift](https://npm.runkit.com/@stellar-fox/redshift)
 
 
-* recovering _stellar_ keypair based on known `mnemonic`, `passphrase` and a `path index`:
+* recovering _stellar_ keypair based on known `mnemonic`,
+    `passphrase` and an `account` number:
 
     https://runkit.com/embed/t85upkaiinad
 
@@ -173,7 +177,7 @@ redshift
 * Randomly generate `mnemonic` of a medium entropy in italian.
 
     ```javascript
-    redshift.genMnemonic(redshift.LANGUAGE.IT, redshift.ENTROPY.medium)
+    redshift.genMnemonic(redshift.LANGUAGE.IT, redshift.ENTROPY.MEDIUM)
     ```
 
     > ```javascript
@@ -200,7 +204,7 @@ redshift
     > ```
 
 
-* Generate hex `seed` from a given `mnemonic` and secret `passphrase`.
+* Generate hex `seed` from a given `mnemonic` and a secret `passphrase`.
 
     ```javascript
     mnemonic = redshift.genMnemonic()
@@ -215,7 +219,7 @@ redshift
     ```
 
     > ```javascript
-    > '2b8b5c2a3bac1f54a5c716621e3c4...4d68f7e14402ac9ff76f1fcf92096e'
+    > '2b8b5c2a3bac1f54a5c716621e3...4d68f7e14402ac9ff76f1fcf92096e'
     > ```
 
 
@@ -260,7 +264,8 @@ redshift
     > ```
 
 
-* Generate _stellar_ `keypair` object from a given `seed` and `pathIndex`.
+* Generate _stellar_ `keypair` object from a given `seed`
+    and an `account` number.
 
     ```javascript
     kp = redshift.genKeypair(seed, 27)
@@ -281,9 +286,9 @@ redshift
     > ```
 
 
-* Generate object with a new `mnemonic` of high entropy and resulting
-    `seed` and _stellar_ `keypair`. Optionally `passphrase` and `pathIndex`
-    can be passed as an arguments.
+* Generate object with a new `mnemonic` of high entropy, resulting
+    `seed` and _stellar_ `keypair`. Optionally, `passphrase`
+    and `account` number can be passed as an arguments.
 
     ```javascript
     redshift.newAddress("strawberry fields forever", 27)
@@ -292,7 +297,7 @@ redshift
     > ```javascript
     > { mnemonic: 'spell crawl shiver swallow ecology mercy ...',
     > passphrase: 'strawberry fields forever',
-    > pathIndex: 27,
+    > account: 27,
     > seed: 'd3dbb69cf5a538ef8594fafd3...70a10a806b9a44be5157917',
     > keypair:
     > Keypair {
@@ -308,7 +313,7 @@ redshift
 
 ## tests
 
-> Tested with `SEP-0005` Vectors 3 and 4
+> Tested with [SEP-0005][sep05] Vectors 3 and 4
 
 ```bash
 $ npm run test:full
@@ -360,3 +365,14 @@ $ npm run test:full
 ```
 GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR
 ```
+
+
+
+
+[bip32]: https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki
+[bip39]: https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki
+[bip43]: https://github.com/bitcoin/bips/blob/master/bip-0043.mediawiki
+[bip44]: https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki
+[slip10]: https://github.com/satoshilabs/slips/blob/master/slip-0010.md}
+[slip44]: https://github.com/satoshilabs/slips/blob/master/slip-0044.md}
+[sep05]: https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0005.md

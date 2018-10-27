@@ -340,7 +340,7 @@ redshift
 
 ## tests
 
-> Tested with [SEP-0005][sep05] Vectors 3 and 4
+> Tested with [SEP-0005][sep05] Vectors 3 and 4 ([source][ts])
 
 ```bash
 $ npm run test:full
@@ -403,3 +403,4 @@ GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR
 [slip10]: https://github.com/satoshilabs/slips/blob/master/slip-0010.md
 [slip44]: https://github.com/satoshilabs/slips/blob/master/slip-0044.md
 [sep05]: https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0005.md
+[ts]: https://github.com/stellar-fox/redshift/blob/master/library/test/test.js

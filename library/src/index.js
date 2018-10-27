@@ -113,21 +113,31 @@ export { mnemonicToSeedHex } from "bip39"
 
 
 /**
- * Generate `stellar` Keypair object from a given `seed` and a `pathIndex`.
+ * Generate `stellar` Keypair object
+ * from a given `seed` and an `account` number.
+ *
+ * ` m / purpose' / coin_type' / account' ` (names defined in BIP-0044)
+ * ` m /      44' /       148' / account' ` (3 levels of BIP-0032 path)
  *
  * @function genKeypair
  * @see {@link https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki}
+ * @see {@link https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki}
+ * @see {@link https://github.com/bitcoin/bips/blob/master/bip-0043.mediawiki}
+ * @see {@link https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki}
+ * @see {@link https://github.com/satoshilabs/slips/blob/master/slip-0010.md}
+ * @see {@link https://github.com/satoshilabs/slips/blob/master/slip-0044.md}
+ * @see {@link https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0005.md}
  * @param {String} seed hex-encoded seed
- * @param {Number} [pathIndex=0]
+ * @param {Number} [account=0]
  * @returns {Object}
  */
-export const genKeypair = (seed, pathIndex = 0) => {
+export const genKeypair = (seed, account = 0) => {
 
-    // hash-based message authentication using sha512
+    // hash-based message authentication using sha512 (hmac-sha512)
     const hmac512 = (key, data) =>
         new sjclMisc.hmac(key, sjclHash.sha512).encrypt(data)
 
-    // generate _stellar_ `Keypair` object from a path-derived `seed`
+    // generate _stellar_ `Keypair` object from child extended secret key
     return func.compose(
         // consume seed represented as `TypedArray`
         // and produce _stellar_ `Keypair` object
@@ -136,22 +146,32 @@ export const genKeypair = (seed, pathIndex = 0) => {
         // `bits-to-hex` and then `hex-to-bytes` (read it right-to-left)
         codec.hexToBytes, sjclCodec.hex.fromBits
     )(
-        // walk the path and compute "hardened child extended private key"
-        [44, 148, pathIndex].reduce(
-            // compute "hardened child"
-            (acc, el) => hmac512(
-                acc.slice(8),
+        // walk the path and compute "child, hardened, extended, private key"
+        // 44' - "purpose" constant - see BIP-0043 and BIP-0044
+        // 148' - SLIP-0044 registered coin type (XLM)
+        [44, 148, account].reduce(
+            // compute "child extended hardened key" from "extended parent"
+            (parent, index) => hmac512(
+                // I_R - parent chain code (last 32 bytes)
+                parent.slice(8),
                 [
+                    // padding
                     sjclCodec.hex.toBits("0x00"),
-                    acc.slice(0, 8),
-                    sjclCodec.hex.toBits((el + 0x80000000).toString(16)),
+                    // ser_256(k_par) - parent secret key (I_L)
+                    parent.slice(0, 8),
+                    // ser_32(i) - "i" is 2**31 + index ("hardened")
+                    sjclCodec.hex.toBits((2**31 + index).toString(16)),
+                // concatenate all of the above
                 ].reduce(bitArray.concat, [])
             ),
             // derive a "master extended private key" from an address seed
             hmac512(
+                // SLIP-0010 salt for ed25519 curve
                 sjclCodec.utf8String.toBits("ed25519 seed"),
+                // SJCL's `bits` representation of seed
                 sjclCodec.hex.toBits(seed)
             )
+        // child extended secret key (first 32 bytes)
         ).slice(0, 8)
     )
 
@@ -161,27 +181,39 @@ export const genKeypair = (seed, pathIndex = 0) => {
 
 
 /**
+ * @typedef {Object} AddressDescription
+ * @property {String} mnemonic
+ * @property {String} passphrase
+ * @property {Number} account
+ * @property {String} seed
+ * @property {Object} keypair
+ */
+
+
+
+
+/**
  * Randomly generate object with `mnemonic`,
- * `passphrase`, `pathIndex`, `seed` and `keypair`.
+ * `passphrase`, `account` number, `seed` and `keypair`.
  *
  * @function newAddress
  * @param {String} [passphrase=""]
- * @param {Number} [pathIndex=0]
+ * @param {Number} [account=0]
  * @param {String} [language=LANGUAGE.EN]
- * @returns {Object}
+ * @returns {AddressDescription}
  */
 export const newAddress = (
     passphrase = string.empty(),
-    pathIndex = 0,
+    account = 0,
     language = LANGUAGE.EN
 ) => {
 
     let
         mnemonic = genMnemonic(language),
         seed = mnemonicToSeedHex(mnemonic, passphrase),
-        keypair = genKeypair(seed, pathIndex)
+        keypair = genKeypair(seed, account)
 
-    return { mnemonic, passphrase, pathIndex, seed, keypair }
+    return { mnemonic, passphrase, account, seed, keypair }
 
 }
 

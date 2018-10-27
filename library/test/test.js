@@ -13,8 +13,15 @@ var
     { string } = require("@xcmats/js-toolbox"),
 
     // test data - vector 3
-    testVector3Mnemonic  = "bench hurt jump file august wise shallow faculty impulse spring exact slush thunder author capable act festival slice deposit sauce coconut afford frown better",
-    testVector3SeedHex = "937ae91f6ab6f12461d9936dfc1375ea5312d097f3f1eb6fed6a82fbe38c85824da8704389831482db0433e5f6c6c9700ff1946aa75ad8cc2654d6e40f567866",
+    testVector3Mnemonic =
+        "bench hurt jump file august wise shallow " +
+        "faculty impulse spring exact slush thunder " +
+        "author capable act festival slice deposit sauce " +
+        "coconut afford frown better",
+    testVector3SeedHex =
+        "937ae91f6ab6f12461d9936dfc1375ea5312d097f3f1eb6fed6a82fb" +
+        "e38c85824da8704389831482db0433e5f6c6c9700ff1946aa75ad8cc" +
+        "2654d6e40f567866",
     testVector3PublicKeys = [
         "GC3MMSXBWHL6CPOAVERSJITX7BH76YU252WGLUOM5CJX3E7UCYZBTPJQ",
         "GB3MTYFXPBZBUINVG72XR7AQ6P2I32CYSXWNRKJ2PV5H5C7EAM5YYISO",
@@ -41,9 +48,15 @@ var
     ],
 
     // test data - vector 4
-    testVector4Mnemonic  = "cable spray genius state float twenty onion head street palace net private method loan turn phrase state blanket interest dry amazing dress blast tube",
+    testVector4Mnemonic =
+        "cable spray genius state float twenty onion head street " +
+        "palace net private method loan turn phrase state blanket " +
+        "interest dry amazing dress blast tube",
     testVector4Passhrase = "p4ssphr4se",
-    testVector4SeedHex = "d425d39998fb42ce4cf31425f0eaec2f0a68f47655ea030d6d26e70200d8ff8bd4326b4bdf562ea8640a1501ae93ccd0fd7992116da5dfa24900e570a742a489",
+    testVector4SeedHex =
+        "d425d39998fb42ce4cf31425f0eaec2f0a68f47655ea030d6d26e702" +
+        "00d8ff8bd4326b4bdf562ea8640a1501ae93ccd0fd7992116da5dfa2" +
+        "4900e570a742a489",
     testVector4PublicKeys = [
         "GDAHPZ2NSYIIHZXM56Y36SBVTV5QKFIZGYMMBHOU53ETUSWTP62B63EQ",
         "GDY47CJARRHHL66JH3RJURDYXAMIQ5DMXZLP3TDAUJ6IN2GUOFX4OJOC",

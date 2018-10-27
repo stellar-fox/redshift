@@ -6,7 +6,7 @@ var
     // needed modules
     assert = require("assert"),
     redshift = require("../dist/redshift"),
-    { string } = require("@xcmats/js-toolbox"),
+    { func, string } = require("@xcmats/js-toolbox"),
 
     // test data - vector 3
     testVector3Mnemonic  = "bench hurt jump file august wise shallow faculty impulse spring exact slush thunder author capable act festival slice deposit sauce coconut afford frown better",
@@ -74,8 +74,8 @@ describe("Test Vector 3 (SEP-0005)", () => {
     // mnemonic validation
     describe("Test Vector 3 Mnemonic Validation", () =>
         it("should be valid", () =>
-            assert.equal(
-                redshift.validateMnemonic(testVector3Mnemonic), true
+            assert.ok(
+                redshift.validateMnemonic(testVector3Mnemonic)
             )
         )
     )
@@ -97,9 +97,10 @@ describe("Test Vector 3 (SEP-0005)", () => {
         describe(`Public Key (m/44'/148'/${i}')`, () =>
             it(`should return: ${string.shorten(key, 11)}`, () =>
                 assert.equal(
-                    redshift.genKeypair(
-                        redshift.mnemonicToSeedHex(testVector3Mnemonic), i
-                    ).publicKey(),
+                    func.compose(
+                        (seed) => redshift.genKeypair(seed, i),
+                        redshift.mnemonicToSeedHex
+                    )(testVector3Mnemonic).publicKey(),
                     key
                 )
             )
@@ -112,9 +113,10 @@ describe("Test Vector 3 (SEP-0005)", () => {
         describe(`Secret Key (m/44'/148'/${i}')`, () =>
             it(`should return: ${string.shorten(key, 11)}`, () =>
                 assert.equal(
-                    redshift.genKeypair(
-                        redshift.mnemonicToSeedHex(testVector3Mnemonic), i
-                    ).secret(),
+                    func.compose(
+                        (seed) => redshift.genKeypair(seed, i),
+                        redshift.mnemonicToSeedHex
+                    )(testVector3Mnemonic).secret(),
                     key
                 )
             )
@@ -132,8 +134,8 @@ describe("Test Vector 4 (SEP-0005)", () => {
     // mnemonic validation
     describe("Test Vector 4 Mnemonic Validation", () =>
         it("should be valid", () =>
-            assert.equal(
-                redshift.validateMnemonic(testVector4Mnemonic), true
+            assert.ok(
+                redshift.validateMnemonic(testVector4Mnemonic)
             )
         )
     )
@@ -158,12 +160,10 @@ describe("Test Vector 4 (SEP-0005)", () => {
         describe(`Public Key (m/44'/148'/${i}')`, () =>
             it(`should return: ${string.shorten(key, 11)}`, () =>
                 assert.equal(
-                    redshift.genKeypair(
-                        redshift.mnemonicToSeedHex(
-                            testVector4Mnemonic,
-                            testVector4Passhrase,
-                        ), i
-                    ).publicKey(),
+                    func.compose(
+                        (seed) => redshift.genKeypair(seed, i),
+                        redshift.mnemonicToSeedHex
+                    )(testVector4Mnemonic, testVector4Passhrase).publicKey(),
                     key
                 )
             )
@@ -176,12 +176,10 @@ describe("Test Vector 4 (SEP-0005)", () => {
         describe(`Secret Key (m/44'/148'/${i}')`, () =>
             it(`should return: ${string.shorten(key, 11)}`, () =>
                 assert.equal(
-                    redshift.genKeypair(
-                        redshift.mnemonicToSeedHex(
-                            testVector4Mnemonic,
-                            testVector4Passhrase,
-                        ), i
-                    ).secret(),
+                    func.compose(
+                        (seed) => redshift.genKeypair(seed, i),
+                        redshift.mnemonicToSeedHex
+                    )(testVector4Mnemonic, testVector4Passhrase).secret(),
                     key
                 )
             )

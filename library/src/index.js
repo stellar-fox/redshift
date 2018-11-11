@@ -139,15 +139,8 @@ export const genKeypair = (seed, account = 0) => {
         new sjclMisc.hmac(key, sjclHash.sha512).encrypt(data)
 
     // generate _stellar_ `Keypair` object from child extended secret key
-    return func.compose(
-        // consume seed represented as `TypedArray`
-        // and produce _stellar_ `Keypair` object
-        Keypair.fromRawEd25519Seed.bind(Keypair),
-        // convert SJCL's `bits` representation to a `TypedArray` in two steps:
-        // `bits-to-hex` and then `hex-to-bytes` (read it right-to-left)
-        codec.hexToBytes, sjclCodec.hex.fromBits
-    )(
-        // walk the path and compute "child, hardened, extended, private key"
+    return func.pipe(
+        // walk the path and compute "child, hardened, extended, private key":
         // 44' - "purpose" constant - see BIP-0043 and BIP-0044
         // 148' - SLIP-0044 registered coin type (XLM)
         [44, 148, account].reduce(
@@ -174,6 +167,15 @@ export const genKeypair = (seed, account = 0) => {
             )
         // child extended secret key (first 32 bytes)
         ).slice(0, 8)
+    )(
+        // convert SJCL's `bits` representation to a `TypedArray` in two steps:
+        // `bits-to-hex` ...
+        sjclCodec.hex.fromBits,
+        // ... and then `hex-to-bytes`
+        codec.hexToBytes,
+        // consume seed represented as `TypedArray`
+        // and produce _stellar_ `Keypair` object
+        Keypair.fromRawEd25519Seed.bind(Keypair)
     )
 
 }

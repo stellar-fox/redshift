@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom"
 import {
     devEnv,
     isObject,
+    to_,
 } from "@xcmats/js-toolbox"
 import { dynamicImportLibs } from "../../lib/utils"
 
@@ -16,12 +17,11 @@ import "./index.css"
 
 
 
-// expose 'redshift' dev. namespace only in dev. environment
+// expose 'redshift' dev. namespace (only in dev. environment)
 if (devEnv()  &&  isObject(window)) {
     (async () => {
-        window.rs = {
-            ...(await dynamicImportLibs()),
-        }
+        window.sf = { ...(await dynamicImportLibs()) }
+        window.to_ = to_
     })()
 }
 

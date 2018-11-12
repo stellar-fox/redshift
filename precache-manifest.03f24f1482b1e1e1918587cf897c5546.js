@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-400.5d4aeb4e.woff2"
   },
   {
-    "revision": "4397b48cd7cb2de389cc",
+    "revision": "60c763de50b5b4c216e4",
     "url": "/redshift/static/css/main.384a418d.chunk.css"
   },
   {
@@ -16,16 +16,16 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-900italic.bc833e72.woff"
   },
   {
-    "revision": "438ef7beb4359bbf5bfc",
-    "url": "/redshift/static/js/2.438ef7be.chunk.js"
+    "revision": "981c5e4ba86c791f143f",
+    "url": "/redshift/static/js/2.981c5e4b.chunk.js"
   },
   {
-    "revision": "ba800a690e6b35ec3d33",
-    "url": "/redshift/static/js/3.ba800a69.chunk.js"
+    "revision": "6174e2f8140cc5176e30",
+    "url": "/redshift/static/js/3.6174e2f8.chunk.js"
   },
   {
-    "revision": "4db4eedd4070ee729729",
-    "url": "/redshift/static/js/runtime~main.4db4eedd.js"
+    "revision": "4175727106b5ed9ac6aa",
+    "url": "/redshift/static/js/runtime~main.41757271.js"
   },
   {
     "revision": "73fbe8ac187937e0c396a84bfeb3e0a0",
@@ -40,32 +40,32 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-100.e9dbbe8a.woff"
   },
   {
-    "revision": "d704bb3d579b7d5e40880c75705c8a71",
-    "url": "/redshift/static/media/roboto-latin-100italic.d704bb3d.woff"
-  },
-  {
     "revision": "6232f43d15b0e7a0bf0fe82e295bdd06",
     "url": "/redshift/static/media/roboto-latin-100italic.6232f43d.woff2"
+  },
+  {
+    "revision": "d704bb3d579b7d5e40880c75705c8a71",
+    "url": "/redshift/static/media/roboto-latin-100italic.d704bb3d.woff"
   },
   {
     "revision": "55536c8e9e9a532651e3cf374f290ea3",
     "url": "/redshift/static/media/roboto-latin-300.55536c8e.woff2"
   },
   {
-    "revision": "d69924b98acd849cdeba9fbff3f88ea6",
-    "url": "/redshift/static/media/roboto-latin-300italic.d69924b9.woff2"
-  },
-  {
     "revision": "a1471d1d6431c893582a5f6a250db3f9",
     "url": "/redshift/static/media/roboto-latin-300.a1471d1d.woff"
+  },
+  {
+    "revision": "d69924b98acd849cdeba9fbff3f88ea6",
+    "url": "/redshift/static/media/roboto-latin-300italic.d69924b9.woff2"
   },
   {
     "revision": "210a7c781f5a354a0e4985656ab456d9",
     "url": "/redshift/static/media/roboto-latin-300italic.210a7c78.woff"
   },
   {
-    "revision": "4397b48cd7cb2de389cc",
-    "url": "/redshift/static/js/main.4397b48c.chunk.js"
+    "revision": "60c763de50b5b4c216e4",
+    "url": "/redshift/static/js/main.60c763de.chunk.js"
   },
   {
     "revision": "bafb105baeb22d965c70fe52ba6b49d9",
@@ -92,12 +92,12 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-500italic.510dec37.woff2"
   },
   {
-    "revision": "037d830416495def72b7881024c14b7b",
-    "url": "/redshift/static/media/roboto-latin-700.037d8304.woff2"
-  },
-  {
     "revision": "ffcc050b2d92d4b14a4fcb527ee0bcc8",
     "url": "/redshift/static/media/roboto-latin-500italic.ffcc050b.woff"
+  },
+  {
+    "revision": "037d830416495def72b7881024c14b7b",
+    "url": "/redshift/static/media/roboto-latin-700.037d8304.woff2"
   },
   {
     "revision": "cf6613d1adf490972c557a8e318e0868",
@@ -108,12 +108,12 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-700italic.010c1aee.woff2"
   },
   {
-    "revision": "19b7a0adfdd4f808b53af7e2ce2ad4e5",
-    "url": "/redshift/static/media/roboto-latin-900.19b7a0ad.woff2"
-  },
-  {
     "revision": "846d1890aee87fde5d8ced8eba360c3a",
     "url": "/redshift/static/media/roboto-latin-700italic.846d1890.woff"
+  },
+  {
+    "revision": "19b7a0adfdd4f808b53af7e2ce2ad4e5",
+    "url": "/redshift/static/media/roboto-latin-900.19b7a0ad.woff2"
   },
   {
     "revision": "8c2ade503b34e31430d6c98aa29a52a3",
@@ -124,11 +124,11 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-900italic.7b770d6c.woff2"
   },
   {
-    "revision": "438ef7beb4359bbf5bfc",
+    "revision": "981c5e4ba86c791f143f",
     "url": "/redshift/static/css/2.4d3be4bf.chunk.css"
   },
   {
-    "revision": "be546ac52fb755e4a0dddb28ac39a5fb",
+    "revision": "0505c203a0f325aa09edd4402e726b58",
     "url": "/redshift/index.html"
   }
 ];

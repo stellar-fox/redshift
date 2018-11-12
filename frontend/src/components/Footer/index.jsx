@@ -11,10 +11,10 @@ export default () =>
     <div className="footer">
         <footer>
             <div>
-                &nbsp;© &nbsp;&nbsp;<span class="footersfox"><b><a href="https://stellarfox.net">Stellar Fox</a></b></span>&nbsp;&nbsp; <span class="footermoji" aria-label="fox" role="img">🦊</span> &nbsp;&nbsp;2017-2018.
+                &nbsp;© &nbsp;&nbsp;<span className="footersfox"><b><a href="https://stellarfox.net">Stellar Fox</a></b></span>&nbsp;&nbsp; <span className="footermoji" aria-label="fox" role="img">🦊</span> &nbsp;&nbsp;2017-2018.
             </div>
             <div className="right">
-                Made with &nbsp;<span class="footerheart" aria-label="love" role="img">❤</span>&nbsp; in { array.draw(["Wrocław", "Berlin", "Bangkok"]) }. ver. <b>{ version }</b> &nbsp;&nbsp; &nbsp;<span class="footermoji" aria-label="rocket" role="img">🚀</span>&nbsp;
+                Made with &nbsp;<span className="footerheart" aria-label="love" role="img">❤</span>&nbsp; in { array.draw(["Wrocław", "Berlin", "Bangkok"]) }. ver. <b>{ version }</b> &nbsp;&nbsp; &nbsp;<span className="footermoji" aria-label="rocket" role="img">🚀</span>&nbsp;
             </div>
         </footer>
     </div>

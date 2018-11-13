@@ -32,7 +32,7 @@ import { Keypair } from "stellar-base"
 
 
 /**
- * Entropy preset.
+ * Entropy presets.
  *
  * @name ENTROPY
  */
@@ -255,3 +255,15 @@ export const restoreAddress = (
  * @constant version
  */
 export { version } from "../package.json"
+
+
+
+
+/**
+ * Return array of all defined words for a given language.
+ *
+ * @function words
+ * @param {String} [language=LANGUAGE.EN]
+ * @returns {Array.<String>}
+ */
+export const words = (language = LANGUAGE.EN) => wordlists[language]

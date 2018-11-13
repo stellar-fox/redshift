@@ -69,5 +69,5 @@
         "start": "cross-env PORT=3000 BROWSER=none react-scripts start",
         "test": "react-scripts test --env=jsdom"
     },
-    "version": "0.4.5"
+    "version": "0.4.6"
 }

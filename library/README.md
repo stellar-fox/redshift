@@ -17,6 +17,24 @@ $ npm i @stellar-fox/redshift
 
 
 
+## index
+
+* [hierarchical deterministic addresses](#hierarchical-deterministic-addresses)
+* [multi-account hierarchy](#multi-account-hierarchy-for-deterministic-wallets)
+* [key derivation methods](#key-derivation-methods-for-stellar-accounts)
+* [documentation](#documentation)
+* [experimenting in browser](#experimenting-in-browser)
+* [experimenting locally](#experimenting-locally)
+* [examples](#examples)
+* [tests](#tests)
+* [support](#support)
+* [license](#license)
+
+<br />
+
+
+
+
 ## hierarchical deterministic addresses
 
 Mnemonic (a lists of specially prepared words) can be used to generate
@@ -392,6 +410,17 @@ $ npm run test:full
 ```
 GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR
 ```
+
+<br />
+
+
+
+
+## license
+
+**redshift** is released under the Apache License, Version 2.0. See the
+[LICENSE](https://github.com/stellar-fox/redshift/blob/master/LICENSE)
+for more details.
 
 
 

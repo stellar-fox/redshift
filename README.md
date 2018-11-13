@@ -51,3 +51,13 @@ https://stellar-fox.github.io/redshift/
 ```
 GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR
 ```
+<br />
+
+
+
+
+## license
+
+**redshift** is released under the Apache License, Version 2.0. See the
+[LICENSE](https://github.com/stellar-fox/redshift/blob/master/LICENSE)
+for more details.

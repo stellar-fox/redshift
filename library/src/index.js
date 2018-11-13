@@ -128,11 +128,11 @@ export { mnemonicToSeedHex } from "bip39"
  * @see {@link https://github.com/satoshilabs/slips/blob/master/slip-0010.md}
  * @see {@link https://github.com/satoshilabs/slips/blob/master/slip-0044.md}
  * @see {@link https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0005.md}
- * @param {String} seed hex-encoded seed
+ * @param {String} hexSeed hex-encoded seed
  * @param {Number} [account=0]
  * @returns {Object}
  */
-export const genKeypair = (seed, account = 0) => {
+export const genKeypair = (hexSeed, account = 0) => {
 
     // hash-based message authentication using sha512 (hmac-sha512)
     const hmac512 = (key, data) =>
@@ -163,7 +163,7 @@ export const genKeypair = (seed, account = 0) => {
                 // SLIP-0010 salt for ed25519 curve
                 sjclCodec.utf8String.toBits("ed25519 seed"),
                 // SJCL's `bits` representation of seed
-                sjclCodec.hex.toBits(seed)
+                sjclCodec.hex.toBits(hexSeed)
             )
         // child extended secret key (first 32 bytes)
         ).slice(0, 8)

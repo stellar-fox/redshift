@@ -89,7 +89,7 @@
         "clean": "npm run clean:build && npm run clean:doc",
         "clean:build": "rimraf ./dist",
         "clean:doc": "rimraf ./jsdoc",
-        "clean:modules": "rimraf node_modules",
+        "clean:modules": "rimraf node_modules && rimraf package-lock.json",
         "configure:sjcl": "./scripts/configure.sjcl.sh",
         "doc": "npm run clean:doc && npm run jsdoc",
         "jsdoc": "echo \"Generating jsdoc ...\" && jsdoc -c ./jsdoc.json -R ./README.md ./src/ -d ./jsdoc/",

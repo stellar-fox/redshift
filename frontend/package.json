@@ -23,10 +23,10 @@
     "dependencies": {
         "@types/react-dom": "^16.0.9",
         "@types/react-router-dom": "^4.3.1",
-        "@xcmats/js-toolbox": "^0.6.11",
+        "@xcmats/js-toolbox": "^0.6.13",
         "pretty-checkbox": "^3.0.3",
-        "react": "^16.6.1",
-        "react-dom": "^16.6.1",
+        "react": "^16.6.3",
+        "react-dom": "^16.6.3",
         "react-load-script": "0.0.6",
         "react-router-dom": "^4.3.1",
         "react-scripts": "2.1.1",
@@ -35,7 +35,6 @@
     },
     "description": "Stellar HD Accounts Generator.",
     "devDependencies": {
-        "bip39": "^2.5.0",
         "cross-env": "^5.2.0",
         "gh-pages": "^2.0.1",
         "rimraf": "^2.6.2"
@@ -61,7 +60,7 @@
         "build": "npm run clean && react-scripts build",
         "clean": "npm run clean:build",
         "clean:build": "rimraf ./build",
-        "clean:modules": "rimraf node_modules && rimraf package-lock.json",
+        "clean:modules": "rimraf package-lock.json && rimraf node_modules",
         "deploy": "gh-pages -d build --message 'gh-pages update'",
         "eject": "react-scripts eject",
         "lint": "eslint ./src/",

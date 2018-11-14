@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html">@stellar-fox/redshift</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genKeypair">genKeypair</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genMnemonic">genMnemonic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~mnemonicToSeedHex">mnemonicToSeedHex</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~newAddress">newAddress</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~restoreAddress">restoreAddress</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~validateMnemonic">validateMnemonic</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html">@stellar-fox/redshift</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genKeypair">genKeypair</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genMnemonic">genMnemonic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~mnemonicToSeedHex">mnemonicToSeedHex</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~newAddress">newAddress</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~restoreAddress">restoreAddress</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~validateMnemonic">validateMnemonic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~words">words</a></span></li>
 </nav>
 
 <div id="main">
@@ -73,7 +73,7 @@ import { Keypair } from "stellar-base"
 
 
 /**
- * Entropy preset.
+ * Entropy presets.
  *
  * @name ENTROPY
  */
@@ -116,10 +116,9 @@ export const genMnemonic = (
     language = LANGUAGE.EN,
     entropy = ENTROPY.HIGH
 ) =>
-    generateMnemonic(
-        entropy,
-        undefined,
-        wordlists[language]
+    func.rearg(generateMnemonic)(2, 0, 1)(
+        wordlists[language],
+        entropy
     )
 
 
@@ -169,11 +168,11 @@ export { mnemonicToSeedHex } from "bip39"
  * @see {@link https://github.com/satoshilabs/slips/blob/master/slip-0010.md}
  * @see {@link https://github.com/satoshilabs/slips/blob/master/slip-0044.md}
  * @see {@link https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0005.md}
- * @param {String} seed hex-encoded seed
+ * @param {String} hexSeed hex-encoded seed
  * @param {Number} [account=0]
  * @returns {Object}
  */
-export const genKeypair = (seed, account = 0) => {
+export const genKeypair = (hexSeed, account = 0) => {
 
     // hash-based message authentication using sha512 (hmac-sha512)
     const hmac512 = (key, data) =>
@@ -204,7 +203,7 @@ export const genKeypair = (seed, account = 0) => {
                 // SLIP-0010 salt for ed25519 curve
                 sjclCodec.utf8String.toBits("ed25519 seed"),
                 // SJCL's `bits` representation of seed
-                sjclCodec.hex.toBits(seed)
+                sjclCodec.hex.toBits(hexSeed)
             )
         // child extended secret key (first 32 bytes)
         ).slice(0, 8)
@@ -297,6 +296,18 @@ export const restoreAddress = (
  * @constant version
  */
 export { version } from "../package.json"
+
+
+
+
+/**
+ * Return array of all defined words for a given language.
+ *
+ * @function words
+ * @param {String} [language=LANGUAGE.EN]
+ * @returns {Array.&lt;String>}
+ */
+export const words = (language = LANGUAGE.EN) => wordlists[language]
 </code></pre>
         </article>
     </section>
@@ -309,7 +320,7 @@ export { version } from "../package.json"
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Nov 12 2018 12:48:53 GMT+0100 (CET) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 14 2018 21:31:01 GMT+0100 (CET) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

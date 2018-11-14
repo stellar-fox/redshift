@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html">@stellar-fox/redshift</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genKeypair">genKeypair</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genMnemonic">genMnemonic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~mnemonicToSeedHex">mnemonicToSeedHex</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~newAddress">newAddress</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~restoreAddress">restoreAddress</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~validateMnemonic">validateMnemonic</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html">@stellar-fox/redshift</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genKeypair">genKeypair</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genMnemonic">genMnemonic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~mnemonicToSeedHex">mnemonicToSeedHex</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~newAddress">newAddress</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~restoreAddress">restoreAddress</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~validateMnemonic">validateMnemonic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~words">words</a></span></li>
 </nav>
 
 <div id="main">
@@ -55,6 +55,19 @@
 <a href="https://github.com/stellar-fox/redshift"><img src="https://img.shields.io/github/languages/code-size/stellar-fox/redshift.svg" alt="GitHub code size"></a>
 <a href="https://github.com/stellar-fox/redshift"><img src="https://img.shields.io/github/tag/stellar-fox/redshift.svg" alt="GitHub tag"></a></p>
 <pre class="prettyprint source lang-bash"><code>$ npm i @stellar-fox/redshift</code></pre><p><br /></p>
+<h2>index</h2><ul>
+<li><a href="#hierarchical-deterministic-addresses">hierarchical deterministic addresses</a></li>
+<li><a href="#multi-account-hierarchy-for-deterministic-wallets">multi-account hierarchy</a></li>
+<li><a href="#key-derivation-methods-for-stellar-accounts">key derivation methods</a></li>
+<li><a href="#documentation">documentation</a></li>
+<li><a href="#experimenting-in-browser">experimenting in browser</a></li>
+<li><a href="#experimenting-locally">experimenting locally</a></li>
+<li><a href="#examples">examples</a></li>
+<li><a href="#tests">tests</a></li>
+<li><a href="#support">support</a></li>
+<li><a href="#license">license</a></li>
+</ul>
+<p><br /></p>
 <h2>hierarchical deterministic addresses</h2><p>Mnemonic (a lists of specially prepared words) can be used to generate
 deterministic series of account addresses. The method implemented here uses
 <code>24</code> (or <code>12</code>) words to generate series of deterministic <em>Stellar</em> key pairs.
@@ -288,7 +301,10 @@ kp.verify   kp.xdrAccountId  kp.xdrPublicKey</code></pre></blockquote>
 
 
   44 passing (517ms)</code></pre><p><br /></p>
-<h2>support</h2><pre class="prettyprint source"><code>GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR</code></pre></article>
+<h2>support</h2><pre class="prettyprint source"><code>GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR</code></pre><p><br /></p>
+<h2>license</h2><p><strong>redshift</strong> is released under the Apache License, Version 2.0. See the
+<a href="https://github.com/stellar-fox/redshift/blob/master/LICENSE">LICENSE</a>
+for more details.</p></article>
     </section>
 
 
@@ -301,7 +317,7 @@ kp.verify   kp.xdrAccountId  kp.xdrPublicKey</code></pre></blockquote>
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Nov 12 2018 12:48:53 GMT+0100 (CET) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Nov 14 2018 21:31:01 GMT+0100 (CET) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

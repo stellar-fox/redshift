@@ -9,7 +9,7 @@ export default () =>
         <div className="flex-centered">
             <p className="title">Stellar Fox</p>
             <p>
-                <p className="subtitle">
+                <span className="subtitle">
                     <a href="mailto:xcmats@protonmail.com">
                         xcmats@protonmail.com
                     </a>
@@ -17,7 +17,7 @@ export default () =>
                     <a href="mailto:syntaxval@protonmail.com">
                         syntaxval@protonmail.com
                     </a>
-                </p>
+                </span>
             </p>
             <p>
                 <a href="https://github.com/stellar-fox">

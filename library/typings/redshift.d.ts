@@ -38,7 +38,7 @@ declare module "@stellar-fox/redshift" {
         JP: string;
         KR: string;
         SP: string;
-    };
+    }
     export const LANGUAGE: Language;
 
 
@@ -103,7 +103,7 @@ declare module "@stellar-fox/redshift" {
         account: number;
         seed: string;
         keypair: object;
-    };
+    }
 
 
 

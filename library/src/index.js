@@ -183,6 +183,8 @@ export const genKeypair = (hexSeed, account = 0) => {
 
 
 /**
+ * redshift.newAddress() return value description.
+ *
  * @typedef {Object} AddressDescription
  * @property {String} mnemonic
  * @property {String} passphrase
@@ -252,7 +254,7 @@ export const restoreAddress = (
 /**
  * Library version.
  *
- * @constant version
+ * @constant {String} version
  */
 export { version } from "../package.json"
 

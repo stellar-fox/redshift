@@ -16,6 +16,7 @@ import {
     wordlists,
 } from "bip39"
 import {
+    array,
     codec,
     func,
     string,
@@ -146,12 +147,12 @@ export const genKeypair = (hexSeed, account = 0) => {
             // compute "child extended hardened key" from "extended parent"
             (parent, index) => hmac512(
                 // I_R - parent chain code (last 32 bytes)
-                parent.slice(8),
+                array.drop(8)(parent),
                 [
                     // padding
                     sjclCodec.hex.toBits("0x00"),
                     // ser_256(k_par) - parent secret key (I_L)
-                    parent.slice(0, 8),
+                    array.take(8)(parent),
                     // ser_32(i) - "i" is 2**31 + index ("hardened")
                     sjclCodec.hex.toBits((2**31 + index).toString(16)),
                 // concatenate all of the above
@@ -164,9 +165,10 @@ export const genKeypair = (hexSeed, account = 0) => {
                 // SJCL's `bits` representation of seed
                 sjclCodec.hex.toBits(hexSeed)
             )
-        // child extended secret key (first 32 bytes)
-        ).slice(0, 8)
+        )
     )(
+        // extract child extended secret key (first 32 bytes)
+        array.take(8),
         // convert SJCL's `bits` representation to a `TypedArray` in two steps:
         // `bits-to-hex` ...
         sjclCodec.hex.fromBits,

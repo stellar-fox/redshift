@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/redshift/precache-manifest.bb15ee54a7eb09c5707da2a8a3cb95f8.js"
+  "/redshift/precache-manifest.81fae7803698f5b1cb1afc14125b7b2b.js"
 );
 
 workbox.clientsClaim();

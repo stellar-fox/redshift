@@ -254,16 +254,6 @@ export const restoreAddress = (
 
 
 /**
- * Library version.
- *
- * @constant {String} version
- */
-export { version } from "../package.json"
-
-
-
-
-/**
  * Return array of all defined words for a given language.
  *
  * @function words
@@ -271,3 +261,13 @@ export { version } from "../package.json"
  * @returns {Array.<String>}
  */
 export const words = (language = LANGUAGE.EN) => wordlists[language]
+
+
+
+
+/**
+ * Library version.
+ *
+ * @constant {String} version
+ */
+export { version } from "../package.json"

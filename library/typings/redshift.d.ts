@@ -135,6 +135,14 @@ declare module "@stellar-fox/redshift" {
 
 
     /**
+     * Return array of all defined words for a given language.
+     */
+    export function words (language?: string): string[];
+
+
+
+
+    /**
      * Library version.
      */
     export const version: string;

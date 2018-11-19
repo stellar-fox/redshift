@@ -1,5 +1,8 @@
 import React, { Component } from "react"
-import { string } from "@xcmats/js-toolbox"
+import {
+    array,
+    string,
+} from "@xcmats/js-toolbox"
 
 import {
     LANGUAGE,
@@ -316,10 +319,10 @@ export default class Welcome extends Component {
         return (
             <div className="columns">
                 <div className="column">
-                    {this.numberedList(mnemonic.slice(0, 12))}
+                    {this.numberedList(array.take(12)(mnemonic))}
                 </div>
                 <div className="column">
-                    {this.numberedList(mnemonic.slice(12), 13)}
+                    {this.numberedList(array.drop(12)(mnemonic), 13)}
                 </div>
             </div>
         )
@@ -328,17 +331,19 @@ export default class Welcome extends Component {
 
     // ...
     render = () => {
-        let panel,
-            pubKey,
-            secretKey,
-            derivationPath,
-            button,
-            stellarBase,
-            restorePanels,
-            useDefaultAccount,
-            language,
-            warning,
-            reset
+        let
+            panel = null,
+            pubKey = null,
+            secretKey = null,
+            derivationPath = null,
+            button = null,
+            stellarBase = null,
+            restorePanels = null,
+            useDefaultAccount = null,
+            language = null,
+            warning = null,
+            reset = null
+
         if (!this.state.StellarBase) {
             stellarBase = (
                 <div className="tiny">✗&nbsp;StellarBase did not load.</div>

@@ -25,6 +25,7 @@ $ npm i @stellar-fox/redshift
 * [documentation](#documentation)
 * [experimenting in browser](#experimenting-in-browser)
 * [experimenting locally](#experimenting-locally)
+* [namespace](#namespace)
 * [examples](#examples)
 * [tests](#tests)
 * [support](#support)
@@ -129,6 +130,13 @@ Entrypoint redshift = redshift.js
     + 1 hidden module
 ```
 
+<br />
+
+
+
+
+## namespace
+
 ```javascript
 redshift
 ```
@@ -146,10 +154,11 @@ redshift
 >      SP: 'spanish' },
 >   genMnemonic: [Function: genMnemonic],
 >   validateMnemonic: [Function: validateMnemonic],
->   mnemonicToSeedHex: [Function: mnemonicToSeedHex],
 >   genKeypair: [Function: genKeypair],
 >   newAddress: [Function: newAddress],
 >   restoreAddress: [Function: restoreAddress],
+>   words: [Function words],
+>   mnemonicToSeedHex: [Function: mnemonicToSeedHex],
 >   version: [Getter] }
 > ```
 

@@ -35,7 +35,7 @@ import { Keypair } from "stellar-base"
 /**
  * Entropy presets.
  *
- * @name ENTROPY
+ * @constant {Object} ENTROPY
  */
 export const ENTROPY = Object.freeze({
     HIGH: 256,
@@ -48,7 +48,7 @@ export const ENTROPY = Object.freeze({
 /**
  * Languages.
  *
- * @name LANGUAGE
+ * @constant {Object} LANGUAGE
  */
 export const LANGUAGE = Object.freeze({
     CN: "chinese_simplified",
@@ -188,11 +188,11 @@ export const genKeypair = (hexSeed, account = 0) => {
  * redshift.newAddress() return value description.
  *
  * @typedef {Object} AddressDescription
- * @property {String} mnemonic
- * @property {String} passphrase
- * @property {Number} account
- * @property {String} seed
- * @property {Object} keypair
+ * @property {String} mnemonic words separated by one space
+ * @property {String} passphrase custom passphrase
+ * @property {Number} account 3rd level of BIP-0032 path
+ * @property {String} seed hex-encoded seed
+ * @property {Object} keypair stellar SDK `Keypair` object
  */
 
 

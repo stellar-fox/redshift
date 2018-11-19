@@ -45,8 +45,11 @@
     },
     "homepage": "https://stellar-fox.github.io/redshift/",
     "keywords": [
+        "hd-accounts",
+        "keys",
         "stellar",
-        "hd accounts"
+        "mnemonic-generator",
+        "paper-wallet"
     ],
     "license": "Apache-2.0",
     "main": "src/index.js",

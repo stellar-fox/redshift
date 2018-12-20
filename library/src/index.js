@@ -76,10 +76,7 @@ export const genMnemonic = (
     language = LANGUAGE.EN,
     entropy = ENTROPY.HIGH
 ) =>
-    func.rearg(generateMnemonic)(2, 0, 1)(
-        wordlists[language],
-        entropy
-    )
+    generateMnemonic(entropy, null, wordlists[language])
 
 
 

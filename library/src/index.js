@@ -27,7 +27,7 @@ import {
     misc as sjclMisc,
     hash as sjclHash,
 } from "sjcl"
-import { Keypair } from "stellar-base"
+import { Keypair } from "stellar-sdk"
 
 
 
@@ -76,7 +76,11 @@ export const genMnemonic = (
     language = LANGUAGE.EN,
     entropy = ENTROPY.HIGH
 ) =>
-    generateMnemonic(entropy, null, wordlists[language])
+    generateMnemonic(
+        entropy,
+        undefined,
+        wordlists[language]
+    )
 
 
 

@@ -20,6 +20,7 @@ import {
     codec,
     func,
     string,
+    type,
 } from "@xcmats/js-toolbox"
 import {
     bitArray,
@@ -140,6 +141,13 @@ export const genKeypair = (
     { Keypair = StellarKeypair } = {}
 ) => {
 
+    if (
+        !type.isString(hexSeed) || !type.isNumber(account)
+    ) throw new TypeError(
+        "redshift.genKeypair() expected [string] and [number], " +
+        `got [${typeof hexSeed}] and [${typeof account}]`
+    )
+
     // hash-based message authentication using sha512 (hmac-sha512)
     const hmac512 = (key, data) =>
         new sjclMisc.hmac(key, sjclHash.sha512).encrypt(data)
@@ -221,6 +229,13 @@ export const newAddress = (
     opts
 ) => {
 
+    if (
+        !type.isString(passphrase)  ||
+        !type.isNumber(account)
+    ) throw new TypeError(
+        "redshift.newAddress(): wrong argument types"
+    )
+
     let
         mnemonic = genMnemonic(language),
         seed = mnemonicToSeedHex(mnemonic, passphrase),
@@ -249,6 +264,14 @@ export const restoreAddress = (
     account = 0,
     opts
 ) => {
+
+    if (
+        !type.isString(mnemonic)  ||
+        !type.isString(passphrase)  ||
+        !type.isNumber(account)
+    ) throw new TypeError(
+        "redshift.restoreAddress(): wrong argument types"
+    )
 
     let
         seed = mnemonicToSeedHex(mnemonic, passphrase),

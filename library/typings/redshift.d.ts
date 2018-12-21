@@ -88,7 +88,8 @@ declare module "@stellar-fox/redshift" {
      */
     export function genKeypair (
         seed: string,
-        account?: number
+        account?: number,
+        opts?: object
     ): object;
 
 
@@ -115,7 +116,8 @@ declare module "@stellar-fox/redshift" {
     export function newAddress (
         passphrase?: string,
         account?: number,
-        language?: Language
+        language?: Language,
+        opts?: object
     ): AddressDescription;
 
 
@@ -128,7 +130,8 @@ declare module "@stellar-fox/redshift" {
     export function restoreAddress (
         mnemonic: string,
         passphrase: string,
-        account: number
+        account: number,
+        opts?: object
     ): AddressDescription;
 
 

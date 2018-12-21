@@ -27,7 +27,7 @@ import {
     misc as sjclMisc,
     hash as sjclHash,
 } from "sjcl"
-import { Keypair } from "stellar-sdk"
+import { Keypair as StellarKeypair } from "stellar-sdk"
 
 
 
@@ -131,9 +131,14 @@ export { mnemonicToSeedHex } from "bip39"
  * @see {@link https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0005.md}
  * @param {String} hexSeed hex-encoded seed
  * @param {Number} [account=0]
+ * @param {Object} [opts] { Keypair } from "stellar-sdk"
  * @returns {Object}
  */
-export const genKeypair = (hexSeed, account = 0) => {
+export const genKeypair = (
+    hexSeed,
+    account = 0,
+    { Keypair = StellarKeypair } = {}
+) => {
 
     // hash-based message authentication using sha512 (hmac-sha512)
     const hmac512 = (key, data) =>
@@ -212,13 +217,14 @@ export const genKeypair = (hexSeed, account = 0) => {
 export const newAddress = (
     passphrase = string.empty(),
     account = 0,
-    language = LANGUAGE.EN
+    language = LANGUAGE.EN,
+    opts
 ) => {
 
     let
         mnemonic = genMnemonic(language),
         seed = mnemonicToSeedHex(mnemonic, passphrase),
-        keypair = genKeypair(seed, account)
+        keypair = genKeypair(seed, account, opts)
 
     return { mnemonic, passphrase, account, seed, keypair }
 
@@ -240,12 +246,13 @@ export const newAddress = (
 export const restoreAddress = (
     mnemonic,
     passphrase = string.empty(),
-    account = 0
+    account = 0,
+    opts
 ) => {
 
     let
         seed = mnemonicToSeedHex(mnemonic, passphrase),
-        keypair = genKeypair(seed, account)
+        keypair = genKeypair(seed, account, opts)
 
     return { mnemonic, passphrase, account, seed, keypair }
 

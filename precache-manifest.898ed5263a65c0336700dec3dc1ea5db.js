@@ -4,28 +4,28 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-400.5d4aeb4e.woff2"
   },
   {
-    "revision": "6fe8a17c5269f3610b6b",
-    "url": "/redshift/static/css/main.c89bc883.chunk.css"
+    "revision": "271dc43f2051d90b6d99",
+    "url": "/redshift/static/css/main.96510e38.chunk.css"
   },
   {
-    "revision": "e2121e4fd6f845e2f297",
-    "url": "/redshift/static/js/1.e2121e4f.chunk.js"
+    "revision": "5018ad589a3773daab2b",
+    "url": "/redshift/static/js/1.5018ad58.chunk.js"
   },
   {
     "revision": "bc833e725c137257c2c42a789845d82f",
     "url": "/redshift/static/media/roboto-latin-900italic.bc833e72.woff"
   },
   {
-    "revision": "8ec4328b19b43111a954",
-    "url": "/redshift/static/js/2.8ec4328b.chunk.js"
+    "revision": "482aaa6fc8d47779b89a",
+    "url": "/redshift/static/js/2.482aaa6f.chunk.js"
   },
   {
-    "revision": "9e18ec6615cdbb2e0918",
-    "url": "/redshift/static/js/3.9e18ec66.chunk.js"
+    "revision": "b44436d63c4fec175159",
+    "url": "/redshift/static/js/3.b44436d6.chunk.js"
   },
   {
-    "revision": "dd406f88d9e71573fb7a",
-    "url": "/redshift/static/js/runtime~main.dd406f88.js"
+    "revision": "6692af202006f5f748c5",
+    "url": "/redshift/static/js/runtime~main.6692af20.js"
   },
   {
     "revision": "73fbe8ac187937e0c396a84bfeb3e0a0",
@@ -64,8 +64,8 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-300italic.210a7c78.woff"
   },
   {
-    "revision": "6fe8a17c5269f3610b6b",
-    "url": "/redshift/static/js/main.6fe8a17c.chunk.js"
+    "revision": "271dc43f2051d90b6d99",
+    "url": "/redshift/static/js/main.271dc43f.chunk.js"
   },
   {
     "revision": "bafb105baeb22d965c70fe52ba6b49d9",
@@ -124,11 +124,11 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-900italic.7b770d6c.woff2"
   },
   {
-    "revision": "8ec4328b19b43111a954",
-    "url": "/redshift/static/css/2.e73d4ada.chunk.css"
+    "revision": "482aaa6fc8d47779b89a",
+    "url": "/redshift/static/css/2.ec3232fd.chunk.css"
   },
   {
-    "revision": "5a3f8e1d0d8eebd98f705836f5b4bd94",
+    "revision": "6af6e1c3b338d8ff644bf7ca7865a21d",
     "url": "/redshift/index.html"
   }
 ];

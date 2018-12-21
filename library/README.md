@@ -407,7 +407,7 @@ $ npm run test:full
       ✓ should return: SDXDY...UXNOS
 
 
-  44 passing (517ms)
+  44 passing (516ms)
 ```
 
 <br />

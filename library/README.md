@@ -115,18 +115,19 @@ $ cd redshift/library/
 $ npm i
 $ npm start
 Compiling for 'production' ...
-Hash: f3832f6c64d8af6ce6d0
-Version: webpack 4.23.1
-Time: 1861ms
-Built at: 2018-10-27 23:38:41
+Hash: 949571f79bbc31ee54e1
+Version: webpack 4.28.1
+Time: 1373ms
+Built at: 2018-12-21 14:32:28
       Asset      Size  Chunks             Chunk Names
-redshift.js  12.7 KiB       0  [emitted]  redshift
+redshift.js  13.5 KiB       0  [emitted]  redshift
 Entrypoint redshift = redshift.js
-[0] external "bip39" 42 bytes {0} [built]
-[2] external "@xcmats/js-toolbox" 42 bytes {0} [built]
-[3] external "stellar-base" 42 bytes {0} [built]
-[4] ./package.json 3.61 KiB {0} [built]
-[5] ./src/index.js 3.03 KiB {0} [built]
+[0] external "@xcmats/js-toolbox" 42 bytes {0} [built]
+[1] external "bip39" 42 bytes {0} [built]
+[3] external "@babel/runtime/helpers/typeof" 42 bytes {0} [built]
+[4] ./package.json 3.73 KiB {0} [built]
+[5] external "stellar-sdk" 42 bytes {0} [built]
+[6] ./src/index.js 4.11 KiB {0} [built]
     + 1 hidden module
 ```
 

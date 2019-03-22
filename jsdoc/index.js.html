@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html">@stellar-fox/redshift</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genKeypair">genKeypair</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genMnemonic">genMnemonic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~mnemonicToSeedHex">mnemonicToSeedHex</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~newAddress">newAddress</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~restoreAddress">restoreAddress</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~validateMnemonic">validateMnemonic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~words">words</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html">@stellar-fox/redshift</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genKeypair">genKeypair</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~genMnemonic">genMnemonic</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~mnemonicToSeedHex">mnemonicToSeedHex</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~newAccount">newAccount</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-@stellar-fox_redshift.html#~validateMnemonic">validateMnemonic</a></span></li>
 </nav>
 
 <div id="main">
@@ -57,11 +57,9 @@ import {
     wordlists,
 } from "bip39"
 import {
-    array,
     codec,
     func,
     string,
-    type,
 } from "@xcmats/js-toolbox"
 import {
     bitArray,
@@ -69,15 +67,15 @@ import {
     misc as sjclMisc,
     hash as sjclHash,
 } from "sjcl"
-import { Keypair as StellarKeypair } from "stellar-sdk"
+import { Keypair } from "stellar-base"
 
 
 
 
 /**
- * Entropy presets.
+ * Entropy preset.
  *
- * @constant {Object} ENTROPY
+ * @name ENTROPY
  */
 export const ENTROPY = Object.freeze({
     HIGH: 256,
@@ -90,7 +88,7 @@ export const ENTROPY = Object.freeze({
 /**
  * Languages.
  *
- * @constant {Object} LANGUAGE
+ * @name LANGUAGE
  */
 export const LANGUAGE = Object.freeze({
     CN: "chinese_simplified",
@@ -118,7 +116,11 @@ export const genMnemonic = (
     language = LANGUAGE.EN,
     entropy = ENTROPY.HIGH
 ) =>
-    func.rearg(generateMnemonic)(0, 2)(entropy, wordlists[language])
+    generateMnemonic(
+        entropy,
+        undefined,
+        wordlists[language]
+    )
 
 
 
@@ -152,183 +154,101 @@ export { mnemonicToSeedHex } from "bip39"
 
 
 /**
- * Generate `stellar` Keypair object
- * from a given `seed` and an `account` number.
- *
- * ` m / purpose' / coin_type' / account' ` (names defined in BIP-0044)
- *
- * ` m /      44' /       148' / account' ` (3 levels of BIP-0032 path)
+ * Generate `stellar` Keypair object from a given `seed` and a `pathIndex`.
  *
  * @function genKeypair
- * @see {@link https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki}
- * @see {@link https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki}
- * @see {@link https://github.com/bitcoin/bips/blob/master/bip-0043.mediawiki}
- * @see {@link https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki}
- * @see {@link https://github.com/satoshilabs/slips/blob/master/slip-0010.md}
- * @see {@link https://github.com/satoshilabs/slips/blob/master/slip-0044.md}
- * @see {@link https://github.com/stellar/stellar-protocol/blob/master/ecosystem/sep-0005.md}
- * @param {String} hexSeed hex-encoded seed
- * @param {Number} [account=0]
- * @param {Object} [opts] { Keypair } from "stellar-sdk"
+ * @param {String} seed
+ * @param {Number} [pathIndex=0]
  * @returns {Object}
  */
-export const genKeypair = (
-    hexSeed,
-    account = 0,
-    { Keypair = StellarKeypair } = {}
-) => {
+export const genKeypair = (seed, pathIndex = 0) => {
 
-    if (
-        !type.isString(hexSeed) || !type.isNumber(account)
-    ) throw new TypeError(
-        "redshift.genKeypair() expected [string] and [number], " +
-        `got [${typeof hexSeed}] and [${typeof account}]`
-    )
+    const
 
-    // hash-based message authentication using sha512 (hmac-sha512)
-    const hmac512 = (key, data) =>
-        new sjclMisc.hmac(key, sjclHash.sha512).encrypt(data)
-
-    // generate _stellar_ `Keypair` object from child extended secret key
-    return func.pipe(
-        // walk the path and compute "child, hardened, extended, private key":
-        // 44' - "purpose" constant - see BIP-0043 and BIP-0044
-        // 148' - SLIP-0044 registered coin type (XLM)
-        [44, 148, account].reduce(
-            // compute "child extended hardened key" from "extended parent"
-            (parent, index) => hmac512(
-                // I_R - parent chain code (last 32 bytes)
-                array.drop(8)(parent),
-                [
-                    // padding
-                    sjclCodec.hex.toBits("0x00"),
-                    // ser_256(k_par) - parent secret key (I_L)
-                    array.take(8)(parent),
-                    // ser_32(i) - "i" is 2**31 + index ("hardened")
-                    sjclCodec.hex.toBits((2**31 + index).toString(16)),
-                // concatenate all of the above
-                ].reduce(bitArray.concat, [])
-            ),
-            // derive a "master extended private key" from an address seed
-            hmac512(
-                // SLIP-0010 salt for ed25519 curve
+        // ...
+        seedToMasterNode = (seed) => (
+            (I) => ({ IL: I.slice(0, 8), IR: I.slice(8) })
+        )(
+            new sjclMisc.hmac(
                 sjclCodec.utf8String.toBits("ed25519 seed"),
-                // SJCL's `bits` representation of seed
-                sjclCodec.hex.toBits(hexSeed)
-            )
-        )
-    )(
-        // extract child extended secret key (first 32 bytes)
-        array.take(8),
-        // convert SJCL's `bits` representation to a `TypedArray` in two steps:
-        // `bits-to-hex` ...
-        sjclCodec.hex.fromBits,
-        // ... and then `hex-to-bytes`
+                sjclHash.sha512
+            ).encrypt(seed)
+        ),
+
+
+        // ...
+        derivePath = (initIL, initIR, path) => {
+            let IL = initIL, IR = initIR
+
+            for (
+                let pathIndex = 0;
+                pathIndex &lt; path.length;
+                pathIndex++
+            ) {
+                let
+                    index = path[pathIndex] + 0x80000000,
+                    I = new sjclMisc.hmac(IR, sjclHash.sha512).encrypt(
+                        bitArray.concat(
+                            bitArray.concat(sjclCodec.hex.toBits("0x00"), IL),
+                            sjclCodec.hex.toBits(index.toString(16))
+                        )
+                    )
+                IL = I.slice(0, 8)
+                IR = I.slice(8)
+            }
+
+            return { IL, IR }
+        },
+
+
+        // ...
+        masterNode = func.compose(
+            seedToMasterNode,
+            sjclCodec.hex.toBits
+        )(seed)
+
+
+    return func.compose(
+        Keypair.fromRawEd25519Seed.bind(Keypair),
         codec.hexToBytes,
-        // consume seed represented as `TypedArray`
-        // and produce _stellar_ `Keypair` object
-        Keypair.fromRawEd25519Seed.bind(Keypair)
+        sjclCodec.hex.fromBits
+    )(
+        derivePath(
+            masterNode.IL,
+            masterNode.IR,
+            [44, 148, pathIndex]
+        ).IL
     )
 
 }
-
-
-
-
-/**
- * redshift.newAddress() return value description.
- *
- * @typedef {Object} AddressDescription
- * @property {String} mnemonic words separated by one space
- * @property {String} passphrase custom passphrase
- * @property {Number} account 3rd level of BIP-0032 path
- * @property {String} seed hex-encoded seed
- * @property {Object} keypair stellar SDK `Keypair` object
- */
 
 
 
 
 /**
  * Randomly generate object with `mnemonic`,
- * `passphrase`, `account` number, `seed` and `keypair`.
+ * `passphrase`, `pathIndex`, `seed` and `keypair`.
  *
- * @function newAddress
+ * @function newAccount
  * @param {String} [passphrase=""]
- * @param {Number} [account=0]
+ * @param {Number} [pathIndex=0]
  * @param {String} [language=LANGUAGE.EN]
- * @returns {AddressDescription}
+ * @returns {Object}
  */
-export const newAddress = (
+export const newAccount = (
     passphrase = string.empty(),
-    account = 0,
-    language = LANGUAGE.EN,
-    opts
+    pathIndex = 0,
+    language = LANGUAGE.EN
 ) => {
-
-    if (
-        !type.isString(passphrase)  ||
-        !type.isNumber(account)
-    ) throw new TypeError(
-        "redshift.newAddress(): wrong argument types"
-    )
 
     let
         mnemonic = genMnemonic(language),
         seed = mnemonicToSeedHex(mnemonic, passphrase),
-        keypair = genKeypair(seed, account, opts)
+        keypair = genKeypair(seed, pathIndex)
 
-    return { mnemonic, passphrase, account, seed, keypair }
-
-}
-
-
-
-
-/**
- * Restore address from a given `mnemonic`,
- * `passphrase` and `account` number.
- *
- * @function restoreAddress
- * @param {String} mnemonic
- * @param {String} [passphrase=""]
- * @param {Number} [account=0]
- * @returns {AddressDescription}
- */
-export const restoreAddress = (
-    mnemonic,
-    passphrase = string.empty(),
-    account = 0,
-    opts
-) => {
-
-    if (
-        !type.isString(mnemonic)  ||
-        !type.isString(passphrase)  ||
-        !type.isNumber(account)
-    ) throw new TypeError(
-        "redshift.restoreAddress(): wrong argument types"
-    )
-
-    let
-        seed = mnemonicToSeedHex(mnemonic, passphrase),
-        keypair = genKeypair(seed, account, opts)
-
-    return { mnemonic, passphrase, account, seed, keypair }
+    return { mnemonic, passphrase, pathIndex, seed, keypair }
 
 }
-
-
-
-
-/**
- * Return array of all defined words for a given language.
- *
- * @function words
- * @param {String} [language=LANGUAGE.EN]
- * @returns {Array.&lt;String>}
- */
-export const words = (language = LANGUAGE.EN) => wordlists[language]
 
 
 
@@ -336,7 +256,7 @@ export const words = (language = LANGUAGE.EN) => wordlists[language]
 /**
  * Library version.
  *
- * @constant {String} version
+ * @constant version
  */
 export { version } from "../package.json"
 </code></pre>
@@ -351,7 +271,7 @@ export { version } from "../package.json"
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Dec 21 2018 14:55:14 GMT+0100 (CET) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Oct 26 2018 22:57:48 GMT+0200 (CEST) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

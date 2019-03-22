@@ -21,23 +21,23 @@
         }
     ],
     "dependencies": {
-        "@types/react-dom": "^16.0.11",
+        "@types/react-dom": "^16.8.3",
         "@types/react-router-dom": "^4.3.1",
-        "@types/stellar-sdk": "^0.10.4",
+        "@types/stellar-sdk": "^0.11.1",
         "@xcmats/js-toolbox": "^0.8.0",
         "pretty-checkbox": "^3.0.3",
-        "react": "^16.7.0",
-        "react-dom": "^16.7.0",
+        "react": "^16.8.4",
+        "react-dom": "^16.8.4",
         "react-router-dom": "^4.3.1",
-        "react-scripts": "2.1.1",
-        "stellar-sdk": "^0.11.0",
+        "react-scripts": "2.1.8",
+        "stellar-sdk": "^0.15.0",
         "typeface-roboto": "0.0.54"
     },
     "description": "Stellar HD Accounts Generator.",
     "devDependencies": {
         "cross-env": "^5.2.0",
         "gh-pages": "^2.0.1",
-        "rimraf": "^2.6.2"
+        "rimraf": "^2.6.3"
     },
     "engines": {
         "node": ">=6.0.0",
@@ -71,5 +71,5 @@
         "start": "cross-env PORT=3000 BROWSER=none react-scripts start",
         "test": "react-scripts test --env=jsdom"
     },
-    "version": "1.0.2"
+    "version": "1.0.3"
 }

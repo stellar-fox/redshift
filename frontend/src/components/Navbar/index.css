@@ -1,5 +1,5 @@
 img.company-logo {
-    width: 150px;
+    width: 60px;
 }
 
 div.navbar {
@@ -38,4 +38,12 @@ nav.right {
 
 .navbar a:hover {
     color: #34587a;
+}
+
+.m-r {
+    margin-right: 1rem;
+}
+
+.m-l {
+    margin-left: 1rem;
 }

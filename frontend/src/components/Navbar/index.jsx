@@ -1,7 +1,7 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
 
-import logo from "../RedShiftApp/logo.svg"
+import logo from "../RedShiftApp/sf.logo.png"
 import "./index.css"
 
 
@@ -11,8 +11,12 @@ import "./index.css"
 export default () =>
     <div className="navbar">
         <nav>
-            <img src={logo} className="company-logo" alt="logo" />
-            <div className="right">
+            <img
+                src={logo}
+                className="company-logo m-l"
+                alt="Stellar Fox"
+            />
+            <div className="right m-r">
                 <NavLink
                     exact
                     activeClassName="selected"

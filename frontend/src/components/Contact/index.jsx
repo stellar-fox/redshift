@@ -10,12 +10,8 @@ export default () =>
             <p className="title">Stellar Fox</p>
             <p>
                 <span className="subtitle">
-                    <a href="mailto:xcmats@protonmail.com">
-                        xcmats@protonmail.com
-                    </a>
-                    <br /><br />
-                    <a href="mailto:syntaxval@protonmail.com">
-                        syntaxval@protonmail.com
+                    <a href="mailto:contact@stellarfox.net?subject=[Redshift]">
+                        contact@stellarfox.net
                     </a>
                 </span>
             </p>
@@ -47,7 +43,7 @@ export default () =>
                 extend your support, please donate to:
             </p>
         </div>
-        <div className="break-string smaller">
+        <div className="centered break-string smaller">
             <p>
                 <a href="https://stellar.expert/explorer/account/GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR">
                     GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR

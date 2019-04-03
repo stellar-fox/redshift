@@ -1,7 +1,7 @@
 {
-  "main.css": "/redshift/static/css/main.edb515b8.chunk.css",
-  "main.js": "/redshift/static/js/main.b78abcf7.chunk.js",
-  "main.js.map": "/redshift/static/js/main.b78abcf7.chunk.js.map",
+  "main.css": "/redshift/static/css/main.0c5d0f2c.chunk.css",
+  "main.js": "/redshift/static/js/main.759b69e0.chunk.js",
+  "main.js.map": "/redshift/static/js/main.759b69e0.chunk.js.map",
   "runtime~main.js": "/redshift/static/js/runtime~main.b48945e2.js",
   "runtime~main.js.map": "/redshift/static/js/runtime~main.b48945e2.js.map",
   "static/css/2.455b443c.chunk.css": "/redshift/static/css/2.455b443c.chunk.css",
@@ -12,10 +12,10 @@
   "static/js/4.a9c7ed64.chunk.js": "/redshift/static/js/4.a9c7ed64.chunk.js",
   "static/js/4.a9c7ed64.chunk.js.map": "/redshift/static/js/4.a9c7ed64.chunk.js.map",
   "index.html": "/redshift/index.html",
-  "precache-manifest.fc74e2795d2593afcd1d773aefcd16d2.js": "/redshift/precache-manifest.fc74e2795d2593afcd1d773aefcd16d2.js",
+  "precache-manifest.2ef89f8dd74c6520bf62b19364dd7e00.js": "/redshift/precache-manifest.2ef89f8dd74c6520bf62b19364dd7e00.js",
   "service-worker.js": "/redshift/service-worker.js",
   "static/css/2.455b443c.chunk.css.map": "/redshift/static/css/2.455b443c.chunk.css.map",
-  "static/css/main.edb515b8.chunk.css.map": "/redshift/static/css/main.edb515b8.chunk.css.map",
+  "static/css/main.0c5d0f2c.chunk.css.map": "/redshift/static/css/main.0c5d0f2c.chunk.css.map",
   "static/media/index.css": "/redshift/static/media/roboto-latin-900italic.bc833e72.woff",
   "static/media/sf.logo.png": "/redshift/static/media/sf.logo.4da337fd.png"
 }

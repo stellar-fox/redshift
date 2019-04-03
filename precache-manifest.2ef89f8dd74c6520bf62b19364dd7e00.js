@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-100italic.d704bb3d.woff"
   },
   {
-    "revision": "169b732c887f96383128",
-    "url": "/redshift/static/css/main.edb515b8.chunk.css"
+    "revision": "258ebcf2512606bace88",
+    "url": "/redshift/static/css/main.0c5d0f2c.chunk.css"
   },
   {
     "revision": "82e6210fc48d100ee66e",
@@ -56,16 +56,16 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-900.19b7a0ad.woff2"
   },
   {
-    "revision": "e9dbbe8a693dd275c16d32feb101f1c1",
-    "url": "/redshift/static/media/roboto-latin-100.e9dbbe8a.woff"
-  },
-  {
     "revision": "6232f43d15b0e7a0bf0fe82e295bdd06",
     "url": "/redshift/static/media/roboto-latin-100italic.6232f43d.woff2"
   },
   {
-    "revision": "169b732c887f96383128",
-    "url": "/redshift/static/js/main.b78abcf7.chunk.js"
+    "revision": "e9dbbe8a693dd275c16d32feb101f1c1",
+    "url": "/redshift/static/media/roboto-latin-100.e9dbbe8a.woff"
+  },
+  {
+    "revision": "258ebcf2512606bace88",
+    "url": "/redshift/static/js/main.759b69e0.chunk.js"
   },
   {
     "revision": "a1471d1d6431c893582a5f6a250db3f9",
@@ -88,16 +88,16 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-400italic.d8bcbe72.woff2"
   },
   {
+    "revision": "9680d5a0c32d2fd084e07bbc4c8b2923",
+    "url": "/redshift/static/media/roboto-latin-400italic.9680d5a0.woff"
+  },
+  {
     "revision": "de8b7431b74642e830af4d4f4b513ec9",
     "url": "/redshift/static/media/roboto-latin-500.de8b7431.woff"
   },
   {
     "revision": "510dec37fa69fba39593e01a469ee018",
     "url": "/redshift/static/media/roboto-latin-500italic.510dec37.woff2"
-  },
-  {
-    "revision": "9680d5a0c32d2fd084e07bbc4c8b2923",
-    "url": "/redshift/static/media/roboto-latin-400italic.9680d5a0.woff"
   },
   {
     "revision": "ffcc050b2d92d4b14a4fcb527ee0bcc8",
@@ -128,7 +128,7 @@ self.__precacheManifest = [
     "url": "/redshift/static/css/2.455b443c.chunk.css"
   },
   {
-    "revision": "d80c583ac01125f59eebed9fb931f749",
+    "revision": "55085dbf521fce312fc3b2b5e4adcf5d",
     "url": "/redshift/index.html"
   }
 ];

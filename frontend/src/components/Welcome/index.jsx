@@ -578,8 +578,8 @@ export default class Welcome extends Component {
                     {derivationPath}
                     {restorePanels}
                 </div>
-                <div className="p-t public">{pubKey}</div>
-                <div className="p-t secret">{secretKey}</div>
+                <div className="flex-centered p-t public">{pubKey}</div>
+                <div className="flex-centered p-t secret">{secretKey}</div>
                 <div className="flex-centered">
                     <div>{stellarBase}</div>
                     {reset}

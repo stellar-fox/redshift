@@ -4,28 +4,28 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-100italic.d704bb3d.woff"
   },
   {
-    "revision": "258ebcf2512606bace88",
-    "url": "/redshift/static/css/main.0c5d0f2c.chunk.css"
+    "revision": "0ff20c359ef1a8950918",
+    "url": "/redshift/static/css/main.dc3c099b.chunk.css"
   },
   {
-    "revision": "82e6210fc48d100ee66e",
-    "url": "/redshift/static/js/runtime~main.b48945e2.js"
+    "revision": "9e0ab501ed4afc164bb1",
+    "url": "/redshift/static/js/runtime~main.224c44ae.js"
   },
   {
     "revision": "bc833e725c137257c2c42a789845d82f",
     "url": "/redshift/static/media/roboto-latin-900italic.bc833e72.woff"
   },
   {
-    "revision": "c2124a5c45f4d4379c9f",
-    "url": "/redshift/static/js/2.23c7e8a1.chunk.js"
+    "revision": "0b178f516bdcaea2c1c5",
+    "url": "/redshift/static/js/2.01c1b17d.chunk.js"
   },
   {
-    "revision": "53e91fed1cb6dedd8488",
-    "url": "/redshift/static/js/3.311b8b8d.chunk.js"
+    "revision": "106e03ab0400432ab389",
+    "url": "/redshift/static/js/3.2dbe470b.chunk.js"
   },
   {
-    "revision": "9efc14f3e43033bd8998",
-    "url": "/redshift/static/js/4.a9c7ed64.chunk.js"
+    "revision": "013416cd45cf7a50f74f",
+    "url": "/redshift/static/js/4.40d90a19.chunk.js"
   },
   {
     "revision": "4da337fd7f5309999062f58eee5348ce",
@@ -64,8 +64,8 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-100.e9dbbe8a.woff"
   },
   {
-    "revision": "258ebcf2512606bace88",
-    "url": "/redshift/static/js/main.759b69e0.chunk.js"
+    "revision": "0ff20c359ef1a8950918",
+    "url": "/redshift/static/js/main.3e564d41.chunk.js"
   },
   {
     "revision": "a1471d1d6431c893582a5f6a250db3f9",
@@ -104,12 +104,12 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-500italic.ffcc050b.woff"
   },
   {
-    "revision": "cf6613d1adf490972c557a8e318e0868",
-    "url": "/redshift/static/media/roboto-latin-700.cf6613d1.woff"
-  },
-  {
     "revision": "010c1aeee3c6d1cbb1d5761d80353823",
     "url": "/redshift/static/media/roboto-latin-700italic.010c1aee.woff2"
+  },
+  {
+    "revision": "cf6613d1adf490972c557a8e318e0868",
+    "url": "/redshift/static/media/roboto-latin-700.cf6613d1.woff"
   },
   {
     "revision": "846d1890aee87fde5d8ced8eba360c3a",
@@ -124,11 +124,11 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-900italic.7b770d6c.woff2"
   },
   {
-    "revision": "c2124a5c45f4d4379c9f",
+    "revision": "0b178f516bdcaea2c1c5",
     "url": "/redshift/static/css/2.455b443c.chunk.css"
   },
   {
-    "revision": "55085dbf521fce312fc3b2b5e4adcf5d",
+    "revision": "fdb856a571a4b08d57a5ded64d79af9b",
     "url": "/redshift/index.html"
   }
 ];

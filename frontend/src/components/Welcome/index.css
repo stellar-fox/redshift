@@ -33,15 +33,15 @@ div.tiny {
 }
 
 .public {
-    color: #207017;
+    color: #5c9756;
     font-size: smaller;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .secret {
-    color: #983b2f;
+    color: #aa5e54;
     font-size: smaller;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 div.centered {

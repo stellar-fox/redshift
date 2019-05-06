@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-100italic.d704bb3d.woff"
   },
   {
-    "revision": "0ff20c359ef1a8950918",
+    "revision": "510d3c43b66430d2b41e",
     "url": "/redshift/static/css/main.dc3c099b.chunk.css"
   },
   {
@@ -56,16 +56,16 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-900.19b7a0ad.woff2"
   },
   {
-    "revision": "6232f43d15b0e7a0bf0fe82e295bdd06",
-    "url": "/redshift/static/media/roboto-latin-100italic.6232f43d.woff2"
-  },
-  {
     "revision": "e9dbbe8a693dd275c16d32feb101f1c1",
     "url": "/redshift/static/media/roboto-latin-100.e9dbbe8a.woff"
   },
   {
-    "revision": "0ff20c359ef1a8950918",
-    "url": "/redshift/static/js/main.3e564d41.chunk.js"
+    "revision": "6232f43d15b0e7a0bf0fe82e295bdd06",
+    "url": "/redshift/static/media/roboto-latin-100italic.6232f43d.woff2"
+  },
+  {
+    "revision": "510d3c43b66430d2b41e",
+    "url": "/redshift/static/js/main.f24ca03b.chunk.js"
   },
   {
     "revision": "a1471d1d6431c893582a5f6a250db3f9",
@@ -104,16 +104,16 @@ self.__precacheManifest = [
     "url": "/redshift/static/media/roboto-latin-500italic.ffcc050b.woff"
   },
   {
-    "revision": "010c1aeee3c6d1cbb1d5761d80353823",
-    "url": "/redshift/static/media/roboto-latin-700italic.010c1aee.woff2"
-  },
-  {
     "revision": "cf6613d1adf490972c557a8e318e0868",
     "url": "/redshift/static/media/roboto-latin-700.cf6613d1.woff"
   },
   {
     "revision": "846d1890aee87fde5d8ced8eba360c3a",
     "url": "/redshift/static/media/roboto-latin-700italic.846d1890.woff"
+  },
+  {
+    "revision": "010c1aeee3c6d1cbb1d5761d80353823",
+    "url": "/redshift/static/media/roboto-latin-700italic.010c1aee.woff2"
   },
   {
     "revision": "8c2ade503b34e31430d6c98aa29a52a3",
@@ -128,7 +128,7 @@ self.__precacheManifest = [
     "url": "/redshift/static/css/2.455b443c.chunk.css"
   },
   {
-    "revision": "fdb856a571a4b08d57a5ded64d79af9b",
+    "revision": "b69506db613cfcb4adc1b00c2103c35c",
     "url": "/redshift/index.html"
   }
 ];

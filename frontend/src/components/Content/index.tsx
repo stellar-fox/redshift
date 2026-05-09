@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 
 import About from "../About"
 import Contact from "../Contact"
@@ -15,9 +15,11 @@ export default class Content extends Component {
     render () {
         return (
             <div className="main-content">
-                <Route exact path="/redshift/" component={Welcome} />
-                <Route exact path="/redshift/about" component={About} />
-                <Route exact path="/redshift/contact" component={Contact} />
+                <Routes>
+                    <Route path="/redshift/" element={<Welcome />} />
+                    <Route path="/redshift/about" element={<About />} />
+                    <Route path="/redshift/contact" element={<Contact />} />
+                </Routes>
             </div>
         )
     }

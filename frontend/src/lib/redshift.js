@@ -1,1 +1,0 @@
-../../../library/dist/redshift.js

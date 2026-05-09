@@ -1,8 +1,11 @@
 # dependencies
+node_modules/
 /frontend/node_modules
 /library/node_modules
 
 # production
+dist/
+/frontend/dist
 /frontend/build
 /library/dist
 /library/jsdoc

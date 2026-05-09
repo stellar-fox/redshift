@@ -18,23 +18,23 @@ export default () =>
             />
             <div className="right m-r">
                 <NavLink
-                    exact
-                    activeClassName="selected"
+                    className={({ isActive }) => (isActive ? "selected" : "")}
                     to="/redshift/"
+                    end
                 >
                     Home
                 </NavLink>❘
                 <NavLink
-                    exact
-                    activeClassName="selected"
+                    className={({ isActive }) => (isActive ? "selected" : "")}
                     to="/redshift/about"
+                    end
                 >
                     About
                 </NavLink>❘
                 <NavLink
-                    exact
-                    activeClassName="selected"
+                    className={({ isActive }) => (isActive ? "selected" : "")}
                     to="/redshift/contact"
+                    end
                 >
                     Contact
                 </NavLink>

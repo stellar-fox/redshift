@@ -10,7 +10,7 @@ import {
     genMnemonic,
     mnemonicToSeedHex,
     validateMnemonic,
-} from "../../lib/redshift"
+} from "@stellar-fox/redshift"
 
 import Panel from "../Panel"
 import Button from "../Button"

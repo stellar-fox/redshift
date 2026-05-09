@@ -1,6 +1,7 @@
 import { Buffer } from "buffer"
 if (typeof window !== "undefined") {
     window.Buffer = Buffer;
+    window.process = { env: { NODE_ENV: "development" } };
 }
 import React from "react"
 import { createRoot } from "react-dom/client"

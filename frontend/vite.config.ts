@@ -9,5 +9,12 @@ export default defineConfig({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     'process.env': {},
     'global': 'globalThis'
+  },
+  server: {
+    fs: {
+      allow: [
+        '..', // Allow access to monorepo root (for node_modules, etc.)
+      ]
+    }
   }
 })

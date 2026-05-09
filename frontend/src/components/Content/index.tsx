@@ -16,9 +16,9 @@ export default class Content extends Component {
         return (
             <div className="main-content">
                 <Routes>
-                    <Route path="/redshift/" element={<Welcome />} />
-                    <Route path="/redshift/about" element={<About />} />
-                    <Route path="/redshift/contact" element={<Contact />} />
+                    <Route path="/" element={<Welcome />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/contact" element={<Contact />} />
                 </Routes>
             </div>
         )

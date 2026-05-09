@@ -19,21 +19,21 @@ export default () =>
             <div className="right m-r">
                 <NavLink
                     className={({ isActive }) => (isActive ? "selected" : "")}
-                    to="/redshift/"
+                    to="/"
                     end
                 >
                     Home
                 </NavLink>❘
                 <NavLink
                     className={({ isActive }) => (isActive ? "selected" : "")}
-                    to="/redshift/about"
+                    to="/about"
                     end
                 >
                     About
                 </NavLink>❘
                 <NavLink
                     className={({ isActive }) => (isActive ? "selected" : "")}
-                    to="/redshift/contact"
+                    to="/contact"
                     end
                 >
                     Contact

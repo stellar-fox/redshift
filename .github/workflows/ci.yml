@@ -26,6 +26,16 @@ jobs:
       - name: Build Library
         run: npm run build -w @stellar-fox/redshift
 
+      - name: Bump Version
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          node scripts/bump-version.mjs
+          git add frontend/package.json frontend/src/version.ts
+          git commit -m "chore: bump version [skip ci]" || echo "No changes to commit"
+          git push origin master
+
       - name: Run Library Tests
         run: npm test -w @stellar-fox/redshift
 

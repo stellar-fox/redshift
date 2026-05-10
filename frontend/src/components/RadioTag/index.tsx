@@ -5,14 +5,25 @@ import "./index.css"
 
 
 
+interface RadioTagProps {
+    handleClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+    checked?: boolean | string;
+    value: string;
+    name: string;
+    label: string;
+}
+
 // <RadioTag> component
-export default ({ handleClick, checked, value, name, label }) =>
+const RadioTag: React.FC<RadioTagProps> = ({ handleClick, checked, value, name, label }) => (
     <div className="radio-tag" onClick={handleClick}>
         <input
-            defaultChecked={checked}
+            defaultChecked={!!checked}
             value={value}
             name={name}
             type="radio"
         />
         <label>{label}</label>
     </div>
+)
+
+export default RadioTag

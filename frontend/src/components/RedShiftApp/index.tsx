@@ -18,10 +18,11 @@ import "./index.css"
 
 
 // expose 'redshift' dev. namespace (only in dev. environment)
-if (devEnv()  &&  isObject(window)) {
+const win = window as any
+if (devEnv(false)  &&  isObject(win)) {
     (async () => {
-        window.sf = { ...(await dynamicImportLibs()) }
-        window.to_ = to_
+        win.sf = { ...(await dynamicImportLibs()) }
+        win.to_ = to_
     })()
 }
 

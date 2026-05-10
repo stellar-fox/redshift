@@ -1,8 +1,4 @@
 import React, { Fragment } from "react"
-
-
-
-
 // <Contact> component
 export default () =>
     <Fragment>

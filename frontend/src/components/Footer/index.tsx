@@ -1,6 +1,7 @@
 import React from "react"
+// <Footer> component
 import { array } from "@xcmats/js-toolbox"
-import { version } from "../../../package.json"
+import { version } from "../../version"
 import "./index.css"
 
 

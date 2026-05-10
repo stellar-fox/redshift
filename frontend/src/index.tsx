@@ -1,11 +1,10 @@
 import { Buffer } from "buffer"
 if (typeof window !== "undefined") {
-    window.Buffer = Buffer;
-    window.process = { env: { NODE_ENV: "development" } };
+    (window as any).Buffer = Buffer;
+    (window as any).process = { env: { NODE_ENV: "development" } };
 }
 import React from "react"
 import { createRoot } from "react-dom/client"
-import { unregister } from "./lib/caching-service-worker"
 
 import RedShiftApp from "./components/RedShiftApp"
 
@@ -23,4 +22,3 @@ if (rootElement) {
 
 
 // https://bit.ly/oocache
-unregister()

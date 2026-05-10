@@ -5,10 +5,8 @@ export default () =>
         <div className="flex-centered">
             <p className="title">Stellar Fox</p>
             <p>
-                <span className="subtitle">
-                    <a href="mailto:contact@stellarfox.net?subject=[Redshift]">
-                        contact@stellarfox.net
-                    </a>
+                <span className="subtitle" style={{color: 'red', fontWeight: 'bold'}}>
+                    🚨 AVOID stellarfox.net - Hijacked Domain 🚨
                 </span>
             </p>
             <p>

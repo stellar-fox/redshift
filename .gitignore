@@ -15,4 +15,5 @@ dist/
 npm-debug.log*
 
 # npm
-package-lock.json
+# package-lock.json is now tracked for CI stability
+# package-lock.json

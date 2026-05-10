@@ -5,8 +5,19 @@ import "./index.css"
 
 
 
+interface InputProps {
+    label: string;
+    value?: string;
+    inputType?: string;
+    maxLength?: number | string;
+    autoComplete?: string;
+    keyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    subLabel?: string;
+}
+
 // <Input> component
-export default (props) =>
+const Input: React.FC<InputProps> = (props) => (
     <div className="lcars-input">
         <ul>
             <li>
@@ -14,7 +25,7 @@ export default (props) =>
                 <input
                     value={props.value}
                     type={props.inputType}
-                    maxLength={props.maxLength}
+                    maxLength={props.maxLength as any}
                     autoComplete={props.autoComplete}
                     onKeyPress={props.keyPress}
                     onChange={props.handleChange}
@@ -23,3 +34,6 @@ export default (props) =>
             </li>
         </ul>
     </div>
+)
+
+export default Input

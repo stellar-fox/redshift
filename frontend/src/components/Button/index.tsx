@@ -4,11 +4,19 @@ import "./index.css"
 
 
 
+interface ButtonProps {
+    checked?: boolean;
+    handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    label: string;
+}
+
 // <Button> component
-export default ({ checked, handleClick, label }) =>
+const Button: React.FC<ButtonProps> = ({ handleClick, label }) => (
     <button
-        checked={checked}
         onClick={handleClick}
     >
         { label }
     </button>
+)
+
+export default Button

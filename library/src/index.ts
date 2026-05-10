@@ -29,15 +29,15 @@ const hexToBytes = (hex: string): Uint8Array => {
 /**
  * Entropy presets.
  */
-export const ENTROPY = Object.freeze({
+export const ENTROPY = {
     HIGH: 256,
     MEDIUM: 128,
-})
+} as const
 
 /**
  * Languages.
  */
-export const LANGUAGE = Object.freeze({
+export const LANGUAGE = {
     CN: "chinese_simplified",
     CT: "chinese_traditional",
     EN: "english",
@@ -46,7 +46,7 @@ export const LANGUAGE = Object.freeze({
     JP: "japanese",
     KR: "korean",
     SP: "spanish",
-}) as const
+} as const
 
 export type Language = typeof LANGUAGE[keyof typeof LANGUAGE]
 

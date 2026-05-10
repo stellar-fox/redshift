@@ -6,8 +6,14 @@ import "./index.css"
 
 
 
+interface CheckboxProps {
+    isChecked: boolean;
+    label: string;
+    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
 // <Checkbox> component
-export default class Checkbox extends Component {
+export default class Checkbox extends Component<CheckboxProps> {
 
     // ...
     state = { checked: false }

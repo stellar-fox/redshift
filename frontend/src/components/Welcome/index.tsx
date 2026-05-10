@@ -23,11 +23,34 @@ import "./index.css"
 
 
 
+interface WelcomeState {
+    mnemonic: string | undefined;
+    bip39Seed: string | undefined;
+    StellarBase: boolean;
+    sjcl: boolean;
+    pubKey: string | undefined;
+    secretKey: string | undefined;
+    useDefaultAccount: boolean;
+    pathEditable: boolean;
+    checked: boolean;
+    derivationPath: string;
+    derivationPathIndex: number;
+    derivationPrefix: string;
+    buttonVisible: boolean;
+    restoring: boolean | number | undefined;
+    restoredPhrase: string[];
+    wordValue: string;
+    passphrase: string;
+    language: string;
+    languageDescription: string;
+    mnemonicInvalid: boolean;
+}
+
 // <Welcome> component
-export default class Welcome extends Component {
+export default class Welcome extends Component<{}, WelcomeState> {
 
     // ...
-    state = {
+    state: WelcomeState = {
         mnemonic: undefined,
         bip39Seed: undefined,
         StellarBase: true,
@@ -52,12 +75,13 @@ export default class Welcome extends Component {
 
 
     // ...
-    setLanguage = (event) => {
-        const target = event.target
-        target.previousSibling.checked = true
+    setLanguage = (event: React.MouseEvent<HTMLElement>) => {
+        const target = event.target as HTMLElement
+        const prevSibling = target.previousSibling as HTMLInputElement
+        prevSibling.checked = true
         this.setState({
-            language: target.previousSibling.value,
-            languageDescription: target.textContent,
+            language: prevSibling.value,
+            languageDescription: target.textContent || "",
         })
     }
 
@@ -94,7 +118,7 @@ export default class Welcome extends Component {
 
 
     // ...
-    restoreMnemonic = (mnemonic) => {
+    restoreMnemonic = (mnemonic: string) => {
         this.setState((_prevState) => ({ restoring: undefined }))
 
         const bip39Seed = mnemonicToSeedHex(mnemonic)
@@ -117,7 +141,7 @@ export default class Welcome extends Component {
 
 
     // ...
-    advanceWord = (index, value) => {
+    advanceWord = (index: number, value: string) => {
         this.setState({ restoring: index + 1 })
         this.setState(
             {
@@ -142,7 +166,7 @@ export default class Welcome extends Component {
 
 
     // ...
-    updateWord = (event) => {
+    updateWord = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             wordValue: event.target.value,
         })
@@ -150,14 +174,14 @@ export default class Welcome extends Component {
 
 
     // ...
-    updatePassphrase = (event) => {
+    updatePassphrase = (event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState(
             {
                 passphrase: event.target.value,
             },
             () => {
                 const bip39Seed = mnemonicToSeedHex(
-                    this.state.mnemonic,
+                    this.state.mnemonic || "",
                     this.state.passphrase
                 )
                 this.setState(
@@ -190,7 +214,7 @@ export default class Welcome extends Component {
 
 
     // ...
-    numberedList = (words, offset) => {
+    numberedList = (words: string[], offset: number = 1) => {
         if (!offset) {
             offset = 1
         }
@@ -205,7 +229,7 @@ export default class Welcome extends Component {
 
 
     // ...
-    reset = (_event) => {
+    reset = (_event: React.MouseEvent<HTMLElement>) => {
         this.setState({
             mnemonic: undefined,
             bip39Seed: undefined,
@@ -220,7 +244,6 @@ export default class Welcome extends Component {
             buttonVisible: true,
             restoring: false,
             restoredPhrase: [],
-            wordValue: string.empty(),
             passphrase: string.empty(),
             language: LANGUAGE.EN,
             languageDescription: "English",
@@ -238,7 +261,7 @@ export default class Welcome extends Component {
 
 
     // ...
-    handleLoadStellar = (_event) => {
+    handleLoadStellar = (_event: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             StellarBase: true,
         })
@@ -246,7 +269,7 @@ export default class Welcome extends Component {
 
 
     // ...
-    handleCheckboxClick = (event) => {
+    handleCheckboxClick = (event: React.ChangeEvent<HTMLInputElement>) => {
         const target = event.target
         this.setState({
             useDefaultAccount: target.checked,
@@ -261,7 +284,7 @@ export default class Welcome extends Component {
                 derivationPathIndex: 0,
             }))
             if (this.state.pubKey) {
-                let keyPair = genKeypair(this.state.bip39Seed, 0)
+                let keyPair = genKeypair(this.state.bip39Seed || "", 0)
                 this.setState((_prevState) => ({
                     pubKey: keyPair.publicKey(),
                 }))
@@ -274,19 +297,16 @@ export default class Welcome extends Component {
 
 
     // ...
-    handlePathChange = (event) => {
+    handlePathChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const target = event.target
-        if (isNaN(target.value)) {
-            return false
-        }
         const index = parseInt(target.value, 10)
         this.setState({
             derivationPath: target.value,
             derivationPathIndex: index,
         })
-        if (this.state.pubKey) {
+        if (this.state.pubKey && this.state.bip39Seed) {
             if (!isNaN(index) && index >= 0) {
-                let keyPair = genKeypair(this.state.bip39Seed, index)
+                let keyPair = genKeypair(this.state.bip39Seed || "", index)
                 this.setState((_prevState) => ({
                     derivationPathIndex: index,
                 }))
@@ -302,9 +322,9 @@ export default class Welcome extends Component {
 
 
     // ...
-    handleKeyPress = (event) => {
+    handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter") {
-            this.advanceWord(this.state.restoring, this.state.wordValue)
+            this.advanceWord(this.state.restoring as number, this.state.wordValue)
         }
     }
 
@@ -315,7 +335,7 @@ export default class Welcome extends Component {
         if (this.state.language === LANGUAGE.JP) {
             splitter = "\u3000"
         }
-        const mnemonic = this.state.mnemonic.split(splitter)
+        const mnemonic = (this.state.mnemonic as string).split(splitter)
         return (
             <div className="columns">
                 <div className="column">
@@ -471,7 +491,7 @@ export default class Welcome extends Component {
                     <Button
                         handleClick={this.advanceWord.bind(
                             this,
-                            this.state.restoring,
+                            this.state.restoring as number,
                             this.state.wordValue
                         )}
                         label="Next"

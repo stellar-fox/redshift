@@ -15,10 +15,40 @@ a:hover {
     text-decoration: none;
 }
 
-p.title {
+p.title, h1.page-title {
     color: rgb(244,176,4);
-    font-size: x-large;
+    font-size: 2.5rem;
     font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.page-container {
+    max-width: 1000px;
+    margin: 1.5rem auto;
+    padding: 1rem 2rem;
+    line-height: 1.6;
+}
+
+.warning-banner {
+    background: rgba(244, 176, 4, 0.1);
+    border-left: 4px solid rgb(244, 176, 4);
+    padding: 1.5rem;
+    margin: 0 auto 2rem auto;
+    border-radius: 8px;
+    max-width: 800px;
+    text-align: left;
+    color: #e0e0e0;
+    line-height: 1.5;
+}
+
+.warning-banner strong {
+    color: rgb(244, 176, 4);
 }
 
 p.subtitle {
@@ -27,8 +57,9 @@ p.subtitle {
 }
 
 p.subtitle-large {
-    margin-top: -15px;
+    margin-top: -8px; /* subtle pull towards header, but not too close */
     font-size: larger;
+    opacity: 0.9;
 }
 
 p.smaller {

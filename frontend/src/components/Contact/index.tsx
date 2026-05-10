@@ -1,52 +1,52 @@
-import React, { Fragment } from "react"
-// <Contact> component
+import React from "react"
+import "./index.css"
+
+// <Community & Support> component
 export default () =>
-    <Fragment>
-        <div className="flex-centered">
-            <p className="title">Stellar Fox</p>
-            <p>
-                <span className="subtitle" style={{color: 'red', fontWeight: 'bold'}}>
-                    🚨 AVOID stellarfox.net - Hijacked Domain 🚨
-                </span>
-            </p>
-            <p>
-                <a href="https://github.com/stellar-fox">
-                    https://github.com/stellar-fox
+    <div className="page-container">
+        <header className="page-header">
+            <h1 className="page-title">Community & Support</h1>
+            <p className="subtitle-large">Redshift is an open-source project maintained by the Stellar Fox community.</p>
+        </header>
+
+        <div className="contact-grid">
+            <article className="contact-card">
+                <h3>GitHub</h3>
+                <p>Found a bug or have a feature request?</p>
+                <a href="https://github.com/stellar-fox/redshift/issues" className="button-link">
+                    Open an Issue
+                </a>
+            </article>
+
+            <article className="contact-card">
+                <h3>Open Source</h3>
+                <p>Explore our other projects and contributions.</p>
+                <a href="https://github.com/stellar-fox" className="button-link">
+                    Follow us on GitHub
+                </a>
+            </article>
+        </div>
+
+        <section className="donation-section">
+            <h3>Support the Project</h3>
+            <p>If you find Redshift useful, consider supporting the original creators:</p>
+            <div className="address-box">
+                GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR
+            </div>
+            <p className="smaller">
+                <a href="https://stellar.expert/explorer/public/account/GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR">
+                    View on Stellar.expert
                 </a>
             </p>
-            <p>
-                <a href="https://keybase.io/xcmats/pgp_keys.asc?fingerprint=b9c1d3267b645f3f6c4585b5cbff8a9b9b5708f5">
-                    PGP key 1
-                </a>{" - "}
-                B9C1 D326 7B64 5F3F 6C45 85B5 CBFF 8A9B 9B57 08F5
-            </p>
-            <p>
-                <a href="https://keybase.io/syntaxval/pgp_keys.asc?fingerprint=1dfed048b07023a7d9b980297fb5ef4d9c22b993">
-                    PGP key 2
-                </a>{" - "}
-                1DFE D048 B070 23A7 D9B9 8029 7FB5 EF4D 9C22 B993
-            </p>
+        </section>
+
+        <footer className="community-footer">
             <p>
                 <em>Redshift</em> is licensed under{" "}
                 <a href="https://github.com/stellar-fox/redshift/blob/master/LICENSE">
                     Apache License Version 2
-                </a>.
-            </p>
-            <p>
-                If you find this software useful and/or would like to
-                extend your support, please donate to:
-            </p>
-        </div>
-        <div className="centered break-string smaller">
-            <p>
-                <a href="https://stellar.expert/explorer/account/GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR">
-                    GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR
                 </a>
             </p>
-        </div>
-        <div className="flex-centered">
-            <p className="smaller">
-                ♡ We would love to hear your feedback and suggestions.
-            </p>
-        </div>
-    </Fragment>
+        </footer>
+    </div>
+

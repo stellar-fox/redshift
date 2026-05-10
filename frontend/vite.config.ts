@@ -25,10 +25,13 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
+      },
+      devOptions: {
+        enabled: true
       }
     })
   ],
-  base: './', // relative paths since this is deployed to github pages
+  base: '/redshift/', // absolute subpath for reliable routing on GitHub Pages and local dev
   define: {
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
     'process.env': {},

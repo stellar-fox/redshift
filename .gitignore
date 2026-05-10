@@ -9,6 +9,8 @@ dist/
 /frontend/build
 /library/dist
 /library/jsdoc
+dev-dist/
+/frontend/dev-dist/
 
 # misc
 .DS_Store

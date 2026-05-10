@@ -1,0 +1,56 @@
+
+.contact-header {
+    margin-bottom: 1rem;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(244,176,4,0.15);
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    background: rgba(244,176,4,0.05);
+    border-color: rgb(244,176,4);
+    transform: translateY(-5px);
+}
+
+.contact-card h3 {
+    color: rgb(244,176,4);
+    margin-bottom: 1rem;
+}
+
+.donation-section {
+    margin-top: 4rem;
+    padding: 2rem;
+    background: rgba(0,0,0,0.2);
+    border-radius: 12px;
+}
+
+.community-footer {
+    margin-top: 4rem;
+    opacity: 0.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.address-box {
+    font-family: monospace;
+    background: #000;
+    padding: 1rem;
+    border-radius: 8px;
+    word-break: break-all;
+    margin: 1rem 0;
+    color: #00ff00;
+    border: 1px solid #333;
+}

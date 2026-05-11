@@ -69,6 +69,12 @@ div.message-body .lcars-input li > label {
     border-radius: 4px 4px 0 0;
 }
 
+div.message-body .lcars-input li > span {
+    margin: 0;
+    border-radius: 0 0 8px 8px;
+}
+
+
 
 .key-content {
     display: flex;

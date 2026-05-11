@@ -10,18 +10,20 @@
 ---
 
 > [!CAUTION]
-> ### 🚨 SECURITY WARNING 🚨
-> **The domain `stellarfox.net` is no longer affiliated with this project or its original creators.** 
-> It has been hijacked and is currently being used as a phishing site. The "key generator" hosted there is NOT the legitimate Redshift application. 
-> 
-> **NEVER generate keys on that website.** It is suspected of using pre-determined or compromised entropy to steal private keys. 
-> 
+>
+> ### SECURITY WARNING
+>
+> **The domain `stellarfox.net` is no longer affiliated with this project or its original creators.**
+> It has been hijacked and is currently being used as a phishing site. The "key generator" hosted there is NOT the legitimate Redshift application.
+>
+> **NEVER generate keys on that website.** It is suspected of using pre-determined or compromised entropy to steal private keys.
+>
 > The ONLY legitimate and safe way to use Redshift is via this GitHub repository or its official GitHub Pages deployment:
 > **[https://stellar-fox.github.io/redshift/](https://stellar-fox.github.io/redshift/)**
 
 ---
 
-## 🛠 Features
+## Features
 
 - **Full Offline Support**: Designed to be run on air-gapped machines for maximum security.
 - **Modern PWA Architecture**: Installable as a native-like application on mobile and desktop.
@@ -29,17 +31,19 @@
 - **Multilingual**: Supports mnemonic generation in English, Japanese, French, Spanish, and more.
 - **Type Safe**: Fully modernized codebase using TypeScript for enhanced reliability.
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Local Development
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/stellar-fox/redshift.git
    cd redshift
    ```
 
 2. **Install dependencies**:
+
    ```bash
    npm install
    ```
@@ -52,29 +56,32 @@
 ### Production Build
 
 To generate a production-ready build:
+
 ```bash
 npm run build -w @stellar-fox/redshift-app
 ```
 
-## 🔒 Security Recommendations
+## Security Recommendations
 
 For maximum security when generating high-value keys:
+
 1. Download the latest release as a ZIP file.
 2. Transfer it to an **air-gapped** (never connected to the internet) computer.
 3. Open `index.html` in a modern browser.
 4. Generate your mnemonic and write it down on paper.
 
-## 🤝 Support & Donation
+## Support & Donation
 
 If you find this software useful and would like to support the original creators:
+
 ```
 GAUWLOIHFR2E52DYNEYDO6ZADIDVWZKK3U77V7PMFBNOIOBNREQBHBRR
 ```
 
-## ⚖️ License
+## License
 
 This project is licensed under the **Apache License 2.0**. See the [LICENSE](LICENSE) file for details.
 
 ---
-*Created with ❤️ by the original Stellar Fox team.*
 
+_Created with ❤️ by the original Stellar Fox team._

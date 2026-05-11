@@ -192,7 +192,7 @@ export default class Welcome extends Component<{}, WelcomeState> {
 
 
     // ...
-    updatePassphrase = (event: React.ChangeEvent<HTMLInputElement>) => {
+    updatePassphrase = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         this.setState(
             {
                 passphrase: event.target.value,
@@ -316,7 +316,7 @@ export default class Welcome extends Component<{}, WelcomeState> {
 
 
     // ...
-    handlePathChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    handlePathChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const target = event.target
         const index = parseInt(target.value, 10)
         this.setState({

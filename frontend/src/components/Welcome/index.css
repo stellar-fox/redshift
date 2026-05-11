@@ -3,6 +3,16 @@ div.columns {
     flex-direction: row;
 }
 
+@media (max-width: 600px) {
+    div.columns {
+        flex-direction: column;
+    }
+    div.column {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
 div.column {
     padding-left: 25px;
     padding-right: 25px;
@@ -46,34 +56,6 @@ div.tiny {
 
 div.centered {
     text-align: center;
-}
-
-div.warning {
-    border: 1px solid rgba(15,46,83,0.5);
-    border-radius: 3px;
-    background: rgba(208, 47, 69, 1);
-    padding: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
-    -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.5);
-    -webkit-background-clip: padding-box;
-    -moz-background-clip: padding-box;
-    background-clip: padding-box;
-}
-
-p.warning-title {
-    margin-top: 3px;
-    margin-left: 5px;
-    margin-right: 5px;
-    font-weight: 800;
-}
-
-p.warning-subtitle {
-    font-size: smaller;
-    margin-left: 10px;
-    margin-right: 10px;
 }
 
 .smaller {

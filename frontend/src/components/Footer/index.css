@@ -19,6 +19,20 @@ footer {
     align-items: baseline;
 }
 
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+    }
+    
+    div.footer {
+        padding: 10px 6px;
+        line-height: 1.4em;
+    }
+}
+
 footer.right { justify-content: flex-end; }
 
 .footersfox a { color: #b5bbc1; }

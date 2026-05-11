@@ -1,136 +1,162 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    font-family: "Roboto", sans-serif;
-    background-color: rgb(15,46,83);
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: rgb(15, 46, 83);
 }
 
 a {
-    outline: 0;
-    text-decoration: none;
-    color: rgb(244,176,4);
+  outline: 0;
+  text-decoration: none;
+  color: rgb(244, 176, 4);
 }
 
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-p.title, h1.page-title {
-    color: rgb(244,176,4);
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    text-align: center;
+p.title,
+h1.page-title {
+  color: rgb(244, 176, 4);
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .page-header {
-    text-align: center;
-    margin-bottom: 1.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
 .page-container {
-    max-width: 1000px;
-    margin: 1.5rem auto;
-    padding: 1rem 2rem;
-    line-height: 1.6;
+  max-width: 1000px;
+  margin: 1rem auto;
+  padding: 1rem 0; /* Vertical padding only */
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .page-container {
+    margin: 0.5rem auto;
+  }
 }
 
 .warning-banner {
-    background: rgba(244, 176, 4, 0.1);
-    border-left: 4px solid rgb(244, 176, 4);
-    padding: 1.5rem;
-    margin: 0 auto 2rem auto;
-    border-radius: 8px;
-    max-width: 800px;
-    text-align: left;
-    color: #e0e0e0;
-    line-height: 1.5;
+  background: rgba(244, 176, 4, 0.1);
+  border-left: 4px solid rgb(244, 176, 4);
+  padding: 1.5rem;
+  margin: 0 auto 2rem auto;
+  border-radius: 8px;
+  width: 97vw;
+  max-width: 960px;
+  box-sizing: border-box;
+  text-align: left;
+  color: #e0e0e0;
+  line-height: 1.5;
 }
 
 .warning-banner strong {
-    color: rgb(244, 176, 4);
+  color: rgb(244, 176, 4);
+}
+
+.warning-banner.error {
+  background: rgba(208, 47, 69, 0.2);
+  border-left-color: rgb(208, 47, 69);
+}
+
+.warning-banner.error strong {
+  color: rgb(208, 47, 69);
 }
 
 p.subtitle {
-    margin-top: -27px;
-    font-size: smaller;
+  margin-top: -27px;
+  font-size: smaller;
 }
 
 p.subtitle-large {
-    margin-top: -8px; /* subtle pull towards header, but not too close */
-    font-size: larger;
-    opacity: 0.9;
+  margin-top: -8px; /* subtle pull towards header, but not too close */
+  font-size: larger;
+  opacity: 0.9;
 }
 
 p.smaller {
-    font-size: smaller;
+  font-size: smaller;
 }
 
 div.flex-centered {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: justify;
-    padding-left: 10px;
-    padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 div.break-string {
-    word-wrap: break-word;
+  word-wrap: break-word;
 }
 
 div.flex-centered.content {
-    margin-left: 10px;
-    margin-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 div.flex-row-centered {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .p-b {
-    padding-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
 .p-t {
-    padding-top: 1rem;
+  padding-top: 1rem;
 }
 
 div.h-spacer {
-    margin-left: 5px;
-    margin-right: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 hr {
-    width: 95%;
-    border: 0;
-    border-top: 1px solid rgba(244,176,4,0.7);
-    height: 1px;
+  width: 95%;
+  border: 0;
+  border-top: 1px solid rgba(244, 176, 4, 0.7);
+  height: 1px;
 }
 
 .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 80px;
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
 }
 
 .App-header {
-    background-color: #222;
-    height: 150px;
-    padding: 20px;
-    color: white;
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
 }
 
 .App-title {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 .App-intro {
-    font-size: large;
+  font-size: large;
 }
 
 @keyframes App-logo-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

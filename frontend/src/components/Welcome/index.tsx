@@ -118,11 +118,13 @@ export default class Welcome extends Component<{}, WelcomeState> {
 
 
     // ...
+    // ...
     restoreMnemonic = (mnemonic: string) => {
-        this.setState((_prevState) => ({ restoring: undefined }))
-
+        this.setState((_prevState) => ({ 
+            restoring: undefined,
+            wordValue: string.empty() // Wipe sensitive input immediately
+        }))
         const bip39Seed = mnemonicToSeedHex(mnemonic)
-
         this.setState({ mnemonic, bip39Seed })
 
         if (this.state.sjcl && this.state.StellarBase) {
@@ -132,10 +134,26 @@ export default class Welcome extends Component<{}, WelcomeState> {
             )
             this.setState((_prevState) => ({
                 pubKey: keyPair.publicKey(),
-            }))
-            this.setState((_prevState) => ({
                 secretKey: keyPair.secret(),
             }))
+        }
+    }
+
+
+    // ...
+    handleRestoreMnemonic = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        this.setState({ wordValue: event.target.value })
+    }
+
+
+    // ...
+    executeRestore = () => {
+        const mnemonic = this.state.wordValue.trim()
+        if (mnemonic) {
+            if (!validateMnemonic(mnemonic, this.state.language)) {
+                this.setState({ mnemonicInvalid: true })
+            }
+            this.restoreMnemonic(mnemonic)
         }
     }
 
@@ -248,6 +266,7 @@ export default class Welcome extends Component<{}, WelcomeState> {
             language: LANGUAGE.EN,
             languageDescription: "English",
             mnemonicInvalid: false,
+            wordValue: string.empty(),
         })
     }
 
@@ -322,9 +341,12 @@ export default class Welcome extends Component<{}, WelcomeState> {
 
 
     // ...
-    handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-        if (event.key === "Enter") {
-            this.advanceWord(this.state.restoring as number, this.state.wordValue)
+    handleKeyUp = (event: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        if (event.key === "Enter" && !event.shiftKey) {
+            const wordCount = this.state.wordValue.trim().split(/\s+/).filter(Boolean).length
+            if (wordCount === 24) {
+                this.executeRestore()
+            }
         }
     }
 
@@ -378,16 +400,22 @@ export default class Welcome extends Component<{}, WelcomeState> {
                             this.state.languageDescription
                         }
                         content={this.renderMnemonic()}
+                        copyValue={this.state.mnemonic}
                     />
                     <div className="p-b p-t">
-                        <Input
-                            label={"Passphrase (optional)"}
-                            inputType="text"
-                            maxLength="100"
-                            autoComplete="off"
-                            value={this.state.passphrase}
-                            handleChange={this.updatePassphrase.bind(this)}
-                            subLabel={"Enter mnemonic passphrase."}
+                        <Panel 
+                            title="Passphrase"
+                            content={
+                                <Input
+                                    label=""
+                                    inputType="text"
+                                    maxLength="100"
+                                    autoComplete="off"
+                                    value={this.state.passphrase}
+                                    handleChange={this.updatePassphrase.bind(this)}
+                                    subLabel={"Enter mnemonic passphrase (optional)."}
+                                />
+                            }
                         />
                     </div>
                 </div>
@@ -419,6 +447,8 @@ export default class Welcome extends Component<{}, WelcomeState> {
                             "']"
                         }
                         content={this.state.pubKey}
+                        copyValue={this.state.pubKey}
+                        isKey={true}
                     />
                 </div>
             )
@@ -434,6 +464,8 @@ export default class Welcome extends Component<{}, WelcomeState> {
                             "']"
                         }
                         content={this.state.secretKey}
+                        copyValue={this.state.secretKey}
+                        isKey={true}
                     />
                 </div>
             )
@@ -446,18 +478,23 @@ export default class Welcome extends Component<{}, WelcomeState> {
         if (this.state.pathEditable) {
             derivationPath = (
                 <div className="p-b p-t">
-                    <Input
-                        label="Account Index"
-                        inputType="text"
-                        maxLength="20"
-                        autoComplete="off"
-                        value={this.state.derivationPath}
-                        handleChange={this.handlePathChange.bind(this)}
-                        subLabel={
-                            "Account Derivation Path: [" +
-                            this.state.derivationPrefix +
-                            this.state.derivationPath +
-                            "']"
+                    <Panel 
+                        title="Account Index"
+                        content={
+                            <Input
+                                label=""
+                                inputType="text"
+                                maxLength="20"
+                                autoComplete="off"
+                                value={this.state.derivationPath}
+                                handleChange={this.handlePathChange.bind(this)}
+                                subLabel={
+                                    "Derivation Path: [" +
+                                    this.state.derivationPrefix +
+                                    this.state.derivationPath +
+                                    "']"
+                                }
+                            />
                         }
                     />
                 </div>
@@ -467,34 +504,33 @@ export default class Welcome extends Component<{}, WelcomeState> {
             restorePanels = (
                 <div className="flex-centered">
                     <p className="p-t subtitle-large">
-                        Restoring {this.state.languageDescription} mnemonic.
+                        Mnemonic Recovery
                     </p>
                     <p className="subtitle-large smaller">
-                        Type your 24 word mnemonic to restore Stellar account
-                        keys. Use 'Next' button or 'Enter' key to advance to the
-                        next word.
+                        Enter your 24-word phrase to restore your Stellar account keys.
                     </p>
                     <div className="p-b p-t">
-                        <Input
-                            label={"Word " + this.state.restoring}
-                            inputType="text"
-                            maxLength="100"
-                            autoComplete="off"
-                            value={this.state.wordValue}
-                            keyPress={this.handleKeyPress.bind(this)}
-                            handleChange={this.updateWord.bind(this)}
-                            subLabel={
-                                "Enter word number: " + this.state.restoring
+                        <Panel 
+                            title="Mnemonic Phrase"
+                            content={
+                                <Input
+                                    label=""
+                                    inputType="textarea"
+                                    maxLength="1000"
+                                    autoComplete="off"
+                                    value={this.state.wordValue}
+                                    handleChange={this.handleRestoreMnemonic}
+                                    subLabel="Type or paste your 24-word phrase. Words must be separated by spaces."
+                                />
                             }
                         />
                     </div>
                     <Button
-                        handleClick={this.advanceWord.bind(
-                            this,
-                            this.state.restoring as number,
-                            this.state.wordValue
-                        )}
-                        label="Next"
+                        handleClick={this.executeRestore}
+                        label="Restore Account"
+                        disabled={
+                            this.state.wordValue.trim().split(/\s+/).filter(Boolean).length < 24
+                        }
                     />
                 </div>
             )
@@ -502,10 +538,15 @@ export default class Welcome extends Component<{}, WelcomeState> {
         if (!this.state.restoring && this.state.mnemonic) {
             useDefaultAccount = (
                 <div className="p-b p-t">
-                    <Checkbox
-                        isChecked={this.state.useDefaultAccount}
-                        handleChange={this.handleCheckboxClick.bind(this)}
-                        label="Use Default Account"
+                    <Panel 
+                        title="Account"
+                        content={
+                            <Checkbox
+                                isChecked={this.state.useDefaultAccount}
+                                handleChange={this.handleCheckboxClick.bind(this)}
+                                label="Use Default Account"
+                            />
+                        }
                     />
                 </div>
             )
@@ -571,9 +612,9 @@ export default class Welcome extends Component<{}, WelcomeState> {
         }
         if (this.state.mnemonicInvalid) {
             warning = (
-                <div className="warning">
-                    <p className="warning-title">Warning: Checksum Invalid</p>
-                    <p className="warning-subtitle">
+                <section className="warning-banner error">
+                    <strong>WARNING: CHECKSUM INVALID</strong>
+                    <p>
                         The words you entered did not pass checksum validation.
                         This means that either you mistyped some of the words or
                         the phrase you entered was not generated by this
@@ -581,7 +622,7 @@ export default class Welcome extends Component<{}, WelcomeState> {
                         you restored to generate account keys. You can try
                         entering your phrase again by clicking 'Reset' button.
                     </p>
-                </div>
+                </section>
             )
         }
 

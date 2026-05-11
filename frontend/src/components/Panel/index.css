@@ -1,28 +1,100 @@
 article.message {
-    border: 1px solid rgba(244, 176, 4, 0.8);
-    border-radius: 3px;
+    border: 1px solid rgba(244, 176, 4, 0.4);
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
+    background: rgba(255, 255, 255, 0.02);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    width: 97vw;
+    max-width: 960px; /* Leave some breathing room inside page-container */
+    box-sizing: border-box;
 }
 
 div.message-header {
-    background-color: rgba(244, 176, 4, 0.85);
+    background-color: rgba(244, 176, 4, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid rgba(244, 176, 4, 0.2);
 }
 
 div.message-header p {
-    margin-top: 3px;
-    margin-bottom: 3px;
-    margin-left: 5px;
-    margin-right: 5px;
-    color: rgba(15, 46, 83, 0.9);
-    font-size: smaller;
+    margin: 0;
+    color: rgb(244, 176, 4);
+    font-size: 0.85rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.copy-button {
+    background: rgba(244, 176, 4, 0.2);
+    border: 1px solid rgba(244, 176, 4, 0.4);
+    color: rgb(244, 176, 4);
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.copy-button:hover {
+    background: rgba(244, 176, 4, 0.4);
 }
 
 div.message-body {
-    margin-top: 7px;
-    margin-bottom: 7px;
-    margin-left: 10px;
-    margin-right: 10px;
+    padding: 1rem;
     text-align: left;
+    color: #fff;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.95rem;
+    word-break: break-all;
+}
+
+/* Adjust spacing when Input or Checkbox is inside */
+div.message-body .lcars-input,
+div.message-body .pretty {
+    margin: -0.5rem 0;
+}
+
+div.message-body .lcars-input li {
+    border: none;
+    padding: 0;
+}
+
+div.message-body .lcars-input li > label {
+    background: rgba(255, 255, 255, 0.05); /* Match panel background slightly */
+    border-radius: 4px 4px 0 0;
+}
+
+
+.key-content {
+    display: flex;
+    justify-content: center;
+}
+
+.key-full {
+    display: block;
+}
+
+.key-truncated {
+    display: none;
+}
+
+/* Middle truncation logic for small screens */
+@media (max-width: 768px) {
+    .key-full {
+        display: none;
+    }
+    .key-truncated {
+        display: block;
+        letter-spacing: 1px;
+    }
+    
+    div.message-body {
+        font-size: 1.1rem;
+        text-align: center;
+    }
 }

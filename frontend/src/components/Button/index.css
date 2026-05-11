@@ -24,3 +24,13 @@ button:active {
 button:hover {
     cursor: pointer;
 }
+
+button.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
+
+button.disabled:hover {
+    cursor: not-allowed;
+}

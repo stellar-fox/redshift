@@ -12,11 +12,19 @@ const currentVersion = pkg.version;
 // Get last commit message
 const lastCommit = execSync('git log -1 --pretty=%B').toString().trim();
 
-let type = 'patch';
+// Determine bump type
+let type = null;
 if (lastCommit.includes('BREAKING CHANGE') || lastCommit.includes('!')) {
     type = 'major';
 } else if (lastCommit.startsWith('feat')) {
     type = 'minor';
+} else if (lastCommit.startsWith('fix') || lastCommit.startsWith('perf') || lastCommit.includes('[bump]')) {
+    type = 'patch';
+}
+
+if (!type) {
+    console.log('No version bump required for this commit.');
+    process.exit(0);
 }
 
 console.log(`Determined version bump type: ${type} based on commit: "${lastCommit}"`);

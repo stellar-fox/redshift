@@ -84,4 +84,4 @@ This project is licensed under the **Apache License 2.0**. See the [LICENSE](LIC
 
 ---
 
-_Created with ❤️ by the original Stellar Fox team._
+Created with ❤️ by the original Stellar Fox team.

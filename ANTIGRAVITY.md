@@ -17,6 +17,10 @@ Redshift is a high-security, professional-grade Stellar account generator. Every
 - **Error/Alert**: Muted Red (`rgb(208, 47, 69)`).
 - **Transparency**: Use consistent `rgba` overlays (0.1 to 0.25) for panels and banners to create a "glass" effect.
 
+### Tone & Documentation
+- **Professionalism**: Maintain a clean, academic tone for all technical documentation (READMEs, JSdocs). 
+- **No Emojis**: Avoid using emojis in technical documentation or headers to maintain a professional, high-security aesthetic.
+
 ### Layout (The "Deck" System)
 
 - **Container**: All pages must use `.page-container` (max-width 1000px).
